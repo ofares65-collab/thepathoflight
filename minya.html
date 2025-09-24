@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="site_title_minya">المنيا - مسار العائلة المقدسة</title>
+
+  <!-- Swiper & Leaflet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.js"></script>
+  <link rel="stylesheet" href="styles.css"><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="site_title_minya">المنيا - مسار العائلة المقدسة</title>
+
+  <!-- المكتبات الأساسية -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+  
+  <!-- ملفات التنسيق -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
+</head><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="site_title_minya">المنيا - مسار العائلة المقدسة</title>
+
+  <!-- المكتبات الأساسية -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+  
+  <!-- ملفات التنسيق -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
+</head>
+</head>
+<body class="minya">
+ <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo192.png" alt="مسار العائلة المقدسة" onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+          <ul class="dropdown-menu">
+            <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+            <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+          <ul class="dropdown-menu">
+            <li><a href="religious_visits.html" class="dropdown-item" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" class="dropdown-item" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" class="dropdown-item" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" class="dropdown-item" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" class="dropdown-item" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+        </li>
+        
+      </ul>
+      <div class="language-switcher-container">
+        <select id="language-switcher" class="language-switcher">
+          <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pt" data-i18n="lang_Portuguese">Português</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="background-image: url('images/minya/جبل الطير المنيا.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content fade-in">
+      <h1 data-i18n="hero.minya">المنيا</h1>
+      <p data-i18n="hero.subtitle">قلب الصعيد النابض بالإيمان والتراث المسيحي العريق.</p>
+    </div>
+  </section>
+  <section class="about-destination section-padding bg-light">
+	<div class="container grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+	<div class="about-text" style="flex: 1 1 45%;">
+
+        <h2 class="section-title" data-i18n="about.title">عن مسار العائلة المقدسة في المنيا</h2>
+        <p data-i18n="about.text">
+          تُعد محافظة المنيا من أهم محطات رحلة العائلة المقدسة في صعيد مصر، حيث مكثت العائلة في عدة مواقع بالمنيا لفترة ليست بالقليلة. تتميز المنيا بموقعها الجغرافي الفريد في وسط الصعيد، وبتراثها الديني والثقافي الغني. تضم المحافظة العديد من المواقع الأثرية القبطية المهمة التي تروي قصة مرور العائلة المقدسة بها، وتشهد على عراقة التاريخ المسيحي في هذه البقعة من أرض مصر.
+        </p>
+      </div>
+
+     <div class="map-content">
+          <h2 data-i18n="map.title">اكتشف المسار على الخريطة</h2>
+          <div id="map" class="map-container"></div>
+          <p style="margin-top: 20px; font-size: 0.9em; color: #555;" data-i18n="map.note">الخريطة تعرض بعض المواقع الرئيسية على مسار العائلة المقدسة. انقر على العلامات لمعرفة المزيد.</p>
+        </div>
+      </div>
+  </section>
+   <section class="section">
+    <div class="container">
+      <h2 class="section-title fade-in" data-i18n="stations.title">المحطات الرئيسية في المنيا</h2>
+      <div class="swiper destinations-swiper fade-in">
+        <div class="swiper-wrapper">
+
+          <!-- دير الجرنوس -->
+          <div class="swiper-slide">
+            <div class="destination-card fade-in">
+              <img src="images/minya/دير الجرنوس.jpg" alt="دير الجرنوس" data-i18n="stations.granus.alt">
+              <div class="card-content">
+                <h3 data-i18n="stations.granus.title">دير الجرنوس</h3>
+                <p data-i18n="stations.granus.desc">جاءت العائلة المقدسة إلى دير الجرنوس شرقي البهنسا...</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="Granus Monastery" data-i18n="stations.granus.detailsBtn">تفاصيل إضافية عن دير الجرنوس <i class="fas fa-chevron-down"></i></button>
+                    <div class="details" id="Granus Monastery" data-i18n="stations.granus.details">
+                      يُعتقد أن العائلة المقدسة مكثت في هذه المنطقة لمدة تقارب الأسبوعين...
+                    </div>
+                  </li>
+                  <li>
+                    <button class="toggle-details" data-target="Old Well" data-i18n="stations.granus.wellBtn">البئر القديم <i class="fas fa-chevron-down"></i></button>
+                    <div class="details" id="Old Well" data-i18n="stations.granus.well">
+                      في كنيسة البهنسا القديمة، يقع بئرٌ يُقال إنه نبع ببركة السيد المسيح...
+                    </div>
+                  </li>
+                </ul>
+                <div class="share-btn">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_PAGE_URL" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="share.facebook">فيسبوك</span></a>
+                  <a href="https://twitter.com/intent/tweet?url=YOUR_PAGE_URL" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="share.twitter">تويتر</span></a>
+                  <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_PAGE_URL" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="share.linkedin">لينكدإن</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- البهنسا -->
+          <div class="swiper-slide">
+            <div class="destination-card fade-in">
+              <img src="images/minya/شجرة العذراء مريم.jpg" alt="شجرة العذراء مريم" data-i18n="stations.bahnasa.alt">
+              <div class="card-content">
+                <h3 data-i18n="stations.bahnasa.title">البهنسا</h3>
+                <p data-i18n="stations.bahnasa.desc">تشتهر بكنائسها الأثرية القديمة...</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="Bahnasa Papyri" data-i18n="stations.bahnasa.papyriBtn">برديات البهنسا <i class="fas fa-chevron-down"></i></button>
+                    <div class="details" id="Bahnasa Papyri" data-i18n="stations.bahnasa.papyri">
+                      البهنسا: مركز رئيسي لبرديات مصر المسيحية المبكرة...
+                    </div>
+                  </li>
+                  <li>
+                    <button class="toggle-details" data-target="Al -Bahnasa manuscripts" data-i18n="stations.bahnasa.manuscriptsBtn">مخطوطات البهنسا <i class="fas fa-chevron-down"></i></button>
+                    <div class="details" id="Al -Bahnasa manuscripts" data-i18n="stations.bahnasa.manuscripts">
+                      يصف الباحث إميلينو البهنسا بأنها مدينة قبطية شهيرة...
+                    </div>
+                  </li>
+                </ul>
+                <div class="share-btn">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_PAGE_URL" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="share.facebook">فيسبوك</span></a>
+                  <a href="https://twitter.com/intent/tweet?url=YOUR_PAGE_URL" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="share.twitter">تويتر</span></a>
+                  <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_PAGE_URL" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="share.linkedin">لينكدإن</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- دير جبل الطير -->
+          <div class="swiper-slide">
+            <div class="destination-card fade-in">
+              <img src="images/minya/السيدة العذراء دير جبل الطير.jpg" alt="دير جبل الطير" data-i18n="stations.gabal.alt">
+              <div class="card-content">
+                <h3 data-i18n="stations.gabal.title">دير جبل الطير</h3>
+                <p data-i18n="stations.gabal.desc">بعد البهنسا، توجهت العائلة المقدسة إلى جبل الطير...</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="Church of the Monastery" data-i18n="stations.gabal.churchBtn">دير السيدة العذراء <i class="fas fa-chevron-down"></i></button>
+                    <div class="details" id="Church of the Monastery" data-i18n="stations.gabal.church">
+                      واحد من أهم المزارات المسيحية في مصر...
+                    </div>
+                  </li>
+                  <li>
+                    <button class="toggle-details" data-target="gabal-eltayr-details-2" data-i18n="stations.gabal.festivalsBtn">احتفالات الدير <i class="fas fa-chevron-down"></i></button>
+                    <div class="details" id="gabal-eltayr-details-2" data-i18n="stations.gabal.festivals">
+                      تقام احتفالات دير جبل الطير في محافظة المنيا بمصر...
+                    </div>
+                  </li>
+                </ul>
+                <div class="share-btn">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_PAGE_URL" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="share.facebook">فيسبوك</span></a>
+                  <a href="https://twitter.com/intent/tweet?url=YOUR_PAGE_URL" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="share.twitter">تويتر</span></a>
+                  <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_PAGE_URL" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="share.linkedin">لينكدإن</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- الأشمونين -->
+          <div class="swiper-slide">
+            <div class="destination-card fade-in">
+              <img src="images/minya/الاشمونين1.jpg" alt="الأشمونين" data-i18n="stations.ashmounein.alt">
+              <div class="card-content">
+                <h3 data-i18n="stations.ashmounein.title">الأشمونين</h3>
+                <p data-i18n="stations.ashmounein.desc">الأشمونين، تلك المدينة العريقة...</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="ashmounein-details-1" data-i18n="stations.ashmounein.capitalBtn">عاصمة مسيحية عريقة <i class="fas fa-chevron-down"></i></button>
+                    <div class="details" id="ashmounein-details-1" data-i18n="stations.ashmounein.capital">
+                      ظلت كرسياً أسقفياً لأكثر من 13 قرناً...
+                    </div>
+                  </li>
+                  <li>
+                    <button class="toggle-details" data-target="Miracles" data-i18n="stations.ashmounein.miraclesBtn">معجزات فى الأشمونين <i class="fas fa-chevron-down"></i></button>
+                    <div class="details" id="Miracles" data-i18n="stations.ashmounein.miracles">
+                      كشفت مخطوطات أثرية عُثر عليها عام 1887م عن تفاصيل نادرة...
+                    </div>
+                  </li>
+                </ul>
+                <div class="share-btn">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_PAGE_URL" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="share.facebook">فيسبوك</span></a>
+                  <a href="https://twitter.com/intent/tweet?url=YOUR_PAGE_URL" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="share.twitter">تويتر</span></a>
+                  <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_PAGE_URL" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="share.linkedin">لينكدإن</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+        <div class="swiper-button-next destinations-next"></div>
+        <div class="swiper-button-prev destinations-prev"></div>
+        <div class="swiper-pagination destinations-pagination"></div>
+      </div>
+    </div>
+  </section>
+   <section class="section bg-light" id="activities">
+    <div class="container">
+      <h2 class="section-title fade-in" data-i18n="activities.title">أنشطة يمكنك القيام بها في المنيا</h2>
+      <div class="swiper activities-swiper fade-in">
+        <div class="swiper-wrapper">
+          <!-- النشاط 1 -->
+          <div class="swiper-slide">
+            <div class="activity-card">
+              <img src="images/minya/مولد جبل الطير.jpg" alt="الحج الروحي" data-i18n="activities.religious.alt">
+              <h3 data-i18n="activities.religious.title">الحج الروحي</h3>
+              <p data-i18n="activities.religious.desc">استمتع بتجربة روحية فريدة بزيارة الأديرة والكنائس التاريخية على مسار العائلة المقدسة.</p>
+              <a href="religious_visits.html" class="btn primary" data-i18n="btn.discover">اكتشف المزيد</a>
+            </div>
+          </div>
+
+          <!-- النشاط 2 -->
+          <div class="swiper-slide">
+            <div class="activity-card">
+              <img src="images/minya/مخطوطات البهنسا1.jpg" alt="استكشاف التراث" data-i18n="activities.heritage.alt">
+              <h3 data-i18n="activities.heritage.title">استكشاف التراث</h3>
+              <p data-i18n="activities.heritage.desc">تعمق في تاريخ المنيا الغني من خلال استكشاف المواقع الأثرية والمعابد القديمة.</p>
+              <a href="#" class="btn primary" data-i18n="btn.discover">اكتشف المزيد</a>
+            </div>
+          </div>
+
+          <!-- النشاط 3 -->
+          <div class="swiper-slide">
+            <div class="activity-card">
+              <img src="images/minya/جبل الطير المنيا.jpg" alt="الطبيعة والهدوء" data-i18n="activities.nature.alt">
+              <h3 data-i18n="activities.nature.title">الطبيعة والهدوء</h3>
+              <p data-i18n="activities.nature.desc">استرخِ وتمتع بجمال الطبيعة الهادئة على ضفاف النيل والمناظر الخلابة المحيطة.</p>
+              <a href="nature.html" class="btn primary" data-i18n="btn.discover">اكتشف المزيد</a>
+            </div>
+          </div>
+
+          <!-- النشاط 4 -->
+          <div class="swiper-slide">
+            <div class="activity-card">
+              <img src="images/minya/مغارة كنيسة جبل الطير.jpg" alt="الثقافة والتقاليد" data-i18n="activities.culture.alt">
+              <h3 data-i18n="activities.culture.title">الثقافة والتقاليد</h3>
+              <p data-i18n="activities.culture.desc">انغمس في الثقافة المحلية وتعرف على العادات والتقاليد الأصيلة لأهل المنيا.</p>
+              <a href="coptic_culture.html" class="btn primary" data-i18n="btn.discover">اكتشف المزيد</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-button-next activities-next"></div>
+        <div class="swiper-button-prev activities-prev"></div>
+        <div class="swiper-pagination activities-pagination"></div>
+      </div>
+    </div>
+  </section>
+  <!-- معرض الصور -->
+  <section class="section gallery-section">
+    <div class="container">
+      <h2 class="section-title fade-in" data-i18n="gallery.title">معرض الصور من المنيا</h2>
+
+      <div class="swiper gallery-swiper fade-in">
+        <div class="swiper-wrapper">
+          <!-- صورة 1 -->
+          <div class="swiper-slide">
+            <a href="images/minya/دير الجرنوس.jpg" data-fancybox="gallery" data-caption="دير الجرنوس">
+              <img src="images/minya/دير الجرنوس.jpg" alt="دير الجرنوس">
+            </a>
+          </div>
+          <!-- صورة 2 -->
+          <div class="swiper-slide">
+            <a href="images/minya/371.jpeg" data-fancybox="gallery" data-caption="مذبح كنيسة العذراء مريم والشهيد ودامون">
+              <img src="images/minya/371.jpeg" alt="مذبح كنيسة العذراء مريم والشهيد ودامون">
+            </a>
+          </div>
+          <!-- صورة 3 -->
+          <div class="swiper-slide">
+            <a href="images/minya/491460740_17904736284135898_4475530088703177158_n.jpg" data-fancybox="gallery" data-caption="كنيسة الأشمونين على الطراز البازيليكي">
+              <img src="images/minya/491460740_17904736284135898_4475530088703177158_n.jpg" alt="كنيسة الأشمونين على الطراز البازيليكي">
+            </a>
+          </div>
+          <!-- صورة 4 -->
+          <div class="swiper-slide">
+            <a href="images/minya/شجرة العذراء مريم.jpg" data-fancybox="gallery" data-caption="شجرة العذراء مريم بالبهنسا">
+              <img src="images/minya/شجرة العذراء مريم.jpg" alt="شجرة العذراء مريم بالبهنسا">
+            </a>
+          </div>
+          <!-- صورة 5 -->
+          <div class="swiper-slide">
+            <a href="images/minya/489344512_17904736230135898_1628195046106628705_n.jpg" data-fancybox="gallery" data-caption="تمثال حجري للإله تحوت">
+              <img src="images/minya/489344512_17904736230135898_1628195046106628705_n.jpg" alt="تمثال حجري للإله تحوت">
+            </a>
+          </div>
+          <!-- صورة 6 -->
+          <div class="swiper-slide">
+            <a href="images/minya/جبل الطير المنيا.jpg" data-fancybox="gallery" data-caption="منظر النيل من دير جبل الطير">
+              <img src="images/minya/جبل الطير المنيا.jpg" alt="منظر النيل من دير جبل الطير">
+            </a>
+          </div>
+        </div>
+        <div class="swiper-button-next gallery-next"></div>
+        <div class="swiper-button-prev gallery-prev"></div>
+        <div class="swiper-pagination gallery-pagination"></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section bg-primary text-light">
+    <div class="container text-center fade-in">
+      <h2 data-i18n="cta.title">خطط لرحلتك الروحية إلى المنيا</h2>
+      <p data-i18n="cta.desc">اكتشف الجمال الروحي والتاريخي لمسار العائلة المقدسة في المنيا.</p>
+      <a href="plan_trip.html" class="btn secondary-light" data-i18n="cta.btn">ابدأ التخطيط الآن</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_about">عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+            <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+            <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+          </ul>
+        </div><div class="footer-column">
+          <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+          <ul class="footer-links">
+           <li><a href="sharqia.html" data-i18n="index_footer_sharqia">  الشرقية والدلتا</a></li>
+            <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+            <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
+            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+          </ul>
+        </div>        
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+          <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+          <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="i18n.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

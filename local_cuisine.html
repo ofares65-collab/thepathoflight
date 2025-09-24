@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="local_cuisine_title">مسار العائلة المقدسة - تذوق المأكولات المحلية</title>
+  <!-- نفس روابط CSS وJS الموجودة في الصفحة الرئيسية -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/> 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"  />
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+</head>
+<body class="cuisine">
+<body class="culture">
+ <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo192.png" alt="مسار العائلة المقدسة" onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+          <ul class="dropdown-menu">
+            <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+            <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+          <ul class="dropdown-menu">
+            <li><a href="religious_visits.html" class="dropdown-item" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" class="dropdown-item" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" class="dropdown-item" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" class="dropdown-item" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" class="dropdown-item" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+        </li>
+        
+      </ul>
+<div class="language-switcher-container">
+        <select id="language-switcher" class="language-switcher">
+          <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pt" data-i18n="lang_Portuguese">Português</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- قسم البانر -->
+    <section class="hero-section" style="background-image: url('images/local_cuisine/682.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 data-i18n="local_cuisine_hero_title">تذوق المأكولات المحلية</h1>
+        <p data-i18n="local_cuisine_hero_subtitle">رحلة طهوية عبر الأطباق التقليدية في مناطق مسار العائلة المقدسة</p>
+      </div>
+    </section>
+    <!-- قسم المحتوى الرئيسي -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="local_cuisine_section_title">المأكولات التقليدية على طول المسار</h2>
+        <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;">
+          <div class="about-text" style="flex: 1 1 60%;">
+            <p data-i18n="local_cuisine_about_p1">يمر مسار العائلة المقدسة عبر عدة مناطق في مصر، كل منها يقدم مجموعة فريدة من الأطباق التقليدية التي تعكس تاريخ وثقافة المنطقة. تشكل هذه المأكولات جزءاً لا يتجزأ من تجربة الزائر، حيث تقدم نكهات محلية أصيلة توارثتها الأجيال.</p>
+            <p data-i18n="local_cuisine_about_p2">من أطباق الدلتا الغنية بالخضروات الطازجة إلى أكلات الصعيد البسيطة والشهية، تتنوع المأكولات على طول المسار لتقدم للزائر تجربة طهوية لا تُنسى تتناغم مع رحلته الروحية والتاريخية.</p>
+          </div>
+          <div class="about-image" style="flex: 1 1 35%;">
+            <img src="images/local_cuisine/2253857591659426317.webp" alt="أطباق مصرية تقليدية" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+        <!-- أطباق حسب المنطقة -->
+        <div class="regional-cuisine" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="local_cuisine_regional_title">أطباق مميزة حسب المنطقة</h3>
+          <div class="region-tabs" style="margin-bottom: 2rem;">
+            <div class="tabs-header" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+              <button class="tab-btn active" data-tab="sharqia" style="padding: 10px 20px; background-color: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;" data-i18n="local_cuisine_sharqia_tab">الشرقية والدلتا</button>
+              <button class="tab-btn" data-tab="cairo" style="padding: 10px 20px; background-color: #eee; color: var(--text-dark); border: none; border-radius: 5px; cursor: pointer;" data-i18n="local_cuisine_cairo_tab">القاهرة</button>
+              <button class="tab-btn" data-tab="beheira" style="padding: 10px 20px; background-color: #eee; color: var(--text-dark); border: none; border-radius: 5px; cursor: pointer;" data-i18n="local_cuisine_beheira_tab">البحيرة</button>
+              <button class="tab-btn" data-tab="asyut" style="padding: 10px 20px; background-color: #eee; color: var(--text-dark); border: none; border-radius: 5px; cursor: pointer;" data-i18n="local_cuisine_asyut_tab">المنيا وأسيوط</button>
+            </div>
+            <div class="tab-content active" id="sharqia-tab">
+              <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1 1 300px;">
+                  <img src="images/local_cuisine/398521-1419278362.jpg" alt="فطير مشلتت" style="width: 100%; border-radius: 8px;">
+                </div>
+                <div style="flex: 2 1 400px;">
+                  <h4 data-i18n="local_cuisine_sharqia_title">أطباق الشرقية والدلتا</h4>
+                  <p data-i18n="local_cuisine_sharqia_p1">تشتهر منطقة الشرقية والدلتا بأطباق تعتمد على المنتجات الزراعية الطازجة مثل الفطير المشلتت الذي يعتبر من أشهر الأكلات في المنطقة، وهو نوع من العجين المورق المحشو بالعسل أو الجبن أو اللحمة.</p>
+                  <p data-i18n="local_cuisine_sharqia_p2">ومن الأطباق الأخرى المميزة:</p>
+                  <ul style="list-style-type: disc; padding-right: 20px;">
+                    <li data-i18n="local_cuisine_sharqia_li1">الممبار (أمعاء محشوة بالأرز والكبد)</li>
+                    <li data-i18n="local_cuisine_sharqia_li2">الفتة البلدي (خبز مع مرق اللحم والثوم)</li>
+                    <li data-i18n="local_cuisine_sharqia_li3">الكشري الشرقي (مزيج من الأرز والمعكرونة والعدس)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content" id="cairo-tab" style="display: none;">
+              <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1 1 300px;">
+                  <img src="images/local_cuisine/كشري-العيد.webp" alt="كشري" style="width: 100%; border-radius: 8px;">
+                </div>
+                <div style="flex: 2 1 400px;">
+                  <h4 data-i18n="local_cuisine_cairo_title">أطباق القاهرة</h4>
+                  <p data-i18n="local_cuisine_cairo_p1">تقدم القاهرة مزيجاً من كل المأكولات المصرية، ولكنها تشتهر ببعض الأطباق الخاصة مثل الكشري الذي يعتبر من أشهر الأكلات الشعبية في مصر، ويتكون من الأرز والمعكرونة والعدس والحمص مع صلصة الطماطم والبصل المقلي.</p>
+                  <p data-i18n="local_cuisine_cairo_p2">ومن الأطباق الأخرى المميزة:</p>
+                  <ul style="list-style-type: disc; padding-right: 20px;">
+                    <li data-i18n="local_cuisine_cairo_li1">الفول المدمس (مسلوق مع الزيت والليمون)</li>
+                    <li data-i18n="local_cuisine_cairo_li2">الطعمية (فلافل مصرية)</li>
+                    <li data-i18n="local_cuisine_cairo_li3">حلويات مثل الكنافة والقطايف</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content" id="beheira-tab" style="display: none;">
+              <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1 1 300px;">
+                  <img src="images/local_cuisine/fsykh-mkhly-kylo-safy.jpg" alt="فسيخ" style="width: 100%; border-radius: 8px;">
+                </div>
+                <div style="flex: 2 1 400px;">
+                  <h4 data-i18n="local_cuisine_beheira_title">أطباق البحيرة</h4>
+                  <p data-i18n="local_cuisine_beheira_p1">تشتهر محافظة البحيرة ببعض الأطباق الفريدة مثل الفسيخ (السمك المملح) الذي يعد طبقاً تقليدياً في شم النسيم، كما تشتهر بالمنتجات اللبنية من وادي النطرون.</p>
+                  <p data-i18n="local_cuisine_beheira_p2">ومن الأطباق الأخرى المميزة:</p>
+                  <ul style="list-style-type: disc; padding-right: 20px;">
+                    <li data-i18n="local_cuisine_beheira_li1">الرنجة المدخنة</li>
+                    <li data-i18n="local_cuisine_beheira_li2">الجبنة البيضاء (خاصة من أديرة وادي النطرون)</li>
+                    <li data-i18n="local_cuisine_beheira_li3">المخللات المحلية</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content" id="asyut-tab" style="display: none;">
+              <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1 1 300px;">
+                  <img src="images/local_cuisine/298.webp" alt="أكلات صعيدية" style="width: 100%; border-radius: 8px;">
+                </div>
+                <div style="flex: 2 1 400px;">
+                  <h4 data-i18n="local_cuisine_asyut_title">أطباق المنيا وأسيوط</h4>
+                  <p data-i18n="local_cuisine_asyut_p1">تتميز أكلات الصعيد عموماً ومنها المنيا وأسيوط بالبساطة والاعتماد على مكونات محلية مثل الفريك (القمح الأخضر) واللحوم المشوية. من أشهر الأطباق الكشرى الصعيدي الذي يختلف عن كشرى القاهرة.</p>
+                  <p data-i18n="local_cuisine_asyut_p2">ومن الأطباق الأخرى المميزة:</p>
+                  <ul style="list-style-type: disc; padding-right: 20px;">
+                    <li data-i18n="local_cuisine_asyut_li1">الشوربة الصعيدية (شوربة العدس بالكمون)</li>
+                    <li data-i18n="local_cuisine_asyut_li2">الفتة الصعيدية (مع الخبز البلدي والثوم)</li>
+                    <li data-i18n="local_cuisine_asyut_li3">المحاشي (ورق العنب والكرنب المحشو)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- مطاعم موصى بها -->
+        <div class="recommended-restaurants" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="local_cuisine_restaurants_title">مطاعم موصى بها</h3>
+          <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem;">
+            <div class="restaurant-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="images/local_cuisine/egyptian_restaurant_45461_5fb3f7dba6.webp" alt="مطعم الدلتا" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem;">
+              <h4 data-i18n="local_cuisine_restaurant_1_title">مطعم الدلتا</h4>
+              <p style="font-size: 0.9em; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_restaurant_1_location">الزقازيق، الشرقية</span></p>
+              <p style="font-size: 0.9em;" data-i18n="local_cuisine_restaurant_1_desc">يقدم أشهى أطباق الدلتا مثل الفطير المشلتت والممبار.</p>
+              <a href="#" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;" data-i18n="local_cuisine_restaurant_more">المزيد →</a>
+            </div>
+            <div class="restaurant-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="images/local_cuisine/cairo_tower_45382_35e78fe89b.webp" alt="مطعم القاهرة القديمة" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem;">
+              <h4 data-i18n="local_cuisine_restaurant_2_title">مطعم القاهرة القديمة</h4>
+              <p style="font-size: 0.9em; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_restaurant_2_location">القاهرة القبطية</span></p>
+              <p style="font-size: 0.9em;" data-i18n="local_cuisine_restaurant_2_desc">متخصص في الأكلات القاهرية التقليدية مثل الكشري والطعمية.</p>
+              <a href="#" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;" data-i18n="local_cuisine_restaurant_more">المزيد →</a>
+            </div>
+            <div class="restaurant-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="images/local_cuisine/800px-المطعم_الارضي.jpeg" alt="مطعم الوادي" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem;">
+              <h4 data-i18n="local_cuisine_restaurant_3_title">مطعم الوادي</h4>
+              <p style="font-size: 0.9em; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_restaurant_3_location">وادي النطرون، البحيرة</span></p>
+              <p style="font-size: 0.9em;" data-i18n="local_cuisine_restaurant_3_desc">يقدم أطباقاً محلية من منتجات الأديرة مثل الجبنة البيضاء.</p>
+              <a href="#" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;" data-i18n="local_cuisine_restaurant_more">المزيد →</a>
+            </div>
+            <div class="restaurant-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="images/local_cuisine/fb-img-1659102010839.jpg" alt="مطعم الصعيد" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem;">
+              <h4 data-i18n="local_cuisine_restaurant_4_title">مطعم الصعيد</h4>
+              <p style="font-size: 0.9em; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_restaurant_4_location">المنيا</span></p>
+              <p style="font-size: 0.9em;" data-i18n="local_cuisine_restaurant_4_desc">متخصص في الأكلات الصعيدية الأصيلة مثل الفتة والكشرى الصعيدي.</p>
+              <a href="#" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;" data-i18n="local_cuisine_restaurant_more">المزيد →</a>
+            </div>
+          </div>
+        </div>
+        <!-- ورش عمل طهوية -->
+        <div class="cooking-workshops" style="background-color: var(--background-dark); padding: 2rem; border-radius: 8px; margin-bottom: 3rem;">
+          <h3 style="font-size: 1.5em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;" data-i18n="local_cuisine_workshops_title">ورش عمل طهوية</h3>
+          <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <div class="workshop-card" style="flex: 1 1 300px; background-color: white; padding: 1.5rem; border-radius: 8px;">
+              <h4 data-i18n="local_cuisine_workshop_1_title">ورشة عمل الفطير المشلتت</h4>
+              <p style="margin-bottom: 0.5rem;"><i class="far fa-calendar-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_workshop_1_date">كل يوم سبت</span></p>
+              <p style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_workshop_1_location">الزقازيق، الشرقية</span></p>
+              <p style="margin-bottom: 1rem;" data-i18n="local_cuisine_workshop_1_desc">تعلم كيفية صنع الفطير المشلتت التقليدي مع طهاة محليين.</p>
+              <a href="#" class="btn" style="padding: 8px 15px; font-size: 0.9em;" data-i18n="local_cuisine_register_btn">سجل الآن</a>
+            </div>
+            <div class="workshop-card" style="flex: 1 1 300px; background-color: white; padding: 1.5rem; border-radius: 8px;">
+              <h4 data-i18n="local_cuisine_workshop_2_title">ورشة عمل الكشري</h4>
+              <p style="margin-bottom: 0.5rem;"><i class="far fa-calendar-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_workshop_2_date">كل يوم ثلاثاء</span></p>
+              <p style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_workshop_2_location">القاهرة</span></p>
+              <p style="margin-bottom: 1rem;" data-i18n="local_cuisine_workshop_2_desc">تعلم أسرار صنع الكشري المصري الأصيل.</p>
+              <a href="#" class="btn" style="padding: 8px 15px; font-size: 0.9em;" data-i18n="local_cuisine_register_btn">سجل الآن</a>
+            </div>
+            <div class="workshop-card" style="flex: 1 1 300px; background-color: white; padding: 1.5rem; border-radius: 8px;">
+              <h4 data-i18n="local_cuisine_workshop_3_title">ورشة عمل الجبنة البيضاء</h4>
+              <p style="margin-bottom: 0.5rem;"><i class="far fa-calendar-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_workshop_3_date">كل يوم خميس</span></p>
+              <p style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> <span data-i18n="local_cuisine_workshop_3_location">وادي النطرون</span></p>
+              <p style="margin-bottom: 1rem;" data-i18n="local_cuisine_workshop_3_desc">تعلم كيفية صنع الجبنة البيضاء كما في أديرة وادي النطرون.</p>
+              <a href="#" class="btn" style="padding: 8px 15px; font-size: 0.9em;" data-i18n="local_cuisine_register_btn">سجل الآن</a>
+            </div>
+          </div>
+        </div>
+        <!-- معرض الصور -->
+        <div class="gallery-section">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="local_cuisine_gallery_title">معرض الأطباق</h3>
+          <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="images/local_cuisine/mmw_638773191661813021.jpeg" data-fancybox="gallery" data-caption="فطير مشلتت">
+                  <img src="images/local_cuisine/mmw_638773191661813021.jpeg" alt="فطير مشلتت">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/local_cuisine/Egyptian_food_Koshary.jpg" data-fancybox="gallery" data-caption="كشري مصري">
+                  <img src="images/local_cuisine/Egyptian_food_Koshary.jpg" alt="كشري مصري">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/local_cuisine/fsykh-mkhly-kylo-safy.jpg" data-fancybox="gallery" data-caption="فسيخ">
+                  <img src="images/local_cuisine/fsykh-mkhly-kylo-safy.jpg" alt="فسيخ">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/local_cuisine/Kishk.jpeg" data-fancybox="gallery" data-caption="أكلات صعيدية">
+                  <img src="images/local_cuisine/Kishk.jpeg" alt="أكلات صعيدية">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/local_cuisine/umm-ali.webp" data-fancybox="gallery" data-caption="حلويات مصرية">
+                  <img src="images/local_cuisine/umm-ali.webp" alt="حلويات مصرية">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- قسم الدعوة للعمل -->
+    <section class="cta-section">
+      <div class="container cta-content">
+        <h2 data-i18n="local_cuisine_cta_title">هل ترغب في تجربة المأكولات المحلية على طول المسار؟</h2>
+        <p data-i18n="local_cuisine_cta_subtitle">تواصل معنا لمساعدتك في تخطيط رحلتك الطهوية</p>
+        <a href="plan_trip.html" class="btn" data-i18n="local_cuisine_cta_btn">خطط لرحلتك</a>
+      </div>
+    </section>
+  </main>
+ <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_about">عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+            <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+            <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+          </ul>
+        </div><div class="footer-column">
+          <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+          <ul class="footer-links">
+           <li><a href="sharqia.html" data-i18n="index_footer_sharqia">  الشرقية والدلتا</a></li>
+            <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+            <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
+            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+          </ul>
+        </div>        
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+          <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+          <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer> 
+
+
+  <script>
+    // JavaScript لإدارة تبويبات المحتوى
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // إزالة النشاط من جميع الأزرار
+          tabBtns.forEach(b => b.classList.remove('active'));
+          // إضافة النشاط للزر المحدد
+          this.classList.add('active');
+          // إخفاء جميع محتويات التبويبات
+          document.querySelectorAll('.tab-content').forEach(content => {
+            content.style.display = 'none';
+          });
+          // إظهار محتوى التبويب المحدد
+          const tabId = this.getAttribute('data-tab') + '-tab';
+          document.getElementById(tabId).style.display = 'block';
+        });
+      });
+    });
+  </script>
+   <script src="i18n.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="beheira_title">البحيرة (وادي النطرون) - مسار العائلة المقدسة</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+
+  <meta name="description" data-i18n="beheira_meta_desc">
+</head>
+
+<body class="beheira">
+  <!-- ========== Header ========== -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo192.png" alt="مسار العائلة المقدسة"
+             onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a></li>
+
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+          <ul class="dropdown-menu">
+            <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+            <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+          <ul class="dropdown-menu">
+            <li><a href="religious_visits.html" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+        </li>
+      </ul>
+
+      <div class="language-switcher-container">
+        <select id="language-switcher" class="language-switcher">
+          <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pt" data-i18n="lang_Portuguese">Português</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <!-- ========== Hero Section (بدون تعديل) ========== -->
+  <main>
+    <section class="hero-section" style="background-image:url('images/beheira/panorama_3AD83jpg');">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content fade-in">
+        <h1 data-i18n="beheira_hero_title">البحيرة (وادي النطرون)</h1>
+        <p data-i18n="beheira_hero_subtitle">استكشف الأديرة العريقة والروحانية العميقة في وادي النطرون، محطة مباركة للعائلة المقدسة.</p>
+      </div>
+    </section>
+
+    <!-- ========== About + Map (بدون تعديل) ========== -->
+    <section class="about-destination section-padding bg-light">
+      <div class="container grid-row" style="display:flex; flex-wrap:wrap; gap:2rem;">
+        <div class="about-text" style="flex:1 1 45%;">
+          <h2 class="section-title" data-i18n="beheira_about_title">وادي النطرون.. واحة الروحانية في الصحراء</h2>
+          <p data-i18n="beheira_about_p1">✝ "مِصْرُ.. أرضُ الأنبياءِ والبركات"... "وَإِذْ أَوَيْنَا إِلَى الْكِنَاوَةِ، فَأَصْبَحَتْ مَبَارَكَةً وَمُعَزَّزَةً" في رحلتهم عبر شمال مصر، مرت العائلة المقدسة بوادي النطرون، تلك البقعة المباركة التي أصبحت لاحقاً مركزاً للرهبنة المسيحية في العالم.</p>
+        </div>
+        <div class="map-content">
+          <h2 data-i18n="beheira_map_title">اكتشف المسار على الخريطة</h2>
+          <div id="map" class="map-container"></div>
+          <p style="margin-top:20px; font-size:0.9em; color:#555;" data-i18n="beheira_map_subtitle">الخريطة تعرض بعض المواقع الرئيسية على مسار العائلة المقدسة. انقر على العلامات لمعرفة المزيد.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== بطاقات الوجهات (المعاد صياغة أزرار المشاركة) ========== -->
+ <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="beheira_destinations_title">المحطات الرئيسية في البحيرة</h2>
+
+        <div class="swiper destinations-swiper fade-in">
+          <div class="swiper-wrapper">
+
+            <!-- دير الأنبا بيشوي -->
+            <div class="swiper-slide">
+              <div class="destination-card fade-in">
+                <img src="images/beheira/وادى النطرون - دير الأنبا بيشوي 1.jpg" alt="دير الأنبا بيشوي">
+                <div class="card-content">
+                  <h3 data-i18n="beheira_bishoy_title">دير الأنبا بيشوي</h3>
+                  <p data-i18n="beheira_bishoy_desc">يعتبر هذا الدير من أهم وأكبر الأديرة في وادي النطرون، ويحتوي على جسد الأنبا بيشوي.</p>
+                  <ul>
+                    <li>
+                      <button class="toggle-details" data-target="bishoy-church" data-i18n="beheira_bishoy_church_btn">كنيسة الأنبا بيشوي <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="bishoy-church" data-i18n="beheira_bishoy_church_txt">كنيسة الأنبا بيشوي هي القلب النابض للدير، حيث تحتوي على جسد القديس بيشوي الذي عاش في القرن الرابع الميلادي. الكنيسة تتميز بعمارتها القبطية الفريدة وأيقوناتها التاريخية.</div>
+                    </li>
+                    <li>
+                      <button class="toggle-details" data-target="bishoy-history" data-i18n="beheira_bishoy_history_btn">تاريخ الدير <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="bishoy-history" data-i18n="beheira_bishoy_history_txt">تأسس الدير في القرن الرابع الميلادي على يد القديس بيشوي، وهو أحد تلاميذ القديس مقار الكبير. تعرض الدير للهدم عدة مرات عبر التاريخ ولكن أعيد بناؤه كل مرة، وهو الآن أحد أهم مراكز الرهبنة القبطية.</div>
+                    </li>
+                  </ul>
+
+                  <!-- أزرار المشاركة المنفصلة -->
+                  <div class="share-btn">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/beheira.html"
+                       target="_blank" class="facebook"><i class="fab fa-facebook-f"></i>
+                       <span data-i18n="beheira_share_facebook">فيسبوك</span>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=دير الأنبا بيشوي - وادي النطرون&url=https://example.com/beheira.html"
+                       target="_blank" class="twitter"><i class="fab fa-twitter"></i>
+                       <span data-i18n="beheira_share_twitter">تويتر</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- دير السريان -->
+            <div class="swiper-slide">
+              <div class="destination-card fade-in">
+                <img src="images/beheira/The Monastery of the Syrians.png" alt="دير السريان">
+                <div class="card-content">
+                  <h3 data-i18n="beheira_suryan_title">دير السريان</h3>
+                  <p data-i18n="beheira_suryan_desc">يتميز هذا الدير بوجود شجرة السريان التاريخية وآثار قبطية فريدة.</p>
+                  <ul>
+                    <li>
+                      <button class="toggle-details" data-target="suryan-tree" data-i18n="beheira_suryan_tree_btn">شجرة السريان <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="suryan-tree" data-i18n="beheira_suryan_tree_txt">شجرة السريان هي شجرة قديمة يعود تاريخها إلى قرون عديدة، ويُعتقد أنها كانت موجودة منذ زمن العائلة المقدسة. تحمل الشجرة أهمية روحية كبيرة للزوار.</div>
+                    </li>
+                    <li>
+                      <button class="toggle-details" data-target="suryan-icons" data-i18n="beheira_suryan_icons_btn">أيقونات جدارية <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="suryan-icons" data-i18n="beheira_suryan_icons_txt">يحتوي الدير على مجموعة نادرة من الأيقونات الجدارية التي تعود إلى القرون الوسطى، وتصور مشاهد من العهد الجديد وحياة القديسين.</div>
+                    </li>
+                  </ul>
+
+                  <div class="share-btn">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/beheira.html"
+                       target="_blank" class="facebook"><i class="fab fa-facebook-f"></i>
+                       <span data-i18n="beheira_share_facebook">فيسبوك</span>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=دير السريان - وادي النطرون&url=https://example.com/beheira.html"
+                       target="_blank" class="twitter"><i class="fab fa-twitter"></i>
+                       <span data-i18n="beheira_share_twitter">تويتر</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- دير البراموس -->
+            <div class="swiper-slide">
+              <div class="destination-card fade-in">
+                <img src="images/beheira/دير البراموس ٢.webp" alt="دير البراموس">
+                <div class="card-content">
+                  <h3 data-i18n="beheira_baramous_title">دير البراموس</h3>
+                  <p data-i18n="beheira_baramous_desc">من أقدم الأديرة في المنطقة، ويُعرف بكونه المكان الذي قضى فيه القديس مكاريوس الكبير جزءًا من حياته.</p>
+                  <ul>
+                    <li>
+                      <button class="toggle-details" data-target="baramous-library" data-i18n="beheira_baramous_library_btn">مكتبة نادرة <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="baramous-library" data-i18n="beheira_baramous_library_txt">يحتوي الدير على مكتبة تضم مخطوطات قبطية نادرة تعود إلى القرون الأولى للمسيحية، بما في ذلك نسخ من الكتاب المقدس بخط اليد.</div>
+                    </li>
+                    <li>
+                      <button class="toggle-details" data-target="baramous-church" data-i18n="beheira_baramous_church_btn">كنيسة العذراء <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="baramous-church" data-i18n="beheira_baramous_church_txt">كنيسة السيدة العذراء في الدير هي واحدة من أقدم الكنائس في المنطقة، وتتميز بعمارتها البسيطة وأجوائها الروحانية.</div>
+                    </li>
+                  </ul>
+
+                  <div class="share-btn">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/beheira.html"
+                       target="_blank" class="facebook"><i class="fab fa-facebook-f"></i>
+                       <span data-i18n="beheira_share_facebook">فيسبوك</span>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=دير البراموس - وادي النطرون&url=https://example.com/beheira.html"
+                       target="_blank" class="twitter"><i class="fab fa-twitter"></i>
+                       <span data-i18n="beheira_share_twitter">تويتر</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- دير الأنبا مقار -->
+            <div class="swiper-slide">
+              <div class="destination-card fade-in">
+                <img src="images/beheira/دير مقاريوس.webp" alt="دير الأنبا مقار">
+                <div class="card-content">
+                  <h3 data-i18n="beheira_magar_title">دير الأنبا مقار</h3>
+                  <p data-i18n="beheira_magar_desc">يعتبر من أهم مراكز الرهبنة في مصر، ويضم رفات العديد من القديسين.</p>
+                  <ul>
+                    <li>
+                      <button class="toggle-details" data-target="magar-spiritual" data-i18n="beheira_magar_spiritual_btn">مركز روحي <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="magar-spiritual" data-i18n="beheira_magar_spiritual_txt">الدير هو مركز روحي مهم للرهبنة القبطية، ويأتي إليه الزوار من جميع أنحاء العالم للتعبد والتأمل في أجواء السلام والهدوء.</div>
+                    </li>
+                    <li>
+                      <button class="toggle-details" data-target="magar-tombs" data-i18n="beheira_magar_tombs_btn">مقابر القديسين <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="magar-tombs" data-i18n="beheira_magar_tombs_txt">يحتوي الدير على مقابر للعديد من القديسين والرهبان الذين عاشوا في الدير عبر القرون، مما يجعله مكاناً للتبرك والتأمل.</div>
+                    </li>
+                  </ul>
+
+                  <div class="share-btn">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/beheira.html"
+                       target="_blank" class="facebook"><i class="fab fa-facebook-f"></i>
+                       <span data-i18n="beheira_share_facebook">فيسبوك</span>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=دير الأنبا مقار - وادي النطرون&url=https://example.com/beheira.html"
+                       target="_blank" class="twitter"><i class="fab fa-twitter"></i>
+                       <span data-i18n="beheira_share_twitter">تويتر</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Gallery (أصلحنا روابط الصور) ========== -->
+    <section class="section gallery-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="gallery_title">معرض الصور من البحيرة</h2>
+        <div class="swiper gallery-swiper fade-in">
+          <div class="swiper-wrapper">
+
+            <!-- الصورة 1 -->
+            <div class="swiper-slide">
+              <a href="images/beheira/طاحونة غلال - دير الانبا بيشوى.png"
+                 data-fancybox="gallery" data-caption="دير الأنبا بيشوي">
+                 <img src="images/beheira/طاحونة غلال - دير الانبا بيشوى.png" alt="دير الأنبا بيشوي">
+              </a>
+            </div>
+
+            <!-- الصورة 2 -->
+            <div class="swiper-slide">
+              <a href="images/beheira/السريان3.png"
+                 data-fancybox="gallery" data-caption="دير السريان من الداخل">
+                 <img src="images/beheira/السريان3.png" alt="دير السريان من الداخل">
+              </a>
+            </div>
+
+            <!-- الصورة 3 -->
+            <div class="swiper-slide">
+              <a href="images/beheira/album_E56D18C1_FDB5_3702_41CC_E4593EDE3E86_0.jpg"
+                 data-fancybox="gallery" data-caption="مخطوطات نادرة">
+                 <img src="images/beheira/album_E56D18C1_FDB5_3702_41CC_E4593EDE3E86_0.jpg" alt="مخطوطات نادرة">
+              </a>
+            </div>
+
+            <!-- الصورة 4 -->
+            <div class="swiper-slide">
+              <a href="images/beheira/دير البراموس٤.jpg"
+                 data-fancybox="gallery" data-caption="مدخل دير البراموس">
+                 <img src="images/beheira/دير البراموس٤.jpg" alt="مدخل دير البراموس">
+              </a>
+            </div>
+
+            <!-- الصورة 5 -->
+            <div class="swiper-slide">
+              <a href="images/beheira/وادى النطرون - دير الأنبا بيشوي 1.jpg"
+                 data-fancybox="gallery" data-caption="واحة وادي النطرون">
+                 <img src="images/beheira/وادى النطرون - دير الأنبا بيشوي 1.jpg" alt="واحة وادي النطرون">
+              </a>
+            </div>
+
+            <!-- الصورة 6 -->
+            <div class="swiper-slide">
+              <a href="images/nature/Naba'_El-Hamra_Lake-1.jpg"
+                 data-fancybox="gallery" data-caption="منظر طبيعي في وادي النطرون">
+                 <img src="images/nature/Naba'_El-Hamra_Lake-1.jpg" alt="منظر طبيعي في وادي النطرون">
+              </a>
+            </div>
+          </div>
+ <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== CTA (بدون تعديل) ========== -->
+    <section class="cta-section" style="background:#c0392b; color:#fff; padding:3rem 0; text-align:center;">
+      <div class="container">
+        <h2 data-i18n="beheira_cta_title">هل أنت مستعد لاستكشاف روحانية وادي النطرون؟</h2>
+        <p data-i18n="beheira_cta_subtitle">خطط لرحلتك لاكتشاف هذه الأديرة التاريخية المقدسة.</p>
+        <a href="plan_trip.html" class="btn" style="background:#fff; color:#c0392b; padding:.75rem 1.5rem; border-radius:4px; font-weight:600; display:inline-block; margin-top:1rem;" data-i18n="beheira_cta_btn">خطّط رحلتك</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Footer (بدون تعديل) ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_about">عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+            <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+            <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+          <ul class="footer-links">
+            <li><a href="sharqia.html" data-i18n="index_footer_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+            <li><a href="beheira.html" data-i18n="index_footer_beheira">وادي النطرون</a></li>
+            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+          <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890دير الأنبا مقار</h3>
+                  <p data-i18n="beheira_magar_desc">يعتبر من أهم مراكز الرهبنة في مصر، ويضم رفات العديد من القديسين.</p>
+                  <ul>
+                    <li>
+                      <button class="toggle-details" data-target="magar-spiritual" data-i18n="beheira_magar_spiritual_btn">مركز روحي <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="magar-spiritual" data-i18n="beheira_magar_spiritual_txt">الدير هو مركز روحي مهم للرهبنة القبطية، ويأتي إليه الزوار من جميع أنحاء العالم للتعبد والتأمل في أجواء السلام والهدوء.</div>
+                    </li>
+                    <li>
+                      <button class="toggle-details" data-target="magar-tombs" data-i18n="beheira_magar_tombs_btn">مقابر القديسين <i class="fas fa-chevron-down"></i></button>
+                      <div class="details" id="magar-tombs" data-i18n="beheira_magar_tombs_txt">يحتوي الدير على مقابر للعديد من القديسين والرهبان الذين عاشوا في الدير عبر القرون، مما يجعله مكاناً للتبرك والتأمل.</div>
+                    </li>
+                  </ul>
+
+                  <div class="share-btn">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/beheira.html"
+                       target="_blank" class="facebook"><i class="fab fa-facebook-f"></i>
+                       <span data-i18n="beheira_share_facebook">فيسبوك</span>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=دير الأنبا مقار - وادي النطرون&url=https://example.com/beheira.html"
+                       target="_blank" class="twitter"><i class="fab fa-twitter"></i>
+                       <span data-i18n="beheira_share_twitter">تويتر</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== معرض الصور ===== -->
+    <section class="section gallery-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="gallery_title">معرض الصور من البحيرة</h2>
+        <div class="swiper gallery-swiper fade-in">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="images/beheira/طاحونة غلال - دير الانبا بيشوى.png" data-fancybox="gallery" data-caption="دير الأنبا بيشوي">
+                <img src="images/beheira/طاحونة غلال - دير الانبا بيشوى.png" alt="دير الأنبا بيشوي">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/beheira/السريان3.png" data-fancybox="gallery" data-caption="دير السريان من الداخل">
+                <img src="images/beheira/السريان3.png" alt="دير السريان من الداخل">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/beheira/album_E56D18C1_FDB5_3702_41CC_E4593EDE3E86_0.jpg" data-fancybox="gallery" data-caption="مخطوطات نادرة">
+                <img src="images/beheira/album_E56D18C1_FDB5_3702_41CC_E4593EDE3E86_0.jpg" alt="مخطوطات نادرة">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/beheira/دير البراموس٤.jpg" data-fancybox="gallery" data-caption="مدخل دير البراموس">
+                <img src="images/beheira/دير البراموس٤.jpg" alt="مدخل دير البراموس">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/beheira/وادى النطرون - دير الأنبا بيشوي 1.jpg" data-fancybox="gallery" data-caption="واحة وادي النطرون">
+                <img src="images/beheira/وادى النطرون - دير الأنبا بيشوي 1.jpg" alt="واحة وادي النطرون">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/nature/Naba'_El-Hamra_Lake-1.jpg" data-fancybox="gallery" data-caption="منظر طبيعي في وادي النطرون">
+                <img src="images/nature/Naba'_El-Hamra_Lake-1.jpg" alt="منظر طبيعي في وادي النطرون">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section" style="background:#c0392b; color:#fff; padding:3rem 0; text-align:center;">
+      <div class="container">
+        <h2 data-i18n="beheira_cta_title">هل أنت مستعد لاستكشاف روحانية وادي النطرون؟</h2>
+        <p data-i18n="beheira_cta_subtitle">خطط لرحلتك لاكتشاف هذه الأديرة التاريخية المقدسة.</p>
+        <a href="plan_trip.html" class="btn" style="background:#fff; color:#c0392b; padding:.75rem 1.5rem; border-radius:4px; font-weight:600; display:inline-block; margin-top:1rem;" data-i18n="beheira_cta_btn">خطّط رحلتك</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_about">عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+            <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+            <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+          <ul class="footer-links">
+            <li><a href="sharqia.html" data-i18n="index_footer_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+            <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
+            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+          <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+          <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  <script src="i18n.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="coptic_culture_title">مسار العائلة المقدسة - استكشاف الثقافة القبطية</title>
+  
+  <!-- نفس روابط CSS وJS الموجودة في الصفحة الرئيسية -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/> 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"  />
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+</head>
+<body class="culture">
+ <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo192.png" alt="مسار العائلة المقدسة" onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+          <ul class="dropdown-menu">
+            <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+            <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+          <ul class="dropdown-menu">
+            <li><a href="religious_visits.html" class="dropdown-item" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" class="dropdown-item" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" class="dropdown-item" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" class="dropdown-item" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" class="dropdown-item" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+        </li>
+        
+      </ul>
+<div class="language-switcher-container">
+        <select id="language-switcher" class="language-switcher">
+          <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pt" data-i18n="lang_Portuguese">Português</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <!-- قسم البانر -->
+    <section class="hero-section" style="background-image: url('images/coptic-art/FB_IMG_1707231306092-800x499.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 data-i18n="coptic_culture_hero_title">استكشاف الثقافة القبطية</h1>
+        <p data-i18n="coptic_culture_hero_subtitle">رحلة عبر الفنون والعمارة والتقاليد القبطية العريقة في مصر</p>
+      </div>
+    </section>
+
+    <!-- قسم المحتوى الرئيسي -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="coptic_culture_section_title">الثقافة القبطية: إرث عريق</h2>
+        
+        <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;">
+          <div class="about-text" style="flex: 1 1 60%;">
+            <p data-i18n="coptic_culture_about_p1">تمثل الثقافة القبطية مزيجاً فريداً من التراث المصري القديم والتأثيرات الهلنستية والمسيحية، وقد حافظت على هويتها المميزة عبر القرون.</p>
+            <p data-i18n="coptic_culture_about_p2">تتجلى الثقافة القبطية في الزخارف النباتية والهندسية التي تزين الكنائس، وفي الأيقونات التي تمزج بين الرمزية والواقعية، وفي الموسيقى والترانيم التي تعود جذور بعضها إلى العصر الفرعوني.</p>
+          </div>
+          <div class="about-image" style="flex: 1 1 35%;">
+            <img src="images/asyut/Arabesque7.JPG" alt="فن قبطي" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+
+        <!-- جوانب الثقافة القبطية -->
+        <div class="culture-aspects" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="coptic_culture_aspects_title">جوانب الثقافة القبطية</h3>
+          
+          <div class="aspect-tabs" style="margin-bottom: 2rem;">
+            <div class="tabs-header" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+              <button class="tab-btn active" data-tab="art" style="padding: 10px 20px; background-color: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;" data-i18n="coptic_culture_art_tab">الفن القبطي</button>
+              <button class="tab-btn" data-tab="architecture" style="padding: 10px 20px; background-color: #eee; color: var(--text-dark); border: none; border-radius: 5px; cursor: pointer;" data-i18n="coptic_culture_architecture_tab">العمارة القبطية</button>
+              <button class="tab-btn" data-tab="music" style="padding: 10px 20px; background-color: #eee; color: var(--text-dark); border: none; border-radius: 5px; cursor: pointer;" data-i18n="coptic_culture_music_tab">الموسيقى والترانيم</button>
+              <button class="tab-btn" data-tab="language" style="padding: 10px 20px; background-color: #eee; color: var(--text-dark); border: none; border-radius: 5px; cursor: pointer;" data-i18n="coptic_culture_language_tab">اللغة القبطية</button>
+            </div>
+            
+            <div class="tab-content active" id="art-tab">
+              <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1 1 300px;">
+                  <img src="images/أيقونة-العائلة-المقدسة-في-أرض-مصر-من-القرن-ال18.jpg" alt="الأيقونات القبطية" style="width: 100%; border-radius: 8px;">
+                </div>
+                <div style="flex: 2 1 400px;">
+                  <h4 data-i18n="coptic_culture_art_title">الفن القبطي والأيقونات</h4>
+                  <p data-i18n="coptic_culture_art_p1">يتميز الفن القبطي باستخدامه للألوان الزاهية والخطوط الواضحة، مع التركيز على التعبير الروحي أكثر من الواقعية المادية.</p>
+                  <p data-i18n="coptic_culture_art_p2">تشتهر الأيقونات القبطية برموزها الغنية وتقنياتها الفريدة التي توارثتها الأجيال.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-content" id="architecture-tab" style="display: none;">
+              <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1 1 300px;">
+                  <img src="images/beheira/The Monastery of the Syrians.png" alt="العمارة القبطية" style="width: 100%; border-radius: 8px;">
+                </div>
+                <div style="flex: 2 1 400px;">
+                  <h4 data-i18n="coptic_culture_architecture_title">العمارة القبطية</h4>
+                  <p data-i18n="coptic_culture_architecture_p1">تجمع العمارة القبطية بين العناصر الفرعونية والرومانية والبيزنطية، مع تطوير سمات مميزة مثل القباب والأقبية والقبوات.</p>
+                  <p data-i18n="coptic_culture_architecture_p2">تتميز الكنائس القبطية باستخدام الأعمدة الرخامية والعقود الدائرية.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-content" id="music-tab" style="display: none;">
+              <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1 1 300px;">
+                  <img src="images/coptic-art/Kristus_a_svatý_Menas.jpg" alt="الموسيقى القبطية" style="width: 100%; border-radius: 8px;">
+                </div>
+                <div style="flex: 2 1 400px;">
+                  <h4 data-i18n="coptic_culture_music_title">الموسيقى والترانيم القبطية</h4>
+                  <p data-i18n="coptic_culture_music_p1">تحتفظ الموسيقى القبطية بسمات موسيقية قديمة قد تعود إلى العصر الفرعوني، خاصة في استخدام الإيقاعات والنغمات.</p>
+                  <p data-i18n="coptic_culture_music_p2">تعتمد الترانيم القبطية على نظام الألحان الثمانية الذي طوره القديس مارمرقس.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-content" id="language-tab" style="display: none;">
+              <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1 1 300px;">
+                  <img src="images/coptic-art/القبطي-21.jpg" alt="اللغة القبطية" style="width: 100%; border-radius: 8px;">
+                </div>
+                <div style="flex: 2 1 400px;">
+                  <h4 data-i18n="coptic_culture_language_title">اللغة القبطية</h4>
+                  <p data-i18n="coptic_culture_language_p1">اللغة القبطية هي المرحلة الأخيرة من تطور اللغة المصرية القديمة، مكتوبة بحروف يونانية مع إضافة بعض الحروف الديموطيقية.</p>
+                  <p data-i18n="coptic_culture_language_p2">لا تزال تستخدم في الصلوات والطقوس الكنسية حتى اليوم.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- أماكن لاكتشاف الثقافة القبطية -->
+        <div class="discovery-places" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="coptic_culture_places_title">أماكن لاكتشاف الثقافة القبطية</h3>
+          
+          <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem;">
+            <div class="place-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="images/coptic-art/القبطي-1.jpg" alt="المتحف القبطي" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem;">
+              <h4 data-i18n="coptic_culture_museum_title">المتحف القبطي</h4>
+              <p data-i18n="coptic_culture_museum_desc">يضم أكبر مجموعة من الآثار القبطية في العالم، من مخطوطات وأيقونات ومنسوجات وأعمال خشبية.</p>
+              <a href="cairo.html" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;" data-i18n="coptic_culture_museum_link">زيارة المتحف →</a>
+            </div>
+            
+            <div class="place-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="images/FILE9802.JPG" alt="الكنيسة المعلقة" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem;">
+              <h4 data-i18n="coptic_culture_hanging_title">الكنيسة المعلقة</h4>
+              <p data-i18n="coptic_culture_hanging_desc">من أقدم الكنائس القبطية، تشتهر بأيقوناتها الفريدة ومنبرها الخشبي المنحوت.</p>
+              <a href="cairo.html" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;" data-i18n="coptic_culture_hanging_link">زيارة الكنيسة →</a>
+            </div>
+            
+            <div class="place-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="images/beheira/album_E56D18C1_FDB5_3702_41CC_E4593EDE3E86_4.jpg" alt="وادي النطرون" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem;">
+              <h4 data-i18n="coptic_culture_wadi_natrun_title">أديرة وادي النطرون</h4>
+              <p data-i18n="coptic_culture_wadi_natrun_desc">مركز للرهبنة القبطية، تحتفظ بتقاليدها الفنية والمعمارية منذ قرون.</p>
+              <a href="beheira.html" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;" data-i18n="coptic_culture_wadi_natrun_link">زيارة الأديرة →</a>
+            </div>
+            
+            <div class="place-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img src="images/asyut/288.jpg" alt="دير المحرق" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem;">
+              <h4 data-i18n="coptic_culture_muharraq_title">دير المحرق</h4>
+              <p data-i18n="coptic_culture_muharraq_desc">يضم كنيسة أثرية تعود للقرن الرابع الميلادي، مع فنون قبطية مميزة.</p>
+              <a href="asyut.html" style="display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 600;" data-i18n="coptic_culture_muharraq_link">زيارة الدير →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- فعاليات ثقافية -->
+        <div class="cultural-events" style="background-color: var(--background-dark); padding: 2rem; border-radius: 8px; margin-bottom: 3rem;">
+          <h3 style="font-size: 1.5em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;" data-i18n="coptic_culture_events_title">فعاليات ثقافية قبطية</h3>
+          
+          <div class="event-list">
+            <div class="event-item" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color);">
+              <div style="flex: 1 1 200px;">
+                <img src="images/دير المحرق- اسيوط.jpg" alt="مهرجان التراث القبطي" style="width: 100%; border-radius: 5px;">
+              </div>
+              <div style="flex: 3 1 300px;">
+                <h4 data-i18n="coptic_culture_festival_title">مهرجان التراث القبطي السنوي</h4>
+                <p data-i18n="coptic_culture_festival_place"><strong>المكان:</strong> المتحف القبطي، القاهرة</p>
+                <p data-i18n="coptic_culture_festival_date"><strong>الموعد:</strong> من 15 إلى 30 يناير سنوياً</p>
+                <p data-i18n="coptic_culture_festival_desc">يضم المهرجان معارض للأيقونات القبطية، وحفلات للموسيقى والترانيم القبطية، وورش عمل للحرف التقليدية، ومحاضرات عن التاريخ القبطي.</p>
+              </div>
+            </div>
+            
+            <div class="event-item" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color);">
+              <div style="flex: 1 1 200px;">
+                <img src="images/فقوس.jpg" alt="معرض الأيقونات القبطية" style="width: 100%; border-radius: 5px;">
+              </div>
+              <div style="flex: 3 1 300px;">
+                <h4 data-i18n="coptic_culture_icons_title">معرض الأيقونات القبطية الدولية</h4>
+                <p data-i18n="coptic_culture_icons_place"><strong>المكان:</strong> دار الأوبرا المصرية، القاهرة</p>
+                <p data-i18n="coptic_culture_icons_date"><strong>الموعد:</strong> من 1 إلى 15 مايو سنوياً</p>
+                <p data-i18n="coptic_culture_icons_desc">يستضيف المعرض أيقونات قبطية نادرة من مصر والعالم، مع عروض حية لرسامي الأيقونات التقليديين وشرح للرموز والتقنيات المستخدمة.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- معرض الصور -->
+        <div class="gallery-section">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="coptic_culture_gallery_title">معرض الفنون القبطية</h3>
+          <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="images/coptic-art/2023-638086265817372417-737.jpg" data-fancybox="gallery" data-caption="أيقونة قبطية للسيدة العذراء">
+                  <img src="images/coptic-art/2023-638086265817372417-737.jpg" alt="أيقونة قبطية للسيدة العذراء">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/coptic-art/960px-Coptic_Museum_02.jpg" data-fancybox="gallery" data-caption="منسوجات قبطية قديمة">
+                  <img src="images/coptic-art/960px-Coptic_Museum_02.jpg" alt="منسوجات قبطية قديمة">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/coptic-art/Arabesque7.JPG" data-fancybox="gallery" data-caption="أعمال خشبية قبطية">
+                  <img src="images/coptic-art/Arabesque7.JPG" alt="أعمال خشبية قبطية">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/coptic-art/28834257128_da173baea7_z.jpg" data-fancybox="gallery" data-caption="جدارية قبطية">
+                  <img src="images/coptic-art/28834257128_da173baea7_z.jpg" alt="جدارية قبطية">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/coptic-art/القبطي-9.jpg" data-fancybox="gallery" data-caption="صليب قبطي مزخرف">
+                  <img src="images/coptic-art/القبطي-9.jpg" alt="صليب قبطي مزخرف">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الدعوة للعمل -->
+    <section class="cta-section">
+      <div class="container cta-content">
+        <h2 data-i18n="coptic_culture_cta_title">هل ترغب في معرفة المزيد عن الثقافة القبطية؟</h2>
+        <p data-i18n="coptic_culture_cta_subtitle">تواصل معنا لمساعدتك في تخطيط زيارتك لاكتشاف هذا التراث الفريد</p>
+        <a href="plan_trip.html" class="btn" data-i18n="coptic_culture_cta_btn">خطط لرحلتك</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- نفس الفوتر الموجود في الصفحة الرئيسية -->
+   <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_about">عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+            <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+            <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+          </ul>
+        </div><div class="footer-column">
+          <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+          <ul class="footer-links">
+           <li><a href="sharqia.html" data-i18n="index_footer_sharqia">  الشرقية والدلتا</a></li>
+            <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+            <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
+            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+          </ul>
+        </div>        
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+          <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+          <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript لإدارة تبويبات المحتوى
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // إزالة النشاط من جميع الأزرار
+          tabBtns.forEach(b => b.classList.remove('active'));
+          // إضافة النشاط للزر المحدد
+          this.classList.add('active');
+          
+          // إخفاء جميع محتويات التبويبات
+          document.querySelectorAll('.tab-content').forEach(content => {
+            content.style.display = 'none';
+          });
+          
+          // إظهار محتوى التبويب المحدد
+          const tabId = this.getAttribute('data-tab') + '-tab';
+          document.getElementById(tabId).style.display = 'block';
+        });
+      });
+    });
+  </script>
+<script src="i18n.js"></script>
+</body>
+</html>

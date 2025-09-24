@@ -1,0 +1,477 @@
+/* ========== تنسيقات عامة ========== */
+body {
+  font-family: "Cairo", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+  direction: rtl;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 15px;
+  font-weight: 600;
+}
+
+.page-header {
+  background: #004080;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+}
+
+.language-switcher label {
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+
+.language-switcher select {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+}
+
+/* ========== تخطيط الشبكة ========== */
+.trip-planner-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.trip-planner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ========== الوجهات ========== */
+.available-destinations h3 {
+  margin-bottom: 15px;
+  color: #004080;
+}
+
+.destinations-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.destination-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.destination-card:hover {
+  transform: translateY(-3px);
+}
+
+.destination-card h4 {
+  margin: 0 0 8px;
+  color: #004080;
+  font-size: 1.1rem;
+}
+
+.destination-card p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+}
+
+.destination-card button {
+  background: #004080;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.3s;
+}
+
+.destination-card button:hover {
+  background: #0066cc;
+}
+
+/* ========== خط الرحلة ========== */
+.selected-itinerary h3 {
+  margin-bottom: 15px;
+  color: #004080;
+}
+
+.itinerary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.itinerary-item {
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itinerary-item h4 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.itinerary-item button {
+  background: #cc0000;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.itinerary-item button:hover {
+  background: #e60000;
+}
+
+/* ========== ملخص الرحلة ========== */
+.itinerary-summary {
+  background: #f1f7ff;
+  border: 1px solid #d0e0ff;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.itinerary-summary h4 {
+  margin-bottom: 10px;
+  color: #004080;
+}
+
+.itinerary-final-summary p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+
+.print-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.print-share-actions button {
+  flex: 1;
+  min-width: 120px;
+  background: #004080;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.print-share-actions button:hover {
+  background: #0066cc;
+}
+
+/* ========== الخريطة ========== */
+#map {
+  height: 400px;
+  margin: 30px 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* ========== نصائح التخطيط (Cards Style) ========== */
+.trip-tips {
+  margin-top: 25px;
+}
+
+.trip-tips h3 {
+  color: #004080;
+  margin-bottom: 15px;
+}
+
+.tips-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.tip-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tip-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  color: #004080;
+}
+
+.tip-card h4 i {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
+}
+
+/* ✅ أيقونات ملونة */
+.icon-visa {
+  color: #2e8b57;   /* أخضر للتأشيرة */
+}
+
+.icon-transport {
+  color: #0066cc;   /* أزرق للنقل */
+}
+
+.icon-arrival {
+  color: #17a2b8;   /* سماوي للوصول */
+}
+
+.icon-weather {
+  color: #ff9800;   /* برتقالي للطقس */
+}
+
+/* ✅ أنيميشن عند المرور */
+.tip-card:hover h4 i {
+  transform: scale(1.2) rotate(5deg);
+  filter: brightness(1.2);
+}
+
+.tip-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ========== استجابة الشاشات الصغيرة ========== */
+@media (max-width: 768px) {
+  .trip-planner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/*===== إضافات خفيفة فوق styles.css =====*/
+:root{
+  --plan-accent:#ff7043;
+  --drag-shadow:0 8px 16px rgba(0,0,0,.12);
+}
+
+.stepper{
+  background:#fff;
+  border-bottom:1px solid #e0e0e0;
+  padding:1rem 0;
+  position:sticky;
+  top:76px;             /* ارتفاع الهيدر */
+  z-index:20;
+}
+.stepper .container{
+  display:flex;
+  justify-content:space-between;
+  max-width:600px;
+  margin:auto;
+}
+.step{
+  flex:1;
+  text-align:center;
+  position:relative;
+}
+.step span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;height:32px;
+  border-radius:50%;
+  background:#e0e0e0;
+  color:#666;
+  font-weight:700;
+  transition:all .3s;
+}
+.step.active span{
+  background:var(--plan-accent);
+  color:#fff;
+}
+.step p{margin:.25rem 0 0;font-size:.75rem;color:#666}
+
+.trip-planner-grid{
+  display:grid;
+  grid-template-columns:280px 1fr 320px;
+  gap:1.5rem;
+  margin-top:1.5rem;
+}
+.available-destinations,.selected-itinerary{
+  background:#fff;
+  border-radius:12px;
+  padding:1rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.map-wrapper{position:relative}
+#map{
+  height:70vh;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  position:sticky;
+  top:140px;
+}
+
+/* بطاقات الوجهات */
+.destination-card{
+  cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+}
+.destination-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--drag-shadow);
+}
+.destination-card.pulse{
+  animation:pulse .4s;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,112,67,.6)}
+  100%{box-shadow:0 0 0 10px rgba(255,112,67,0)}
+}
+
+/* خطّة المستخدم – قابلة للسحب */
+.itinerary-list.sortable-ghost{
+  opacity:.4;
+}
+.itinerary-item{
+  background:#f9f9f9;
+  border:1px solid #e0e0e0;
+  border-radius:8px;
+  padding:.75rem 1rem;
+  margin-bottom:.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:grab;
+}
+.itinerary-item:active{cursor:grabbing}
+
+/* أزرار ملوّنة */
+.print-share-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.5rem;
+  margin-top:1rem;
+}
+.print-share-actions button{
+  background:var(--plan-accent);
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  padding:.5rem;
+  font-size:.85rem;
+  cursor:pointer;
+  transition:background .3s;
+}
+.print-share-actions button:hover{background:#e55a2b}
+
+/* نصائح */
+.tips-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1rem;
+}
+.tip-card{
+  background:#fff;
+  border-radius:12px;
+  padding:1rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  transition:transform .3s;
+}
+.tip-card:hover{transform:translateY(-5px)}
+.tip-card h4{display:flex;align-items:center;gap:.5rem;color:#004080}
+
+/* حالة فارغة */
+.empty-state{
+  text-align:center;
+  padding:2rem 1rem;
+  color:#999;
+}
+.empty-state svg{width:120px;margin-bottom:1rem;opacity:.3}
+/* ================== متغيّرات مشتركة ================== */
+:root{
+  --plan-accent:#ff7043;
+  --drag-shadow:0 8px 16px rgba(0,0,0,.12);
+  --gold-gradient:linear-gradient(135deg,#f6d365 0%, #fda085 100%);
+}
+
+/* ================== stepper wizard ================== */
+.stepper{background:#fff;border-bottom:1px solid #e0e0e0;padding:1rem 0;position:sticky;top:76px;z-index:20;}
+.stepper .container{display:flex;justify-content:space-between;max-width:600px;margin:auto;}
+.step{flex:1;text-align:center;position:relative;}
+.step span{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#e0e0e0;color:#666;font-weight:700;transition:all .3s;}
+.step.active span{background:var(--plan-accent);color:#fff;}
+.step p{margin:.25rem 0 0;font-size:.75rem;color:#666}
+
+/* ================== تخطيط الصفحة ================== */
+.trip-planner-grid{display:grid;grid-template-columns:280px 1fr 320px;gap:2rem;margin-top:2rem;}
+.available-destinations,.selected-itinerary{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.map-wrapper{position:relative;}
+#map{height:70vh;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+@media (max-width:991px){
+  .trip-planner-grid{grid-template-columns:1fr;}
+  #map{height:50vh;position:relative!important;}
+}
+
+/* ================== بطاقات الوجهات ================== */
+.destinations-list{display:grid;gap:1rem;}
+.destination-card{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:1rem;cursor:pointer;transition:transform .2s,box-shadow .2s;}
+.destination-card:hover{transform:translateY(-3px);box-shadow:var(--drag-shadow);}
+.destination-card.pulse{animation:pulse .4s;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,112,67,.6)}100%{box-shadow:0 0 0 10px rgba(255,112,67,0)}}
+
+/* ================== قائمة الرحلة (قابلة للسحب) ================== */
+.itinerary-list.sortable-ghost{opacity:.4;}
+.itinerary-item{background:#f9f9f9;border:1px solid #e0e0e0;border-radius:8px;padding:.75rem 1rem;margin-bottom:.5rem;display:flex;justify-content:space-between;align-items:center;cursor:grab;}
+.itinerary-item:active{cursor:grabbing;}
+
+/* ================== أزرار ملوّنة ================== */
+.print-share-actions{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1rem;}
+.btn-gold{background:var(--gold-gradient);color:#212529;font-weight:600;border:none;border-radius:8px;padding:.6rem;font-size:.85rem;cursor:pointer;transition:transform .2s;}
+.btn-gold:hover{transform:translateY(-2px);}
+
+/* ================== بطاقات النصائح ================== */
+.tips-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
+.tip-card{background:#fff;border-radius:10px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .3s;border-top:4px solid;}
+.tip-card:hover{transform:translateY(-5px);}
+.tip-card h4{display:flex;align-items:center;gap:.5rem;color:#004080;margin:0 0 .5rem;}
+.tip-card p{margin:0;font-size:.9rem;line-height:1.5;}
+/* أنواع النصائح */
+.tip-card.visa{border-color:#2e8b57;}
+.tip-card.transport{border-color:#0066cc;}
+.tip-card.arrival{border-color:#17a2b8;}
+.tip-card.weather{border-color:#ff9800;}
+
+/* ================== الحالة الفارغة ================== */
+.empty-state{text-align:center;padding:3rem 1rem;color:#777;}
+.empty-state svg{width:140px;opacity:.25;margin-bottom:1rem;}
+
+/* ================== طباعة نظيفة ================== */
+@media print{
+  header,footer,.stepper,.print-share-actions,#share-link{display:none!important;}
+  body{background:#fff!important;}
+  #map{page-break-inside:avoid;height:400px;}
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مسار العائلة المقدسة - الحج والزيارات الدينية</title>
+  <!-- نفس روابط CSS وJS الموجودة في الصفحة الرئيسية -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/> 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"  />
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+</head>
+<body class="religious">
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo192.png" alt="مسار العائلة المقدسة" onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+          <ul class="dropdown-menu">
+            <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+            <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+          <ul class="dropdown-menu">
+            <li><a href="religious_visits.html" class="dropdown-item" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" class="dropdown-item" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" class="dropdown-item" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" class="dropdown-item" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" class="dropdown-item" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+        </li>
+        
+      </ul>
+<div class="language-switcher-container">
+        <select id="language-switcher" class="language-switcher">
+          <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="el" data-i18n="lang_greek">Ελληνικά</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- قسم البانر -->
+    <section class="hero-section" style="background-image: url('images/coptic-art/Paintings_in_monastery1.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 data-i18n="religious_visits_hero_title">الحج والزيارات الدينية</h1>
+        <p data-i18n="religious_visits_hero_subtitle">رحلة روحية عبر المواقع المقدسة التي زارتها العائلة المقدسة في مصر</p>
+      </div>
+    </section>
+    <!-- قسم المحتوى الرئيسي -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="religious_visits_section_title">تجربة الحج والزيارات الدينية</h2>
+        <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;">
+          <div class="about-text" style="flex: 1 1 60%;">
+            <p data-i18n="religious_visits_about_p1">يمثل مسار العائلة المقدسة في مصر رحلة حج فريدة للزوار الذين يسعون لتجربة روحية عميقة.</p>
+            <p data-i18n="religious_visits_about_p2">تشمل هذه التجربة زيارة الكنائس القديمة والأديرة التاريخية التي تعود إلى القرون الأولى للمسيحية، حيث يمكن للزوار المشاركة في القداديس والصلوات الخاصة، والتعرف على التقاليد الدينية العريقة التي حافظت عليها الكنيسة القبطية الأرثوذكسية عبر القرون.</p>
+          </div>
+          <div class="about-image" style="flex: 1 1 35%;">
+            <img src="images/heritage/DeirMuharraqChurchHlGeorgeInside.jpg" alt="تجربة الصلاة في المواقع المقدسة" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+        <!-- أهم المواقع للزيارة -->
+        <div class="destinations-section">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="religious_visits_destinations_title">أهم المواقع للزيارة الدينية</h3>
+          <div class="destination-card" style="margin-bottom: 2rem;">
+            <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+              <div style="flex: 1 1 300px;">
+                <img src="images/coptic-art/caption.jpg" alt="الكنيسة المعلقة" style="width: 100%; border-radius: 8px;">
+              </div>
+              <div style="flex: 2 1 400px;">
+                <h4 data-i18n="religious_visits_hanging_title">الكنيسة المعلقة</h4>
+                <p data-i18n="religious_visits_hanging_desc">تعد الكنيسة المعلقة في القاهرة واحدة من أقدم الكنائس في مصر، حيث يعود تاريخها إلى القرن الثالث الميلادي. تشتهر بهندستها المعمارية الفريدة حيث بنيت فوق بوابة حصن روماني قديم.</p>
+                <p data-i18n="religious_visits_hanging_details">يمكن للزوار المشاركة في القداس الذي يقام يومياً، كما يمكنهم مشاهدة الأيقونات القبطية النادرة والمنحوتات الخشبية التي تعود إلى عصور مختلفة.</p>
+                <a href="cairo.html" class="btn" data-i18n="religious_visits_hanging_btn">اكتشف المزيد عن القاهرة</a>
+              </div>
+            </div>
+          </div>
+          <div class="destination-card" style="margin-bottom: 2rem;">
+            <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+              <div style="flex: 1 1 300px;">
+                <img src="images/heritage/DeirMuharraqChurchHlVirginInside.jpg" alt="دير المحرق" style="width: 100%; border-radius: 8px;">
+              </div>
+              <div style="flex: 2 1 400px;">
+                <h4 data-i18n="religious_visits_muharraq_title">دير السيدة العذراء - المحرق</h4>
+                <p data-i18n="religious_visits_muharraq_desc">يقع دير المحرق في أسيوط وهو من أهم مواقع مسار العائلة المقدسة، حيث يعتقد أن العائلة المقدسة أقامت هنا لأكثر من ستة أشهر. يحتوي الدير على كنيسة أثرية تعود إلى القرن الرابع الميلادي.</p>
+                <p data-i18n="religious_visits_muharraq_details">يعد الدير وجهة للحجاج الذين يأتون للصلاة في الكنيسة القديمة ولمشاهدة الأماكن التي يعتقد أن العائلة المقدسة استخدمتها خلال إقامتها.</p>
+                <a href="asyut.html" class="btn" data-i18n="religious_visits_muharraq_btn">اكتشف المزيد عن أسيوط</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- جدول مواعيد الصلوات -->
+        <div class="prayer-schedule" style="background-color: var(--background-dark); padding: 2rem; border-radius: 8px; margin-bottom: 3rem;">
+          <h3 style="font-size: 1.5em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;" data-i18n="religious_visits_prayer_schedule_title">مواعيد الصلوات والقداديس</h3>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background-color: var(--primary-color); color: white;">
+                  <th style="padding: 12px; text-align: right;" data-i18n="religious_visits_prayer_schedule_table_header_site">الموقع</th>
+                  <th style="padding: 12px; text-align: right;" data-i18n="religious_visits_prayer_schedule_table_header_morning">القداس الصباحي</th>
+                  <th style="padding: 12px; text-align: right;" data-i18n="religious_visits_prayer_schedule_table_header_evening">القداس المسائي</th>
+                  <th style="padding: 12px; text-align: right;" data-i18n="religious_visits_prayer_schedule_table_header_special">صلوات خاصة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px;" data-i18n="religious_visits_table_hanging_site">الكنيسة المعلقة</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_hanging_morning">6:00 ص - 8:00 ص</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_hanging_evening">5:00 م - 7:00 م</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_hanging_special">صلوات الساعة الثالثة والسادسة والتاسعة</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px;" data-i18n="religious_visits_table_abu_serga_site">كنيسة أبي سرجة</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_abu_serga_morning">6:30 ص - 8:30 ص</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_abu_serga_evening">4:30 م - 6:30 م</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_abu_serga_special">صلوات السواعي يومياً</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px;" data-i18n="religious_visits_table_muharraq_site">دير المحرق</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_muharraq_morning">5:00 ص - 7:00 ص</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_muharraq_evening">4:00 م - 6:00 م</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_muharraq_special">قداس الحجاج يوم الخميس</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="text-align: center; margin-top: 1rem; font-size: 0.9em;" data-i18n="religious_visits_prayer_schedule_note">* يرجى التأكد من المواعيد قبل الزيارة حيث قد تتغير في المناسبات الخاصة</p>
+        </div>
+        <!-- نصائح للحجاج -->
+        <div class="tips-section" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="religious_visits_tips_title">نصائح للحجاج والزوار</h3>
+          <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <div class="tip-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-clock" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="religious_visits_tips_time_title">التوقيت المناسب</h4>
+              <p data-i18n="religious_visits_tips_time_desc">يفضل زيارة المواقع الدينية في الصباح الباكر أو أيام الأسبوع لتجنب الازدحام، خاصة في المواسم الدينية.</p>
+            </div>
+            <div class="tip-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-tshirt" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="religious_visits_tips_clothing_title">الملابس المناسبة</h4>
+              <p data-i18n="religious_visits_tips_clothing_desc">يرجى ارتداء ملابس محتشمة تغطي الكتفين والركبتين عند زيارة الأماكن الدينية احتراماً للتقاليد.</p>
+            </div>
+            <div class="tip-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-camera" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="religious_visits_tips_photography_title">التصوير</h4>
+              <p data-i18n="religious_visits_tips_photography_desc">يسمح بالتصوير في معظم الأماكن ولكن يمنع استخدام الفلاش داخل الكنائس القديمة حفاظاً على الألوان.</p>
+            </div>
+            <div class="tip-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-hands-praying" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="religious_visits_tips_behavior_title">السلوك</h4>
+              <p data-i18n="religious_visits_tips_behavior_desc">يرجى الحفاظ على الهدوء داخل الكنائس والأديرة، وتجنب الحديث بصوت مرتفع أثناء الصلوات والقداديس.</p>
+            </div>
+          </div>
+        </div>
+        <!-- معرض الصور -->
+        <div class="gallery-section">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="religious_visits_gallery_title">معرض الصور</h3>
+          <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="images/heritage/Hanging_Church-1.jpeg" data-fancybox="gallery" data-caption="داخل الكنيسة المعلقة">
+                  <img src="images/heritage/Hanging_Church-1.jpeg" alt="داخل الكنيسة المعلقة">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/coptic-art/caption.jpg" data-fancybox="gallery" data-caption="قداس في دير المحرق">
+                  <img src="images/coptic-art/caption.jpg" alt="قداس في دير المحرق">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/cairo/كنيسة ابى سرجة 5.png" data-fancybox="gallery" data-caption="فنون قبطية في كنيسة أبي سرجة">
+                  <img src="images/Cairo/كنيسة ابى سرجة 5.png" alt="فنون قبطية في كنيسة أبي سرجة">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/beheira/album_E49A72C3_FD8B_3B06_41BB_9C746068F626_1.png" data-fancybox="gallery" data-caption="منظر لدير الأنبا بيشوي">
+                  <img src="images/beheira/album_E49A72C3_FD8B_3B06_41BB_9C746068F626_1.png" alt="منظر لدير الأنبا بيشوي">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/coptic-art/41968944684_2a34171858_k.jpg" data-fancybox="gallery" data-caption="أيقونة قبطية قديمة">
+                  <img src="images/coptic-art/41968944684_2a34171858_k.jpg" alt="أيقونة قبطية قديمة">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="cta-section" style="background:#c0392b; color:#fff; padding:3rem 0; text-align:center;">
+    <div class="container">
+      <h2 data-i18n="religious_visits_cta_title">هل ترغب في تنظيم رحلة حج إلى مسار العائلة المقدسة؟</h2>
+      <p data-i18n="religious_visits_cta_subtitle">خطط لرحلتك لاكتشاف رحلتك الروحية وتوفير كل ما تحتاجه من معلومات وإرشادات</p>
+      <a href="plan_trip.html" class="btn" style="background:#fff; color:#c0392b; padding:.75rem 1.5rem; border-radius:4px; font-weight:600; display:inline-block; margin-top:1rem;" data-i18n="religious_visits_cta_btn">خطّط رحلتك</a>
+    </div>
+  </section>
+     </main>
+  <!-- نفس الفوتر الموجود في الصفحة الرئيسية -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_about">عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+            <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+            <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+          </ul>
+        </div><div class="footer-column">
+          <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+          <ul class="footer-links">
+           <li><a href="sharqia.html" data-i18n="index_footer_sharqia">  الشرقية والدلتا</a></li>
+            <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+            <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
+            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+          </ul>
+        </div>        
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+          <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+          <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+   <script src="i18n.js"></script>
+</body>
+</html>

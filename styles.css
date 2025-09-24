@@ -1,0 +1,769 @@
+/* ============================================
+   styles.css – مسار العائلة المقدسة
+   آخر تحديث: 2025-09-24 بعد إصلاح أسهم Swiper & إضافة virtual-tours-swiper
+============================================ */
+
+:root {
+  /* الألوان الرئيسية */
+  --primary-color: #d1232a;        /* أحمر العائلة المقدسة */
+  --secondary-color: #0056b3;      /* أزرق داكن */
+  --accent-color: #ffc107;         /* ذهبي */
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --background-light: #ffffff;
+  --background-dark: #f8f9fa;
+  --border-color: #dee2e6;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* إعادة ضبط أساسية */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Cairo', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--background-dark);
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: var(--transition);
+}
+a:hover {
+  color: var(--primary-color);
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* الحاويات */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* الأقسام العامة */
+.section {
+  padding: 80px 0;
+  background-color: var(--background-light);
+  border-bottom: 1px solid var(--border-color);
+}
+.section:last-of-type {
+  border-bottom: none;
+}
+.section-title {
+  text-align: center;
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* الأزرار */
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 12px 25px;
+  border-radius: 5px;
+  transition: var(--transition);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+.btn:hover {
+  background-color: #a81c21;
+  transform: translateY(-2px);
+}
+
+/* ======== الرأس (Header) ======== */
+.header {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  padding: 15px 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo img {
+  height: 60px;
+  width: auto;
+}
+.nav-menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  transition: var(--transition);
+}
+.nav-link {
+  color: var(--text-dark);
+  font-weight: 600;
+  padding: 10px 0;
+  position: relative;
+  transition: var(--transition);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+/* القائمة المنسدلة */
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle::after {
+  content: '\f0d7';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+.dropdown:hover .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--background-light);
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 180px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--text-dark);
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.dropdown-menu li a:hover {
+  background-color: var(--background-dark);
+  color: var(--primary-color);
+}
+.dropdown-menu li a.active {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+/* زر القائمة للموبايل */
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.8em;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* ======== قسم الأبطال (Hero) ======== */
+.hero-section {
+  position: relative;
+  height: 60vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-light);
+  background-size: 130% auto;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+  animation: panImage 10s linear infinite alternate;
+}
+@keyframes panImage {
+  0% {
+    background-position: center left;
+  }
+  100% {
+    background-position: center right;
+  }
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+.hero-content h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+}
+.hero-content p {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* ======== عن الوجهة + الخريطة ======== */
+.about-destination .grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.about-destination .about-text {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+.about-destination .map-content {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+#map,
+.map-container {
+  height: 400px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+/* ======== بطاقات الوجهات والأنشطة ======== */
+.destination-card,
+.activity-card {
+  background-color: var(--background-light);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.destination-card:hover,
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.destination-card img,
+.activity-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.card-content h3 {
+  font-size: 1.6em;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+.card-content p {
+  font-size: 1em;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.card-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.card-content ul li {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 8px;
+}
+.card-content ul li i {
+  color: var(--secondary-color);
+  margin-left: 8px;
+}
+
+/* ======== تبديل التفاصيل (Toggle Details) ======== */
+.details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  margin-top: 10px;
+  background-color: var(--background-dark);
+  border-radius: 8px;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #444;
+  transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+}
+.details.open {
+  max-height: 500px;
+  opacity: 1;
+  padding: 15px;
+}
+.toggle-details {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s;
+}
+.toggle-details:hover {
+  color: var(--secondary-color);
+}
+.toggle-details i {
+  transition: transform 0.3s ease;
+}
+.toggle-details.active i {
+  transform: rotate(180deg);
+}
+
+/* ======== Swiper عام ======== */
+.swiper {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px;
+}
+.swiper-slide {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+/* ======== أسهم Swiper (تمت إعادة كتابتها بالكامل) ======== */
+.swiper-button-next,
+.swiper-button-prev {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: var(--primary-color) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.2em !important;
+  font-weight: 900;
+}
+.swiper-button-prev {
+  right: 10px; /* RTL */
+  left: auto;
+}
+.swiper-button-next {
+  left: 10px; /* RTL */
+  right: auto;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--accent-color);
+  color: var(--text-light) !important;
+}
+.swiper-pagination-bullet {
+  background-color: #ccc !important;
+  opacity: 1 !important;
+  transition: var(--transition);
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--primary-color) !important;
+  transform: scale(1.2);
+}
+
+/* ======== معرض الصور ======== */
+.gallery-swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  cursor: grab;
+}
+.gallery-swiper .swiper-slide:active {
+  cursor: grabbing;
+}
+.gallery-swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.gallery-swiper .swiper-slide a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.gallery-swiper .swiper-slide img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- virtual-tours Swiper ---------- */
+.virtual-tours-section {
+  padding: 80px 0;
+  background-color: var(--background-dark);
+  text-align: center;
+}
+
+.virtual-tours-section h2 {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.virtual-tours-section p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.virtual-tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.virtual-tour-item {
+  background-color: var(--background-light);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.virtual-tour-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-responsive {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.tour-details {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tour-details h3 {
+  font-size: 1.5em;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.tour-details p {
+  font-size: 0.95em;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1; /* Allow description to take available space */
+}
+
+.tour-details .button {
+  align-self: flex-start;
+  margin-top: auto; /* Pushes the button to the bottom */
+}
+
+
+/* ======== CTA ======== */
+.cta-section {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  padding: 60px 0;
+}
+.cta-content h2 {
+  font-size: 2.8em;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.cta-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-content .btn {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  font-size: 1.1em;
+  padding: 15px 35px;
+}
+.cta-content .btn:hover {
+  background-color: #ffda6a;
+}
+
+/* ======== الفوتر ======== */
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  padding: 50px 0 20px;
+  text-align: right;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+.footer-column h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+.footer-column ul {
+  padding: 0;
+  list-style: none;
+}
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+.footer-column ul li a {
+  color: var(--text-light);
+  transition: var(--transition);
+}
+.footer-column ul li a:hover {
+  color: var(--accent-color);
+}
+.footer-column p {
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+.social-link {
+  color: var(--text-light);
+  font-size: 1.5em;
+  transition: var(--transition);
+}
+.social-link:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ======== استجابة الشاشات الصغيرة ======== */
+@media (max-width: 992px) {
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: var(--background-light);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  }
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .nav-menu .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  .nav-link {
+    padding: 12px 0;
+    font-size: 1.1em;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.3s ease-out;
+  }
+  .dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
+    max-height: 300px;
+  }
+  .dropdown-menu li a {
+    padding: 10px 0;
+  }
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+  .hero-content p {
+    font-size: 1.1em;
+  }
+  .section {
+    padding: 50px 0;
+  }
+  .section-title {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  .destination-card,
+  .activity-card {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-column {
+    min-width: 100%;
+  }
+  .social-links {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2em;
+  }
+  .hero-content p {
+    font-size: 1em;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+  .section-title {
+    font-size: 1.8em;
+  }
+  .cta-content h2 {
+    font-size: 2em;
+  }
+  .cta-content p {
+    font-size: 1em;
+  }
+}
+/* ============================================
+   نهاية الملف
+============================================ */

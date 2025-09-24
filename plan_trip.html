@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="plan_trip.title">مخطّط الرحلة – مسار العائلة المقدسة</title>
+
+  <!-- أنماط مشتركة مع index + تعديلات plan -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="trip_planner.css"/>
+
+  <!-- مكتبات الجافاسكربت -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<!-- ================== رأس الصفحة (مأخوذ من index) ================== -->
+<header class="header">
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <img src="images/logo192.png" alt="مسار العائلة المقدسة"
+           onerror="this.src='https://via.placeholder.com/150x50?text=Logo'">
+    </a>
+    <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a></li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+        <ul class="dropdown-menu">
+          <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+          <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+          <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+          <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+          <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+        <ul class="dropdown-menu">
+          <li><a href="religious_visits.html" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+          <li><a href="heritage.html" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+          <li><a href="nature.html" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+          <li><a href="coptic_culture.html" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+          <li><a href="local_cuisine.html" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطّط رحلتك</a></li>
+    </ul>
+
+    <div class="language-switcher-container">
+      <select id="language-switcher" class="language-switcher">
+       <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pt" data-i18n="lang_Portuguese">Português</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+          <option value="sw" data-i18n="lang_swahili">kiswahili</option>
+        
+      </select>
+    </div>
+  </div>
+</header>
+
+<!-- ================== خطوات التخطيط (Wizard) ================== -->
+<section class="stepper">
+  <div class="container">
+    <div class="step active"><span>1</span><p data-i18n="plan_trip.step1">اختر الوجهات</p></div>
+    <div class="step"><span>2</span><p data-i18n="plan_trip.step2">رتّب خطّتك</p></div>
+    <div class="step"><span>3</span><p data-i18n="plan_trip.step3">احفظ أو شارك</p></div>
+  </div>
+</section>
+
+<!-- ================== المحتوى الرئيسي ================== -->
+<main class="container section-padding">
+  <div class="trip-planner-grid fade-in">
+    <!-- الوجهات المتاحة -->
+    <aside class="available-destinations">
+      <h3 class="section-title" data-i18n="plan_trip.destinations_title">الوجهات المتاحة</h3>
+      <div id="destinations-list" class="destinations-list"></div>
+    </aside>
+
+    <!-- الخريطة -->
+    <div class="map-wrapper">
+      <div id="map"></div>
+    </div>
+
+    <!-- خطّة الرحلة -->
+    <aside class="selected-itinerary">
+      <h3 class="section-title" data-i18n="plan_trip.itinerary_title">خطّة رحلتك</h3>
+      <div id="itinerary-list" class="itinerary-list">
+        <!-- يملأ بالجافاسكربت -->
+      </div>
+
+      <!-- ملخص الرحلة -->
+      <div class="itinerary-summary">
+        <h4 data-i18n="plan_trip.summary_title">ملخّص الرحلة</h4>
+        <div class="itinerary-final-summary">
+          <p><span data-i18n="plan_trip.final_estimated_duration">المدة التقديرية</span>: <strong id="estimated-duration">0</strong> <span data-i18n="plan_trip.hours">ساعة</span></p>
+          <p><span data-i18n="plan_trip.final_estimated_distance">المسافة التقديرية</span>: <strong id="estimated-distance">0</strong> <span data-i18n="plan_trip.km">كم</span></p>
+        </div>
+
+        <div class="print-share-actions">
+          <button id="print-itinerary" class="btn-gold"><i class="fas fa-print"></i> <span data-i18n="plan_trip.print_itinerary_btn">طباعة</span></button>
+          <button id="copy-itinerary" class="btn-gold"><i class="fas fa-copy"></i> <span data-i18n="plan_trip.copy_itinerary_btn">نسخ التفاصيل</span></button>
+          <button id="email-itinerary" class="btn-gold"><i class="fas fa-envelope"></i> <span data-i18n="plan_trip.email_itinerary_btn">إرسال بالبريد</span></button>
+          <button id="pdf-itinerary" class="btn-gold"><i class="fas fa-file-pdf"></i> <span data-i18n="plan_trip.pdf_btn">تصدير PDF</span></button>
+          <button id="share-link" class="btn-gold"><i class="fas fa-share-alt"></i> <span data-i18n="plan_trip.share_link_btn">مشاركة الرابط</span></button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- نصائح التخطيط -->
+  <section class="trip-tips section">
+    <h3 class="section-title" data-i18n="plan_trip.tips_title">نصائح لتخطيط الرحلة</h3>
+    <div class="tips-cards" id="tips-cards">
+      <!-- يملأ بالجافاسكربت -->
+    </div>
+  </section>
+</main>
+
+<!-- ================== فوتر موحّد ================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3 data-i18n="index_footer_about">عن المسار</h3>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+          <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+          <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+          <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+        <ul class="footer-links">
+          <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+          <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+          <li><a href="beheira.html" data-i18n="index_nav_beheira">وادي النطرون</a></li>
+          <li><a href="asyut.html" data-i18n="index_nav_asyut">المنيا وأسيوط</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+        <p data-i18n="index_footer_email">البريد: info@holycoptictrail.org</p>
+        <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/experienceholyfamilytrial" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+        <p data-i18n="index_footer_desc">مشروع قومي لإحياء تراث رحلة العائلة المقدسة وتعزيز السياحة الروحية.</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- سكربتات الموقع -->
+ <script src="https://cdn.jsdelivr.net/npm/i18next@22/i18next.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+<script src="i18n.js"></script>
+<script src="trip_planner.js"></script>
+<script>
+  // تفعيل الأيقونات
+  lucide.createIcons();
+</script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="nature_title">مسار العائلة المقدسة - الطبيعة والمناظر الطبيعية</title>
+  <!-- نفس روابط CSS وJS الموجودة في الصفحة الرئيسية -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/> 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"  />
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+</head>
+<body class="nature">
+   <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo192.png" alt="مسار العائلة المقدسة" onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+          <ul class="dropdown-menu">
+            <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+            <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+          <ul class="dropdown-menu">
+            <li><a href="religious_visits.html" class="dropdown-item" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" class="dropdown-item" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" class="dropdown-item" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" class="dropdown-item" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" class="dropdown-item" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+        </li>
+        
+      </ul>
+<div class="language-switcher-container">
+        <select id="language-switcher" class="language-switcher">
+          <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="el" data-i18n="lang_greek">Ελληνικά</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+          <option value="sw" data-i18n="lang_swahili">kiswahili</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- قسم البانر -->
+    <section class="hero-section" style="background-image: url('images/nature/Nature_hero.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 data-i18n="nature_hero_title">الطبيعة والمناظر الطبيعية</h1>
+        <p data-i18n="nature_hero_subtitle">استكشاف الجمال الطبيعي الذي اكتنف رحلة العائلة المقدسة في مصر</p>
+      </div>
+    </section>
+    <!-- قسم المحتوى الرئيسي -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="nature_section_title">جمال الطبيعة على طول المسار</h2>
+        <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;">
+          <div class="about-text" style="flex: 1 1 60%;">
+            <p data-i18n="nature_about_p1">يمر مسار العائلة المقدسة عبر مجموعة متنوعة من المناظر الطبيعية الخلابة في مصر، من دلتا النيل الخصبة إلى الصحراء الشاسعة ووادي النيل. توفر هذه الرحلة فرصة فريدة لاكتشاف التنوع الطبيعي في مصر بينما تتبع خطى العائلة المقدسة.</p>
+            <p data-i18n="nature_about_p2">من واحات الصحراء إلى ضفاف النيل، ومن الجبال الشاهقة إلى السهول الخضراء، يقدم المسار تجربة بصرية فريدة تتناغم مع التجربة الروحية للرحلة.</p>
+          </div>
+          <div class="about-image" style="flex: 1 1 35%;">
+            <img src="images/nature/450.jpg" alt="منظر لنهر النيل" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+        <!-- المناطق الطبيعية -->
+        <div class="natural-areas" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="nature_areas_title">المناطق الطبيعية البارزة</h3>
+          <div class="destination-card" style="margin-bottom: 2rem;">
+            <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+              <div style="flex: 1 1 300px;">
+                <img src="images/nature/Naba'_El-Hamra_Lake-2.jpeg" alt="وادي النطرون" style="width: 100%; border-radius: 8px;">
+              </div>
+              <div style="flex: 2 1 400px;">
+                <h4 data-i18n="nature_natrun_title">وادي النطرون</h4>
+                <p data-i18n="nature_natrun_desc">يقع وادي النطرون في الصحراء الغربية، ويشتهر ببحيراته المالحة التي كانت مصدرًا لملح النطرون في العصور القديمة. يتميز الوادي بمناظره الصحراوية الفريدة وتكويناته الجيولوجية المثيرة.</p>
+                <p data-i18n="nature_natrun_p1">يمكن للزوار الاستمتاع بجمال شروق الشمس وغروبها على البحيرات، ومشاهدة الطيور المهاجرة التي تتوقف في المنطقة، واستكشاف النباتات الصحراوية التي تكيفت مع البيئة القاسية.</p>
+                <a href="beheira.html" class="btn" data-i18n="nature_natrun_btn">اكتشف وادي النطرون</a>
+              </div>
+            </div>
+          </div>
+          <div class="destination-card" style="margin-bottom: 2rem;">
+            <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+              <div style="flex: 1 1 300px;">
+                <img src="images/nature/Fa_z7pqXEAAr_kh.jpeg" alt="وادي النيل" style="width: 100%; border-radius: 8px;">
+              </div>
+              <div style="flex: 2 1 400px;">
+                <h4 data-i18n="nature_nile_title">وادي النيل بين المنيا وأسيوط</h4>
+                <p data-i18n="nature_nile_desc">يقدم هذا الجزء من وادي النيل بعضًا من أجمل المناظر الريفية في مصر، مع حقول القمح وقصب السكر والنخيل التي تمتد على ضفاف النهر. تتناثر الجزر النيلية الصغيرة التي تكسوها الخضرة في مجرى النهر.</p>
+                <p data-i18n="nature_nile_p1">يمكن للزوار الاستمتاع برحلات القوارب التقليدية (الفلوكة) لمشاهدة الحياة اليومية للفلاحين على ضفاف النيل، والاستمتاع بالهدوء والجمال الطبيعي الذي لا يزال يحتفظ بهذه المنطقة.</p>
+                <a href="asyut.html" class="btn" data-i18n="nature_nile_btn">اكتشف المنيا وأسيوط</a>
+              </div>
+            </div>
+          </div>
+          <div class="destination-card" style="margin-bottom: 2rem;">
+            <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+              <div style="flex: 1 1 300px;">
+                <img src="images/nature/44_12.jpg" alt="جبل الطير" style="width: 100%; border-radius: 8px;">
+              </div>
+              <div style="flex: 2 1 400px;">
+                <h4 data-i18n="nature_tayr_title">جبل الطير بالمنيا</h4>
+                <p data-i18n="nature_tayr_desc">يقع جبل الطير على الضفة الشرقية لنهر النيل في محافظة المنيا، ويوفر إطلالات بانورامية رائعة على النهر والريف المحيط. سمي بهذا الاسم بسبب الطيور الكثيرة التي كانت تعشش فيه.</p>
+                <p data-i18n="nature_tayr_p1">يقدم الجبل فرصة لمشاهدة تشكيلات صخرية مثيرة وتكوينات جيولوجية فريدة، كما يوفر نقطة مراقبة ممتازة لمشاهدة غروب الشمس فوق النيل والريف المصري.</p>
+                <a href="asyut.html" class="btn" data-i18n="nature_tayr_btn">اكتشف جبل الطير</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- الأنشطة الطبيعية -->
+        <div class="nature-activities" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="nature_activities_title">أنشطة طبيعية مميزة</h3>
+          <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <div class="activity-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10x rgba(0,0,0,0.1);">
+              <i class="fas fa-binoculars" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <img src="images/nature/873.jpg" alt="الطيور المهاجرة" style="width: 100%; border-radius: 10x;">             
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="nature_activity_birdwatching_title">مشاهدة الطيور</h4>
+              <p style="font-size: 0.9em;" data-i18n="nature_activity_birdwatching_desc">خاصة في منطقة وادي النطرون حيث تتوقف العديد من الطيور المهاجرة.</p>
+            </div>
+            <div class="activity-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-hiking" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <img src="images/nature/jzyrt_almeady_03304b9c0f.webp" alt="رحلات المشي" style="width: 100%; border-radius: 10x;">
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="nature_activity_hiking_title">رحلات المشي</h4>
+              <p style="font-size: 0.9em;" data-i18n="nature_activity_hiking_desc">استكشاف المسارات الطبيعية حول الأديرة والمواقع التاريخية.</p>
+            </div>
+            <div class="activity-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-ship" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <img src="images/nature/caption.jpg" alt="رحلات الفلوكة" style="width: 100%; border-radius: 10x;">
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="nature_activity_folklore_title">رحلات الفلوكة</h4>
+              <p style="font-size: 0.9em;" data-i18n="nature_activity_folklore_desc">تجربة النيل على متن القوارب التقليدية في المنيا وأسيوط.</p>
+            </div>
+            <div class="activity-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-camera" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <img src="images/nature/eos-r10_ambient_16-get-inspired_cae4f04b820546dfb654d36c14d9ce0a.webp" alt="التصوير الفوتوغرافي" style="width: 100%; border-radius: 10x;">
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="nature_activity_photography_title">التصوير الفوتوغرافي</h4>
+              <p style="font-size: 0.9em;" data-i18n="nature_activity_photography_desc">التقاط المناظر الطبيعية الخلابة على طول المسار.</p>
+            </div>
+          </div>
+        </div>
+        <!-- أفضل الأوقات للزيارة -->
+        <div class="best-times" style="background-color: var(--background-dark); padding: 2rem; border-radius: 8px; margin-bottom: 3rem;">
+          <h3 style="font-size: 1.5em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;" data-i18n="nature_best_times_title">أفضل الأوقات لزيارة المسار</h3>
+          <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <div style="flex: 1 1 200px; text-align: center;">
+              <div style="background-color: white; padding: 1.5rem; border-radius: 8px;">
+                <i class="fas fa-sun" style="color: var(--accent-color); font-size: 2em; margin-bottom: 1rem;"></i>
+                <h4 style="margin-bottom: 0.5rem;" data-i18n="nature_best_times_spring">فصل الربيع</h4>
+                <p style="font-size: 0.9em;" data-i18n="nature_best_times_spring_desc">(مارس - مايو)<br>أجواء معتدلة وطبيعة خضراء</p>
+              </div>
+            </div>
+            <div style="flex: 1 1 200px; text-align: center;">
+              <div style="background-color: white; padding: 1.5rem; border-radius: 8px;">
+                <i class="fas fa-umbrella-beach" style="color: var(--accent-color); font-size: 2em; margin-bottom: 1rem;"></i>
+                <h4 style="margin-bottom: 0.5rem;" data-i18n="nature_best_times_autumn">فصل الخريف</h4>
+                <p style="font-size: 0.9em;" data-i18n="nature_best_times_autumn_desc">(سبتمبر - نوفمبر)<br>أجواء لطيفة ومناسبات دينية</p>
+              </div>
+            </div>
+            <div style="flex: 1 1 200px; text-align: center;">
+              <div style="background-color: white; padding: 1.5rem; border-radius: 8px;">
+                <i class="fas fa-cloud-sun" style="color: var(--accent-color); font-size: 2em; margin-bottom: 1rem;"></i>
+                <h4 style="margin-bottom: 0.5rem;" data-i18n="nature_best_times_winter">فصل الشتاء</h4>
+                <p style="font-size: 0.9em;" data-i18n="nature_best_times_winter_desc">(ديسمبر - فبراير)<br>مناسب لزيارة الصحراء</p>
+              </div>
+            </div>
+            <div style="flex: 1 1 200px; text-align: center;">
+              <div style="background-color: white; padding: 1.5rem; border-radius: 8px;">
+                <i class="fas fa-temperature-high" style="color: var(--accent-color); font-size: 2em; margin-bottom: 1rem;"></i>
+                <h4 style="margin-bottom: 0.5rem;" data-i18n="nature_best_times_summer">فصل الصيف</h4>
+                <p style="font-size: 0.9em;" data-i18n="nature_best_times_summer_desc">(يونيو - أغسطس)<br>حار، لكن مناسب للزيارات الصباحية</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- معرض الصور -->
+        <div class="gallery-section">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="nature_gallery_title">معرض المناظر الطبيعية</h3>
+          <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="images/nature/450.jpg" data-fancybox="gallery" data-caption="وادي النطرون">
+                  <img src="images/nature/450.jpg" alt="وادي النطرون">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/nature/Fa_z7pqXEAAr_kh.jpeg" data-fancybox="gallery" data-caption="نهر النيل في المنيا">
+                  <img src="images/nature/Fa_z7pqXEAAr_kh.jpeg" alt="نهر النيل في المنيا">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/nature/44_12.jpg" data-fancybox="gallery" data-caption="جبل الطير">
+                  <img src="images/nature/44_12.jpg" alt="جبل الطير">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/nature/450.jpg" data-fancybox="gallery" data-caption="الريف المصري">
+                  <img src="images/nature/450.jpg" alt="الريف المصري">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/nature/caption.jpg" data-fancybox="gallery" data-caption="غروب الشمس على النيل">
+                  <img src="images/nature/caption.jpg" alt="غروب الشمس على النيل">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section" style="background:#c0392b; color:#fff; padding:3rem 0; text-align:center;">
+      <div class="container">
+        <h2 data-i18n="nature_cta_title">هل ترغب في استكشاف الجمال الطبيعي لمسار العائلة المقدسة؟</h2>
+        <p data-i18n="nature_cta_subtitle">خطط لرحلتك لاكتشاف هذه المناظر الخلابة</p>
+        <a href="plan_trip.html" class="btn" style="background:#fff; color:#c0392b; padding:.75rem 1.5rem; border-radius:4px; font-weight:600; display:inline-block; margin-top:1rem;" data-i18n="nature_cta_btn">خطّط رحلتك</a>
+      </div>
+    </section>
+  </main>
+  <!-- نفس الفوتر الموجود في الصفحة الرئيسية -->
+   <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_about">عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+            <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+            <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+          </ul>
+        </div><div class="footer-column">
+          <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+          <ul class="footer-links">
+           <li><a href="sharqia.html" data-i18n="index_footer_sharqia">  الشرقية والدلتا</a></li>
+            <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+            <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
+            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+          </ul>
+        </div>        
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+          <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+          <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+<script src="i18n.js"></script>
+</body>
+</html>

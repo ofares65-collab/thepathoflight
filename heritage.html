@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="heritage_title">استكشاف التراث - مسار العائلة المقدسة</title>
+
+  <!-- الخطوط والأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <!-- مكتبات Swiper & Fancybox -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body class="heritage">
+<!-- الهيدر -->
+<header class="header">
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <img src="images/logo192.png" alt="مسار العائلة المقدسة"
+           onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+    </a>
+    <button class="mobile-toggle" id="mobileToggle"
+            aria-controls="navMenu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a></li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+        <ul class="dropdown-menu">
+          <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+          <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+          <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+          <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+          <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+        <ul class="dropdown-menu">
+          <li><a href="religious_visits.html" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+          <li><a href="heritage.html" class="dropdown-item active" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+          <li><a href="nature.html" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+          <li><a href="coptic_culture.html" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+          <li><a href="local_cuisine.html" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="plan_trip.html" class="nav-link" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+      </li>
+    </ul>
+    <div class="language-switcher-container">
+      <select id="language-switcher" class="language-switcher">
+        <option value="ar" data-i18n="lang_arabic">العربية</option>
+        <option value="en" data-i18n="lang_english">English</option>
+        <option value="fr" data-i18n="lang_french">Français</option>
+        <option value="de" data-i18n="lang_german">Deutsch</option>
+        <option value="it" data-i18n="lang_italian">Italiano</option>
+        <option value="es" data-i18n="lang_spanish">Español</option>
+        <option value="pt" data-i18n="lang_Portuguese">Português</option>
+        <option value="pl" data-i18n="lang_polish">Polski</option>
+        <option value="ru" data-i18n="lang_russian">Русский</option>
+        <option value="zh" data-i18n="lang_chinese">中国人</option>
+        <option value="ko" data-i18n="lang_korean">한국어</option>
+        <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+        <option value="hy" data-i18n="lang_armenian">հայ</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<!-- الهيرو -->
+<section class="hero-section" style="background-image:url('images/heritage/hero-bg.jpg');">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 data-i18n="heritage_hero_title">استكشاف التراث</h1>
+    <p data-i18n="heritage_hero_subtitle">تعرف على الكنوز الأثرية التي حفظت تاريخ العائلة المقدسة في مصر</p>
+  </div>
+</section>
+
+<main>
+  <!-- عن النشاط -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="heritage_about_title">رحلةٌ روحانية عبر التاريخ</h2>
+      <p data-i18n="heritage_about_p1">
+        انطلق في رحلة عبر الزمن واكتشف واحدة من أقدم المسارات الدينية في العالم، حيث امتزج الإيمان بالثقافة والطبيعة في لوحة خالدة...
+      </p>
+    </div>
+  </section>
+
+  <!-- أماكن مميزة -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="heritage_destinations_title">أماكن مميزة</h2>
+      <div class="grid-row" style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+
+        <!-- بطاقة 1 -->
+        <div class="place-card">
+          <i class="fas fa-church" style="color:#c0392b; font-size:2rem;"></i>
+          <img src="images/heritage/كنيسة-العذراء-مريم-بالمعادي4-678x1024.jpg"
+               class="swiper-lazy" alt="كنيسة العذراء مريم – المعادي"
+               loading="lazy">
+          <h4 data-i18n="heritage_place1_title">كنيسة العذراء مريم – المعادي</h4>
+          <p class="short" data-i18n="heritage_place1_short_desc">واحدة من أهم المواقع التي توقفت فيها العائلة المقدسة.</p>
+          <button class="toggle-btn" style="background:none; border:none; color:#c0392b; cursor:pointer; font-weight:bold;" data-i18n="heritage_toggle_more">
+          عرض المزيد
+        </button>
+
+          <div class="details">
+            <p data-i18n="heritage_place1_details">هل تعلم أنك تقف في مكانٍ استراح فيه المسيح الطفل والعذراء مريم...</p>
+          </div>
+        </div>
+
+        <!-- بطاقة 2 -->
+        <div class="place-card">
+          <i class="fas fa-archway" style="color:#c0392b; font-size:2rem;"></i>
+          <img src="images/heritage/IMG_٢٠٢١٠٧١٣_١٤٣٢٥٣-1536x709.jpg"
+               class="swiper-lazy" alt="مغارة العائلة المقدسة – كنيسة أبي سرجة"
+               loading="lazy">
+          <h4 data-i18n="heritage_place2_title">مغارة العائلة المقدسة – كنيسة أبي سرجة</h4>
+          <p class="short" data-i18n="heritage_place2_short_desc">المغارة التي اختبأت فيها العائلة المقدسة أثناء وجودها في مصر.</p>
+          <button class="toggle-btn" style="background:none; border:none; color:#c0392b; cursor:pointer; font-weight:bold;" data-i18n="heritage_toggle_more">
+          عرض المزيد
+        </button>
+
+          <div class="details">
+            <p data-i18n="heritage_place2_details">تحتضن الكنيسة مغارة أثرية يُعتقد أن العائلة المقدسة عاشت فيها...</p>
+          </div>
+        </div>
+
+        <!-- بطاقة 3 -->
+        <div class="place-card">
+          <i class="fas fa-landmark" style="color:#c0392b; font-size:2rem;"></i>
+          <img src="images/heritage/324513859_664739612060017_5351782575844247324_n-1536x1152.jpg"
+               class="swiper-lazy" alt="كنيسة المغارة – جبل الطير"
+               loading="lazy">
+          <h4 data-i18n="heritage_place3_title">كنيسة المغارة – جبل الطير</h4>
+          <p class="short" data-i18n="heritage_place3_short_desc">موقع مميز يُعتقد أن العائلة المقدسة مرت به أثناء رحلتها.</p>
+          <button class="toggle-btn" style="background:none; border:none; color:#c0392b; cursor:pointer; font-weight:bold;" data-i18n="heritage_toggle_more">
+          عرض المزيد
+        </button>
+
+          <div class="details">
+            <p data-i18n="heritage_place3_details">في قلب الصحراء الغربية لمصر، يرتفع جبل الطير...</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- معرض الصور المحسن -->
+<section class="gallery-section">
+  <div class="container">
+    <h3 class="section-title" data-i18n="heritage_gallery_title">معرض صور التراث</h3>
+
+    <div class="swiper gallery-swiper">
+      <div class="swiper-wrapper">
+        <!-- صورة 1 -->
+        <div class="swiper-slide">
+          <a href="images/heritage/كنيسة-العذراء-مريم-بالمعادي4-678x1024.jpg"
+             data-fancybox="gallery"
+             data-caption="كنيسة العذراء مريم – المعادي"
+             data-download-url="images/heritage/كنيسة-العذراء-مريم-بالمعادي4-678x1024.jpg">
+            <img src="images/heritage/كنيسة-العذراء-مريم-بالمعادي4-678x1024.jpg"
+                 alt="كنيسة العذراء مريم – المعادي">
+          </a>
+        </div>
+
+        <!-- صورة 2 -->
+        <div class="swiper-slide">
+          <a href="images/heritage/DeirMuharraqChurchHlVirginInside.jpg"
+             data-fancybox="gallery"
+             data-caption="دير المحرّق"
+             data-download-url="images/heritage/DeirMuharraqChurchHlVirginInside.jpg">
+            <img src="images/heritage/DeirMuharraqChurchHlVirginInside.jpg"
+                 alt="دير المحرّق">
+          </a>
+        </div>
+
+        <!-- صورة 3 -->
+        <div class="swiper-slide">
+          <a href="images/heritage/IMG_٢٠٢١٠٧١٣_١٤٣٢٥٣-1536x709.jpg"
+             data-fancybox="gallery"
+             data-caption="مغارة العائلة المقدسة – كنيسة أبي سرجة"
+             data-download-url="images/heritage/IMG_٢٠٢١٠٧١٣_١٤٣٢٥٣-1536x709.jpg">
+            <img src="images/heritage/IMG_٢٠٢١٠٧١٣_١٤٣٢٥٣-1536x709.jpg"
+                 alt="مغارة العائلة المقدسة">
+          </a>
+        </div>
+
+        <!-- صورة 4 -->
+        <div class="swiper-slide">
+          <a href="images/heritage/NAS_4834_1643457508.jpg"
+             data-fancybox="gallery"
+             data-caption="تراث 4"
+             data-download-url="images/heritage/NAS_4834_1643457508.jpg">
+            <img src="images/heritage/NAS_4834_1643457508.jpg"
+                 alt="تراث 4">
+          </a>
+        </div>
+        <!-- صورة 3 -->
+        <div class="swiper-slide">
+          <a href="images/heritage/188646-744175994.jpg"
+             data-fancybox="gallery"
+             data-caption="مغارة العائلة المقدسة – كنيسة أبي سرجة"
+             data-download-url="images/heritage/IMG_٢٠٢١٠٧١٣_١٤٣٢٥٣-1536x709.jpg">
+            <img src="images/heritage/188646-744175994.jpg"
+                 alt="مغارة العائلة المقدسة">
+          </a>
+        </div>
+        <!-- صورة 3 -->
+        <div class="swiper-slide">
+          <a href="images/heritage/202322771851183.jpg"
+             data-fancybox="gallery"
+             data-caption="مغارة العائلة المقدسة – كنيسة أبي سرجة"
+             data-download-url="images/heritage/IMG_٢٠٢١٠٧١٣_١٤٣٢٥٣-1536x709.jpg">
+            <img src="images/heritage/202322771851183.jpg"
+                 alt="مغارة العائلة المقدسة">
+          </a>
+        </div>
+      </div>
+
+      <!-- أزرار التنقل -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+  <!-- Call-to-Action -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 data-i18n="heritage_cta_title">هل ترغب في التعمّق في تراث العائلة المقدسة؟</h2>
+      <p data-i18n="heritage_cta_subtitle">خطط لرحلتك الآن واكتشف الكنوز الأثرية</p>
+      <a href="plan_trip.html" class="btn" data-i18n="heritage_cta_btn">خطّط رحلتك</a>
+    </div>
+  </section>
+</main>
+
+<!-- الفوتر -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3 data-i18n="footer_about_title">عن المسار</h3>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="footer_about_us">من نحن</a></li>
+          <li><a href="history.html" data-i18n="footer_history">تاريخ المسار</a></li>
+          <li><a href="faq.html" data-i18n="footer_faq">الأسئلة الشائعة</a></li>
+          <li><a href="contact_us.html" data-i18n="footer_contact">اتصل بنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="footer_destinations_title">الوجهات</h3>
+        <ul class="footer-links">
+          <li><a href="sharqia.html" data-i18n="footer_sharqia">الشرقية والدلتا</a></li>
+          <li><a href="cairo.html" data-i18n="footer_cairo">القاهرة</a></li>
+          <li><a href="beheira.html" data-i18n="footer_beheira">وادي النطرون</a></li>
+          <li><a href="asyut.html" data-i18n="footer_asyut">المنيا وأسيوط</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="footer_contact_title">تواصل معنا</h3>
+        <p data-i18n="footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+        <p data-i18n="footer_phone">الهاتف: +20 123 456 7890</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="footer_desc_title">عن مسار العائلة المقدسة</h3>
+        <p data-i18n="footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر...</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p data-i18n="footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- مكتبات خارجية -->
+<script src="i18n.js"></script>
+<script src="scripts.js"></script>
+<!-- مكتبات Swiper & Fancybox -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="cairo-title">القاهرة - مسار العائلة المقدسة</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cairo">
+  
+<header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo192.png" alt="مسار العائلة المقدسة" onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+          <ul class="dropdown-menu">
+            <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+            <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+          <ul class="dropdown-menu">
+            <li><a href="religious_visits.html" class="dropdown-item" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" class="dropdown-item" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" class="dropdown-item" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" class="dropdown-item" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" class="dropdown-item" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+        </li>
+        
+      </ul>
+<div class="language-switcher-container">
+        <select id="language-switcher" class="language-switcher">
+          <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pt" data-i18n="lang_Portuguese">Português</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section" style="background-image: url('images/cairo/شجرة مريم -المطرية1.png');">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content fade-in">
+        <h1 data-i18n="cairo-hero-title">القاهرة</h1>
+        <p data-i18n="cairo-hero-subtitle">اكتشف المحطات التاريخية والدينية للعائلة المقدسة في قلب العاصمة المصرية.</p>
+      </div>
+    </section>
+
+    <section class="about-destination section-padding bg-light">
+      <div class="container grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div class="about-text" style="flex: 1 1 45%;">
+          <h2 class="section-title" data-i18n="cairo-about-title"> القاهرة.. قلب مصر النابض بالتاريخ </h2>
+          <p data-i18n="cairo-about-description">"وَإِذْ أَوَيْنَا إِلَى الْكِنَاوَةِ، فَأَصْبَحَتْ مَبَارَكَةً وَمُعَزَّزَةً" ... في رحلتهم عبر مصر، مرت العائلة المقدسة بمناطق القاهرة القديمة، تاركةً وراءها إرثاً روحياً عظيماً لا يزال حياً حتى اليوم. ✝ "مِصْرُ.. أرضُ الأنبياءِ والبركات"
+من الكنيسة المعلقة إلى مغارة أبو سرجة، تحوي القاهرة العديد من المواقع المقدسة التي تروي قصة العائلة المقدسة وتجمع بين التاريخ المصري القديم والتراث المسيحي العريق.</p>
+        </div>
+
+        <div class="map-content">
+          <h2 data-i18n="map-title">اكتشف المسار على الخريطة</h2>
+          <div id="map" class="map-container"></div>
+          <p style="margin-top: 20px; font-size: 0.9em; color: #555;" data-i18n="map-caption">الخريطة تعرض بعض المواقع الرئيسية على مسار العائلة المقدسة. انقر على العلامات لمعرفة المزيد.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="cairo-stations-title">المحطات الرئيسية في القاهرة</h2>
+        <div class="swiper destinations-swiper fade-in">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="destination-card fade-in">
+                <img src="images/cairo/hanging-church.jpg" alt="الكنيسة المعلقة">
+                <div class="card-content">
+                  <h3 data-i18n="cairo-hanging-church-title">الكنيسة المعلقة</h3>
+                  <p data-i18n="cairo-hanging-church-description">تُعد من أقدم وأشهر الكنائس في مصر، وتتميز بعمارتها الفريدة.</p>
+                  <ul>
+                    <li>
+                        <button class="toggle-details" data-target="hanging-church-details" data-i18n="cairo-hanging-church-history-btn">تاريخ الكنيسة <i class="fas fa-chevron-down"></i></button>
+                        <div class="details" id="hanging-church-details" data-i18n="cairo-hanging-church-history">
+                            بُنيت الكنيسة المعلقة في القرن الثالث الميلادي فوق بوابة حصن بابليون الروماني، مما أعطاها اسم "المعلقة". تتميز الكنيسة بعمودين من الرخام يقال إن السيد المسيح استند إليهما أثناء زيارته لمصر.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="toggle-details" data-target="hanging-church-design" data-i18n="cairo-hanging-church-design-btn">تصميم الكنيسة <i class="fas fa-chevron-down"></i></button>
+                        <div class="details" id="hanging-church-design" data-i18n="cairo-hanging-church-design">
+                            تتميز الكنيسة بتصميمها الفريد الذي يجمع بين العمارة القبطية والبيزنطية. تحتوي الكنيسة على 13 عموداً تمثل السيد المسيح والرسل الاثني عشر، وأيقونات نادرة تعود للقرون الأولى للمسيحية.
+                        </div>
+                    </li>
+                  </ul>
+                  <div class="share-btn">
+        <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="cairo_share_facebook">فيسبوك</span></a>
+        <a href="https://twitter.com/" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="cairo_share_twitter">تويتر</span></a>
+        <a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="cairo_share_linkedin">لينكدإن</span></a>
+    </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="destination-card fade-in">
+                <img src="images/Cairo/كنيسة ابى سرجة6.png" alt="كنيسة أبو سرجة">
+                <div class="card-content">
+                  <h3 data-i18n="cairo-abu-serga-title">كنيسة أبو سرجة</h3>
+                  <p data-i18n="cairo-abu-serga-description">يُعتقد أنها بنيت فوق المغارة التي أقامت بها العائلة المقدسة.</p>
+                  <ul>
+                    <li>
+                        <button class="toggle-details" data-target="abu-serga-cave" data-i18n="cairo-abu-serga-cave-btn">المغارة المقدسة <i class="fas fa-chevron-down"></i></button>
+                        <div class="details" id="abu-serga-cave" data-i18n="cairo-abu-serga-cave">
+                            تقع المغارة تحت الكنيسة ويُعتقد أن العائلة المقدسة أقامت فيها خلال رحلتها إلى مصر. المغارة تحولت إلى مكان للعبادة وتحوي آثاراً يعتقد أنها تعود إلى زمن العائلة المقدسة.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="toggle-details" data-target="abu-serga-history" data-i18n="cairo-abu-serga-history-btn">مكان روحي <i class="fas fa-chevron-down"></i></button>
+                        <div class="details" id="abu-serga-history" data-i18n="cairo-abu-serga-history">
+                            تعتبر الكنيسة من أقدس الأماكن للطائفة القبطية، حيث تقام فيها الصلوات والقداسات في أجواء روحانية مميزة تجذب الزوار من جميع أنحاء العالم.
+                        </div>
+                    </li>
+                  </ul>
+                  <div class="share-btn">
+                      <a href="https://www.facebook.com/" target="_blank" class="facebook" data-i18n="share-facebook-2"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+                      <a href="https://twitter.com/" target="_blank" class="twitter" data-i18n="share-twitter-2"><i class="fab fa-twitter"></i> تويتر</a>
+                      <a href="https://www.linkedin.com/" target="_blank" class="linkedin" data-i18n="share-linkedin-2"><i class="fab fa-linkedin-in"></i> لينكدإن</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="destination-card fade-in">
+                <img src="images/Cairo/7f72fdeabb-768x512.jpg" alt="كنيس بن عزرا">
+                <div class="card-content">
+                  <h3 data-i18n="cairo-ben-ezra-title">كنيس بن عزرا</h3>
+                  <p data-i18n="cairo-ben-ezra-description">مكان تاريخي له أهمية دينية وثقافية، ويقع بالقرب من المواقع القبطية.</p>
+                  <ul>
+                    <li>
+                        <button class="toggle-details" data-target="ben-ezra-history" data-i18n="cairo-ben-ezra-history-btn">تاريخ يهودي <i class="fas fa-chevron-down"></i></button>
+                        <div class="details" id="ben-ezra-history" data-i18n="cairo-ben-ezra-history">
+                            يعود تاريخ الكنيس إلى القرن التاسع الميلادي، ويُعتقد أنه بُني على موقع حيث كانت العائلة المقدسة تستريح أثناء رحلتها. الكنيس يحوي مخطوطات نادرة تعود إلى العصور الوسطى.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="toggle-details" data-target="ben-ezra-architecture" data-i18n="cairo-ben-ezra-architecture-btn">عمارة قديمة <i class="fas fa-chevron-down"></i></button>
+                        <div class="details" id="ben-ezra-architecture" data-i18n="cairo-ben-ezra-architecture">
+                            يتميز الكنيس بتصميمه المعماري الفريد الذي يجمع بين العناصر الفرعونية والقبطية واليهودية، مما يجعله تحفة معمارية نادرة.
+                        </div>
+                    </li>
+                  </ul>
+                  <div class="share-btn">
+                      <a href="https://www.facebook.com/" target="_blank" class="facebook" data-i18n="share-facebook-3"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+                      <a href="https://twitter.com/" target="_blank" class="twitter" data-i18n="share-twitter-3"><i class="fab fa-twitter"></i> تويتر</a>
+                      <a href="https://www.linkedin.com/" target="_blank" class="linkedin" data-i18n="share-linkedin-3"><i class="fab fa-linkedin-in"></i> لينكدإن</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="destination-card fade-in">
+                <img src="images/cairo/كنيسة المعادى.webp" alt="كنيسة السيدة العذراء بالمعادي">
+                <div class="card-content">
+                  <h3 data-i18n="cairo-maadi-church-title">كنيسة السيدة العذراء بالمعادي</h3>
+                  <p data-i18n="cairo-maadi-church-description">يُعتقد أن العائلة المقدسة قد أبحرت منها عبر النيل جنوبًا.</p>
+                  <ul>
+                    <li>
+                        <button class="toggle-details" data-target="maadi-journey" data-i18n="cairo-maadi-journey-btn">رحلة نهرية <i class="fas fa-chevron-down"></i></button>
+                        <div class="details" id="maadi-journey" data-i18n="cairo-maadi-journey">
+                            وفقاً للتقاليد القبطية، استقلت العائلة المقدسة مركباً من شاطئ المعادي متجهة جنوباً نحو الصعيد. الكنيسة بنيت في هذا الموقع لتخليد ذكرى هذه الرحلة المقدسة.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="toggle-details" data-target="maadi-location" data-i18n="cairo-maadi-location-btn">على ضفاف النيل <i class="fas fa-chevron-down"></i></button>
+                        <div class="details" id="maadi-location" data-i18n="cairo-maadi-location">
+                            تقع الكنيسة مباشرة على ضفاف النيل، وتوفر إطلالة رائعة على النهر الذي حمل العائلة المقدسة في رحلتها. يمكن للزوار مشاهدة المكان الذي يُعتقد أن العائلة استقلت منه المركب.
+                        </div>
+                    </li>
+                  </ul>
+                  <div class="share-btn">
+                      <a href="https://www.facebook.com/" target="_blank" class="facebook" data-i18n="share-facebook-4"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+                      <a href="https://twitter.com/" target="_blank" class="twitter" data-i18n="share-twitter-4"><i class="fab fa-twitter"></i> تويتر</a>
+                      <a href="https://www.linkedin.com/" target="_blank" class="linkedin" data-i18n="share-linkedin-4"><i class="fab fa-linkedin-in"></i> لينكدإن</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section activities-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="cairo-activities-title">الأنشطة والتجارب في القاهرة</h2>
+        <div class="swiper activities-swiper fade-in">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="activity-card">
+                <img src="images/cairo/The Church of St. George - Cairo.jpg" alt="جولات تاريخية ودينية">
+                <div class="card-content">
+                  <h3 data-i18n="cairo-activity-tours-title">جولات تاريخية ودينية</h3>
+                  <p data-i18n="cairo-activity-tours-description">قم بجولات إرشادية في كنائس القاهرة القديمة ومواقعها الأثرية.</p>
+                  <ul>
+                      <li>
+                          <button class="toggle-details" data-target="activity-tours-details" data-i18n="cairo-activity-tours-details-btn">تفاصيل الجولات <i class="fas fa-chevron-down"></i></button>
+                          <div class="details" id="activity-tours-details" data-i18n="cairo-activity-tours-details">
+                              استمتع بجولات إرشادية في الحي القبطي بالقاهرة، حيث يمكنك زيارة الكنيسة المعلقة وكنيسة أبي سرجة وكنيس بن عزرا، والتعرف على تاريخها العريق وارتباطها برحلة العائلة المقدسة.
+                          </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="activity-card">
+                <img src="images/cairo/Khan El Khalili Bazaar .webp" alt="استكشاف القاهرة الفاطمية">
+                <div class="card-content">
+                  <h3 data-i18n="cairo-activity-fatimid-title">استكشاف القاهرة الفاطمية</h3>
+                  <p data-i18n="cairo-activity-fatimid-description">قم بزيارة الأسواق التاريخية والمساجد في القاهرة الفاطمية القريبة.</p>
+                  <ul>
+                      <li>
+                          <button class="toggle-details" data-target="activity-fatimid-details" data-i18n="cairo-activity-fatimid-details-btn">تفاصيل الاستكشاف <i class="fas fa-chevron-down"></i></button>
+                          <div class="details" id="activity-fatimid-details" data-i18n="cairo-activity-fatimid-details">
+                              قم بجولة في القاهرة الفاطمية لرؤية المساجد التاريخية مثل مسجد الحاكم بأمر الله ومسجد الأقمر، وتجول في أسواق خان الخليلي التقليدية التي تعود إلى العصور الوسطى.
+                          </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="activity-card">
+                <img src="images/cairo/Felucca Ride.png" alt="رحلات نيلية">
+                <div class="card-content">
+                  <h3 data-i18n="cairo-activity-nile-title">رحلات نيلية هادئة</h3>
+                  <p data-i18n="cairo-activity-nile-description">استمتع برحلة على نهر النيل، كما فعلت العائلة المقدسة.</p>
+                  <ul>
+                      <li>
+                          <button class="toggle-details" data-target="activity-nile-details" data-i18n="cairo-activity-nile-details-btn">تفاصيل الرحلة <i class="fas fa-chevron-down"></i></button>
+                          <div class="details" id="activity-nile-details" data-i18n="cairo-activity-nile-details">
+                              خذ رحلة نيلية هادئة تشبه تلك التي قامت بها العائلة المقدسة عند انتقالها من القاهرة إلى الصعيد. استمتع بمناظر النيل الخلابة والهواء النقي أثناء رحلتك.
+                          </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="activity-card">
+                <img src="images/local_cuisine/كشري-العيد.webp" alt="تذوق المأكولات المصرية">
+                <div class="card-content">
+                  <h3 data-i18n="cairo-activity-food-title">تذوق المأكولات المصرية الأصيلة</h3>
+                  <p data-i18n="cairo-activity-food-description">استمتع بتشكيلة واسعة من الأطباق المصرية في المطاعم المحلية.</p>
+                  <ul>
+                      <li>
+                          <button class="toggle-details" data-target="activity-food-details" data-i18n="cairo-activity-food-details-btn">تفاصيل الأطعمة <i class="fas fa-chevron-down"></i></button>
+                          <div class="details" id="activity-food-details" data-i18n="cairo-activity-food-details">
+                              جرب الأطباق المصرية التقليدية مثل الكشري والفتة والملوخية في المطاعم المحلية بالقاهرة، وتذوق النكهات الأصيلة التي تعكس تنوع الثقافة المصرية.
+                          </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="cairo-gallery-title">معرض الصور</h2>
+        <div class="swiper gallery-swiper fade-in">
+          <div class="swiper-wrapper">
+             <div class="swiper-slide">
+
+              <a href="images/cairo/FILE9289.JPG" data-fancybox="gallery" data-caption="الكنيسة المعلقة">
+                <img src="images/cairo/FILE9289.JPG" alt="الكنيسة المعلقة">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/cairo/المغارة .jpg" data-fancybox="gallery" data-caption="مغارة كنيسة أبو سرجة">
+                <img src="images/cairo/المغارة .jpg" alt="مغارة كنيسة أبو سرجة">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/cairo/FILE9793.JPG" data-fancybox="gallery" data-caption="ممر في القاهرة القبطية">
+                <img src="images/cairo/FILE9793.JPG" alt="ممر في القاهرة القبطية">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/cairo/كنيسة-المعاددي-من-الداخل.jpg" data-fancybox="gallery" data-caption="مدخل كنيسة">
+                <img src="images/cairo/كنيسة-المعاددي-من-الداخل.jpg" alt="مدخل كنيسة">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/cairo/كنيسة ابى سرجة6.png" data-fancybox="gallery" data-caption="تفاصيل معمارية">
+                <img src="images/cairo/كنيسة ابى سرجة6.png" alt="تفاصيل معمارية">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/cairo/كنيسة المعادى.webp" data-fancybox="gallery" data-caption="كنيسة المعادي من النيل">
+                <img src="images/cairo/كنيسة المعادى.webp" alt="كنيسة المعادي من النيل">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+
+        </div>
+      </div>
+    </section>
+<section class="cta-section" style="background:#c0392b; color:#fff; padding:3rem 0; text-align:center;">
+    <div class="container">
+      <h2 data-i18n="cairo-cta-title">هل أنت مستعد لاستكشاف القاهرة القديمة؟</h2>
+      <p data-i18n="cairo-cta-description">خطط لرحلتك لاكتشاف هذه المحطات الروحية والتاريخية.</p>
+      <a href="plan_trip.html" class="btn" style="background:#fff; color:#c0392b; padding:.75rem 1.5rem; border-radius:4px; font-weight:600; display:inline-block; margin-top:1rem;" data-i18n="cairo-cta-button">خطّط رحلتك</a>
+    </div>
+  </section>
+
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_about">عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+            <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+            <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+          </ul>
+        </div><div class="footer-column">
+          <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+          <ul class="footer-links">
+           <li><a href="sharqia.html" data-i18n="index_footer_sharqia">  الشرقية والدلتا</a></li>
+            <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+            <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
+            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+          </ul>
+        </div>        
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+          <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+          <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+ <script src="i18n.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

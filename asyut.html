@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>أسيوط - مسار العائلة المقدسة</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css">
+
+  <meta name="description" content="اكتشف مسار العائلة المقدسة في محافظة أسيوط، بما في ذلك دير درنكة ومواقعها التاريخية.">
+</head>
+
+<body class="asyut">
+<!-- ==================== Header ==================== -->
+<header class="header">
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <img src="images/logo192.png" alt="مسار العائلة المقدسة" onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+    </a>
+
+    <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a></li>
+
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+        <ul class="dropdown-menu">
+          <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+          <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+          <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+          <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+          <li><a href="asyut.html" class="active" data-i18n="index_nav_asyut">أسيوط</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+        <ul class="dropdown-menu">
+          <li><a href="religious_visits.html" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+          <li><a href="heritage.html" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+          <li><a href="nature.html" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+          <li><a href="coptic_culture.html" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+          <li><a href="local_cuisine.html" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a href="plan_trip.html" class="nav-link" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+      </li>
+    </ul>
+
+    <div class="language-switcher-container">
+      <select id="language-switcher" class="language-switcher">
+        <option value="ar" data-i18n="lang_arabic">العربية</option>
+        <option value="en" data-i18n="lang_english">English</option>
+        <option value="fr" data-i18n="lang_french">Français</option>
+        <option value="de" data-i18n="lang_german">Deutsch</option>
+        <option value="it" data-i18n="lang_italian">Italiano</option>
+        <option value="es" data-i18n="lang_spanish">Español</option>
+        <option value="pt" data-i18n="lang_Portuguese">Português</option>
+        <option value="pl" data-i18n="lang_polish">Polski</option>
+        <option value="ru" data-i18n="lang_russian">Русский</option>
+        <option value="zh" data-i18n="lang_chinese">中国人</option>
+        <option value="ko" data-i18n="lang_korean">한국어</option>
+        <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+        <option value="hy" data-i18n="lang_armenian">հայ</option>
+        <option value="sw" data-i18n="lang_swahili">kiswahili</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== المحتوى الرئيسي ==================== -->
+<main>
+  <!-- بطل الصفحة -->
+  <section class="hero-section" style="background-image: url('images/asyut/الكنيسة-الأثرية-بدير-المحرق.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content fade-in">
+      <h1 data-i18n="asyut_hero_title">أسيوط</h1>
+      <p data-i18n="asyut_hero_subtitle">اكتشف المحطة الأخيرة لرحلة العائلة المقدسة في مصر، دير درنكة ومغارته المقدسة.</p>
+    </div>
+  </section>
+
+  <!-- عن أسيوط + الخريطة -->
+  <section class="about-destination section-padding bg-light">
+    <div class="container grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+      <div class="about-text" style="flex: 1 1 45%;">
+        <h2 class="section-title" data-i18n="asyut_about_title">أسيوط.. نهاية رحلة وبداية بركة</h2>
+        <p data-i18n="asyut_about_p1">
+          ✝ «مِصْرُ أرضُ الأنبياءِ والبركات»... «وَإِذْ أَوَيْنَا إِلَى الْكِنَاوَةِ، فَأَصْبَحَتْ مَبَارَكَةً وَمُعَزَّزَةً»...
+          تُعد أسيوط آخر وأهم محطات العائلة المقدسة في رحلتها إلى صعيد مصر، حيث مكثت العائلة في مغارة دير درنكة قبل عودتها إلى فلسطين.
+          تحوي أسيوط مواقع مقدسة تحمل في طياتها قصصًا عن حماية العائلة المقدسة وسلامتها، مما يجعلها وجهة روحية فريدة تجذب الحجاج والزوار من كل مكان.
+        </p>
+      </div>
+      <div class="map-content" style="flex: 1 1 45%;">
+        <h2 data-i18n="asyut_map_title">اكتشف المسار على الخريطة</h2>
+        <div id="map" class="map-container"></div>
+        <p style="margin-top: 20px; font-size: 0.9em; color: #555;" data-i18n="index_map_subtitle">
+          الخريطة تعرض بعض المواقع الرئيسية على مسار العائلة المقدسة. انقر على العلامات لمعرفة المزيد.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- المحطات الرئيسية -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title fade-in" data-i18n="asyut_destinations_title">المحطات الرئيسية في أسيوط</h2>
+
+      <div class="swiper destinations-swiper fade-in">
+        <div class="swiper-wrapper">
+
+          <!-- دير درنكة -->
+          <div class="swiper-slide">
+            <div class="destination-card">
+              <img src="images/asyut/2022_8_7_13_54_42_932.jpg" alt="دير درنكة (جبل أسيوط الغربي)">
+              <div class="card-content">
+                <h3 data-i18n="asyut_destination_dranka_title">دير درنكة (جبل أسيوط الغربي)</h3>
+                <p data-i18n="asyut_destination_dranka_desc">يعد هذا الدير المحطة الأخيرة للعائلة المقدسة في رحلتها إلى مصر، ويحتوي على المغارة التي أقامت بها.</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="dranka-cave" data-i18n="asyut_dranka_cave_label">
+                      المغارة المقدسة <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="dranka-cave" data-i18n="asyut_dranka_cave_details">
+                      تُعتبر المغارة داخل دير درنكة من أقدس الأماكن، حيث يُعتقد أن العائلة المقدسة أقامت فيها لعدة أيام قبل عودتها. يتم الاحتفال بعيد العذراء في هذا الدير سنوياً.
+                    </div>
+                  </li>
+                  <li>
+                    <button class="toggle-details" data-target="dranka-significance" data-i18n="asyut_dranka_significance_label">
+                      الأهمية الروحية <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="dranka-significance" data-i18n="asyut_dranka_significance_details">
+                      الدير مركز رئيسي للحج المسيحي في مصر، وخاصة خلال فترة صوم السيدة العذراء، حيث يتوافد إليه الآلاف من الزوار من جميع أنحاء العالم.
+                    </div>
+                  </li>
+                </ul>
+
+                <!-- أزرار المشاركة -->
+                <div class="share-btn">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/asyut.html" target="_blank" class="facebook">
+                    <i class="fab fa-facebook-f"></i> <span data-i18n="asyut_share_facebook">فيسبوك</span>
+                  </a>
+                  <a href="https://twitter.com/intent/tweet?text=دير درنكة - أسيوط&url=https://example.com/asyut.html" target="_blank" class="twitter">
+                    <i class="fab fa-twitter"></i> <span data-i18n="asyut_share_twitter">تويتر</span>
+                  </a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/asyut.html" target="_blank" class="linkedin">
+                    <i class="fab fa-linkedin-in"></i> <span data-i18n="asyut_share_linkedin">لينكدإن</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- دير المحرق -->
+          <div class="swiper-slide">
+            <div class="destination-card">
+              <img src="images/asyut/NAS_4558-780x470.jpg" alt="دير المحرق (القوصية)">
+              <div class="card-content">
+                <h3 data-i18n="asyut_destination_muharraq_title">دير المحرق (القوصية)</h3>
+                <p data-i18n="asyut_destination_muharraq_desc">يعتبر من أهم الأديرة القبطية، ويُعتقد أن العائلة المقدسة أقامت فيه لفترة طويلة.</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="muharraq-altar" data-i18n="asyut_muharraq_altar_label">
+                      المذبح الأثري <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="muharraq-altar" data-i18n="asyut_muharraq_altar_details">
+                      يحتوي الدير على المذبح الذي يُعتقد أن السيد المسيح باركه، وهو من أقدم المذابح المسيحية في العالم.
+                    </div>
+                  </li>
+                  <li>
+                    <button class="toggle-details" data-target="muharraq-monasticism" data-i18n="asyut_muharraq_monasticism_label">
+                      نشأة الرهبنة <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="muharraq-monasticism" data-i18n="asyut_muharraq_monasticism_details">
+                      يُعتبر دير المحرق من أقدم الأديرة في العالم، وقد شهد تطور الحركة الرهبانية منذ قرونها الأولى.
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="share-btn">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/asyut.html" target="_blank" class="facebook">
+                    <i class="fab fa-facebook-f"></i> <span data-i18n="share-facebook">فيسبوك</span>
+                  </a>
+                  <a href="https://twitter.com/intent/tweet?text=دير المحرق - أسيوط&url=https://example.com/asyut.html" target="_blank" class="twitter">
+                    <i class="fab fa-twitter"></i> <span data-i18n="share-twitter">تويتر</span>
+                  </a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/asyut.html" target="_blank" class="linkedin">
+                    <i class="fab fa-linkedin-in"></i> <span data-i18n="share-linkedin">لينكدإن</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- مدينة أسيوط -->
+          <div class="swiper-slide">
+            <div class="destination-card">
+              <img src="images/asyut/asyut_city.jpeg" alt="مدينة أسيوط">
+              <div class="card-content">
+                <h3 data-i18n="asyut_destination_city_title">مدينة أسيوط</h3>
+                <p data-i18n="asyut_destination_city_desc">استكشف المدينة التي تجمع بين التراث القبطي والآثار المصرية القديمة.</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="asyut-heritage" data-i18n="asyut_city_heritage_label">
+                      التراث المتنوع <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="asyut-heritage" data-i18n="asyut_city_heritage_details">
+                      مدينة أسيوط غنية بالتراث، حيث يمكن للزوار استكشاف الكنائس القديمة، وكذلك بعض المواقع الأثرية الفرعونية القريبة.
+                    </div>
+                  </li>
+                  <li>
+                    <button class="toggle-details" data-target="asyut-markets" data-i18n="asyut_city_markets_label">
+                      الأسواق المحلية <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="asyut-markets" data-i18n="asyut_city_markets_details">
+                      تجول في الأسواق المحلية لأسيوط وتذوق الأطعمة التقليدية وتعرف على الحرف اليدوية الأصيلة.
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="share-btn">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/asyut.html" target="_blank" class="facebook">
+                    <i class="fab fa-facebook-f"></i> <span data-i18n="share-facebook">فيسبوك</span>
+                  </a>
+                  <a href="https://twitter.com/intent/tweet?text=مدينة أسيوط&url=https://example.com/asyut.html" target="_blank" class="twitter">
+                    <i class="fab fa-twitter"></i> <span data-i18n="share-twitter">تويتر</span>
+                  </a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/asyut.html" target="_blank" class="linkedin">
+                    <i class="fab fa-linkedin-in"></i> <span data-i18n="share-linkedin">لينكدإن</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- دير ريفا -->
+          <div class="swiper-slide">
+            <div class="destination-card">
+              <img src="images/asyut/Riva_Monastery.jpg" alt="دير ريفا الأثري بأسيوط">
+              <div class="card-content">
+                <h3 data-i18n="asyut_destination_Deir_Rifa_title">دير ريفا الأثري بأسيوط</h3>
+                <p data-i18n="asyut_destination_Deir_Rifa_desc">تحف معمارية تعود للقرن الرابع الميلادي.</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="deir-rifa-history" data-i18n="asyut_Deir_Rifa_history_label">
+                      تاريخ الدير <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="deir-rifa-history" data-i18n="asyut_Deir_Rifa_history_details">
+                      365 درجة سلم بعدد أيام العام الميلادي، يصعدها الزائرون بجبل أسيوط الغربي على ارتفاع 150 مترا عن سطح البحر للوصول إلى كنائس دير ريفا الأثري المحفورة داخل الصخر بالجبل، ويرجع تاريخها إلى ما قبل القرن الرابع الميلادي.
+                    </div>
+                  </li>
+                  <li>
+                    <button class="toggle-details" data-target="deir-rifa-features" data-i18n="asyut_Deir_Rifa_features_label">
+                      كنائس ومخازن غلال محفورة في الجبل <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="deir-rifa-features" data-i18n="asyut_Deir_Rifa_features_details">
+                      يتميز بوجود نقوش فرعونية داخل كنائسه التي تعود إلى ما قبل القرن الرابع الميلادي، حيث كانت تستخدم كمقابر ومعابد فرعونية قبل تحويلها لدير مسيحي.
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="share-btn">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/asyut.html" target="_blank" class="facebook">
+                    <i class="fab fa-facebook-f"></i> <span data-i18n="share-facebook">فيسبوك</span>
+                  </a>
+                  <a href="https://twitter.com/intent/tweet?text=دير ريفا - أسيوط&url=https://example.com/asyut.html" target="_blank" class="twitter">
+                    <i class="fab fa-twitter"></i> <span data-i18n="share-twitter">تويتر</span>
+                  </a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/asyut.html" target="_blank" class="linkedin">
+                    <i class="fab fa-linkedin-in"></i> <span data-i18n="share-linkedin">لينكدإن</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- أزرار التنقل + ترقيم -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== الأنشطة ==================== -->
+  <section class="section activities-section">
+    <div class="container">
+      <h2 class="section-title fade-in" data-i18n="asyut_activities_title">الأنشطة والتجارب في أسيوط</h2>
+      <div class="swiper activities-swiper fade-in">
+        <div class="swiper-wrapper">
+
+          <!-- الحج والاحتفالات -->
+          <div class="swiper-slide">
+            <div class="activity-card">
+              <img src="images/asyut/دير المحرق- اسيوط.jpg" alt="الحج والاحتفالات الدينية">
+              <div class="card-content">
+                <h3 data-i18n="asyut_activity_pilgrimage_title">الحج والاحتفالات الدينية</h3>
+                <p data-i18n="asyut_activity_pilgrimage_desc">شارك في الاحتفالات الدينية، خاصة عيد العذراء في دير درنكة.</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="activity-pilgrimage-details" data-i18n="asyut_activity_pilgrimage_details_label">
+                      تفاصيل المشاركة <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="activity-pilgrimage-details" data-i18n="asyut_activity_pilgrimage_details_content">
+                      استمتع بتجربة روحانية فريدة بالمشاركة في الاحتفالات الدينية التي تقام في أديرة أسيوط، خاصة عيد صوم العذراء في دير درنكة، وشاهد الطقوس والعادات المحلية.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- الحياة الرهبانية -->
+          <div class="swiper-slide">
+            <div class="activity-card">
+              <img src="images/asyut/حنية باويط.jpg" alt="التعرف على الحياة الرهبانية">
+              <div class="card-content">
+                <h3 data-i18n="asyut_activity_monastic_title">التعرف على الحياة الرهبانية</h3>
+                <p data-i18n="asyut_activity_monastic_desc">اكتشف نمط حياة الرهبان في الأديرة القديمة وتعاليمهم الروحية.</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="activity-monastic-details" data-i18n="asyut_activity_monastic_details_label">
+                      تفاصيل التعرف <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="activity-monastic-details" data-i18n="asyut_activity_monastic_details_content">
+                      تفاعل مع الرهبان في الأديرة وتعرف على يومهم الروحي وحياتهم البسيطة المكرسة للعبادة والتأمل، ويمكنك حضور بعض الصلوات.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- رحلات نيلية -->
+          <div class="swiper-slide">
+            <div class="activity-card">
+              <img src="images/asyut/رحلات نيلية .jpg" alt="رحلات نيلية في صعيد مصر">
+              <div class="card-content">
+                <h3 data-i18n="asyut_activity_nile_title">رحلات نيلية في صعيد مصر</h3>
+                <p data-i18n="asyut_activity_nile_desc">استمتع برحلة هادئة على نهر النيل لاكتشاف جمال صعيد مصر.</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="activity-nile-details" data-i18n="asyut_activity_nile_details_label">
+                      تفاصيل الرحلة <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="activity-nile-details" data-i18n="asyut_activity_nile_details_content">
+                      قم برحلة نهرية على النيل من أسيوط أو بالقرب منها، واستمتع بالمناظر الطبيعية الخلابة للحقول والقرى النيلية، مع فرصة لرؤية الحياة المحلية.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- المأكولات الصعيدية -->
+          <div class="swiper-slide">
+            <div class="activity-card">
+              <img src="images/local_cuisine/Kishk.jpeg" alt="تذوق المأكولات الصعيدية">
+              <div class="card-content">
+                <h3 data-i18n="asyut_activity_food_title">تذوق المأكولات الصعيدية الأصيلة</h3>
+                <p data-i18n="asyut_activity_food_desc">استمتع بتشكيلة فريدة من الأطباق التقليدية لمنطقة الصعيد.</p>
+                <ul>
+                  <li>
+                    <button class="toggle-details" data-target="activity-food-details" data-i18n="asyut_activity_food_details_label">
+                      تفاصيل الأطعمة <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details" id="activity-food-details" data-i18n="asyut_activity_food_details_content">
+                      لا تفوت فرصة تذوق الأطباق الصعيدية الشهيرة مثل الفتة الصعيدي، والعيش الشمسي، والمأكولات الأخرى التي تعكس كرم الضيافة في صعيد مصر.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- أزرار التنقل + ترقيم -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== معرض الصور ==================== -->
+  <section class="section gallery-section">
+    <div class="container">
+      <h2 class="section-title fade-in" data-i18n="asyut_gallery_title">معرض الصور من أسيوط</h2>
+      <div class="swiper gallery-swiper fade-in">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="images/asyut/مشهد_من_أعلي_دير_درنكة.jpg" data-fancybox="gallery" data-caption="دير درنكة">
+              <img src="images/asyut/مشهد_من_أعلي_دير_درنكة.jpg" alt="دير درنكة">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="images/asyut/العائلة-المقدسة-بدير-درنكة.jpg" data-fancybox="gallery" data-caption="مغارة دير درنكة">
+              <img src="images/asyut/العائلة-المقدسة-بدير-درنكة.jpg" alt="مغارة دير درنكة">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="images/asyut/1st Shot.jpg" data-fancybox="gallery" data-caption="دير المحرق">
+              <img src="images/asyut/1st Shot.jpg" alt="دير المحرق">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="images/asyut/9353765771703879792.jpg" data-fancybox="gallery" data-caption="كنيسة سانت تريزا بأسيوط">
+              <img src="images/asyut/9353765771703879792.jpg" alt="كنيسة سانت تريزا بأسيوط">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="images/asyut/نهر_النيل_أسيوط_-_panoramio.jpg" data-fancybox="gallery" data-caption="نهر النيل بأسيوط">
+              <img src="images/asyut/نهر_النيل_أسيوط_-_panoramio.jpg" alt="نهر النيل بأسيوط">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="images/asyut/قصر_ألكسان_باشا.jpg" data-fancybox="gallery" data-caption="مناظر طبيعية من أسيوط">
+              <img src="images/asyut/قصر_ألكسان_باشا.jpg" alt="مناظر طبيعية من أسيوط">
+            </a>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="cta-section">
+    <div class="container cta-content fade-in">
+      <h2 data-i18n="asyut_cta_title">هل أنت مستعد لختام رحلة العائلة المقدسة في أسيوط؟</h2>
+      <p data-i18n="asyut_cta_subtitle">تواصل معنا اليوم لتخطيط زيارتك إلى هذه المحطة الروحية والتاريخية.</p>
+      <a href="plan_trip.html" class="btn" data-i18n="asyut_cta_btn">اتصل بنا الآن</a>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== Footer ==================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3 data-i18n="index_footer_about">عن المسار</h3>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="index_footer_about_us">من نحن</a></li>
+          <li><a href="history.html" data-i18n="index_footer_history">تاريخ المسار</a></li>
+          <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
+          <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="index_footer_destinations">الوجهات</h3>
+        <ul class="footer-links">
+          <li><a href="sharqia.html" data-i18n="index_footer_sharqia">الشرقية والدلتا</a></li>
+          <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
+          <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
+          <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
+        <p data-i18n="index_footer_email">البريد الإلكتروني: info@holycoptictrail.org</p>
+        <p data-i18n="index_footer_phone">الهاتف: +20 123 456 7890</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/experienceholyfamilytrial" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
+        <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== Scripts ==================== -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="i18n.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

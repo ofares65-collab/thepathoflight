@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مسار العائلة المقدسة - الصفحة الرئيسية</title>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/> 
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+
+  <!-- Fancybox -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"  />
+
+  <!-- Scripts & Styles -->
+  <script src="i18n.js"></script> 
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+
+  <meta name="description" content="اكتشف مسار العائلة المقدسة في مصر، رحلة تاريخية ودينية عبر أهم المواقع المقدسة التي زارتها العائلة المقدسة.">
+</head>
+<body class="general"> 
+
+ <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo192.png" alt="مسار العائلة المقدسة" onerror="this.src='https://via.placeholder.com/150x50?text=مسار+العائلة+المقدسة'">
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="navMenu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-i18n="index_nav_home">الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_destinations">الوجهات</a>
+          <ul class="dropdown-menu">
+            <li><a href="sharqia.html" data-i18n="index_nav_sharqia">الشرقية والدلتا</a></li>
+            <li><a href="beheira.html" data-i18n="index_nav_beheira">البحيرة (وادي النطرون)</a></li>
+            <li><a href="cairo.html" data-i18n="index_nav_cairo">القاهرة</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-i18n="index_nav_activities">الأنشطة</a>
+          <ul class="dropdown-menu">
+            <li><a href="religious_visits.html" class="dropdown-item" data-i18n="index_nav_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" class="dropdown-item" data-i18n="index_nav_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" class="dropdown-item" data-i18n="index_nav_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" class="dropdown-item" data-i18n="index_nav_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" class="dropdown-item" data-i18n="index_nav_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a href="plan_trip.html" class="nav-link active" data-i18n="index_nav_plan_trip">خطط رحلتك</a>
+        </li>
+        
+      </ul>
+<div class="language-switcher-container">
+        <select id="language-switcher" class="language-switcher">
+          <option value="ar" data-i18n="lang_arabic">العربية</option>
+          <option value="en" data-i18n="lang_english">English</option>
+          <option value="fr" data-i18n="lang_french">Français</option>
+          <option value="de" data-i18n="lang_german">Deutsch</option>
+          <option value="it" data-i18n="lang_italian">Italiano</option>
+          <option value="es" data-i18n="lang_spanish">Español</option>
+          <option value="pt" data-i18n="lang_Portuguese">Português</option>
+          <option value="pl" data-i18n="lang_polish">Polski</option>
+          <option value="ru" data-i18n="lang_russian">Русский</option>
+          <option value="zh" data-i18n="lang_chinese">中国人</option>
+          <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="am" data-i18n="lang_amharic">አማርኛ</option>
+          <option value="hy" data-i18n="lang_armenian">հայ</option>
+          
+        </select>
+      </div>
+    </div>
+  </header>
+
+ <main>
+    <section class="hero-section" style="background-image: url('images/beheira/panorama_7BB09C52_69E7_39C8_41D9_45EA629B8F4B_hd_t.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 data-i18n="index_hero_title">مسار العائلة المقدسة</h1>
+        <p data-i18n="index_hero_subtitle">رحلة مباركة عبر أرض مصر، على خطى العائلة المقدسة.</p>
+        <a href="history.html" class="btn" data-i18n="index_hero_btn">اكتشف المسار</a>
+      </div>
+    </section>
+<section class="about-destination section-padding bg-light">
+	<div class="container grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+	
+	
+	<div class="about-text" style="flex: 1 1 45%;">
+	<h2 class="section-title" data-i18n="index_about_title">نبذة عن مسار العائلة المقدسة</h2>
+	<p data-i18n="index_about_p1">مسار العائلة المقدسة في مصر هو رحلة تاريخية ودينية تعود إلى حوالي ألفي عام، عندما لجأت العائلة المقدسة (السيدة مريم العذراء، ويوسف النجار، والطفل يسوع) إلى مصر هربًا من بطش هيرودس. تمتد هذه الرحلة المباركة عبر العديد من المدن والمواقع الأثرية والدينية، وتشكل جزءًا لا يتجزأ من التراث المسيحي المصري.</p>
+          <p data-i18n="index_about_p2">يمثل المسار فرصة فريدة للحجاج والسياح لاستكشاف الكنائس القديمة، والأديرة التاريخية، والآبار المباركة التي مرت بها العائلة المقدسة، والتعرف على قصص ومعجزات مرتبطة بهذه الرحلة الروحية العميقة. إنه جسر بين الماضي والحاضر، يربط الزوار بآلاف السنين من الإيمان والتاريخ.</p>
+          <a href="history.html" class="btn" data-i18n="index_about_read_more">اقرأ المزيد عن التاريخ</a>
+
+	</div>
+	
+	<div class="map-content">
+          <h2 data-i18n="index_map_title">اكتشف المسار على الخريطة</h2>
+          <div id="map" class="map-container"></div>
+          <p style="margin-top: 20px; font-size: 0.9em; color: #555;" data-i18n="index_map_subtitle">الخريطة تعرض بعض المواقع الرئيسية على مسار العائلة المقدسة. انقر على العلامات لمعرفة المزيد.</p>
+        </div>
+      </div>
+	</section>
+
+    <!-- الوجهات -->
+    <section class="section destinations-section" id="destinations">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="index_destinations_title">أبرز الوجهات</h2>
+        <div class="swiper destinations-swiper fade-in">
+          <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+              <div class="destination-card">
+                <img src="images/asyut/1756638457.png" alt="أسيوط">
+                <div class="card-content">
+                  <h3 data-i18n="index_destination_asyut">أسيوط</h3>
+                  <p data-i18n="index_destination_asyut_desc">اكتشفوا مسار العائلة المقدسة في أسيوط، حيث تتلاقى خطوات الإيمان مع عبق التاريخ على ضفاف النيل.  
+</p>
+                  <a href="asyut.html" class="btn" data-i18n="index_destination_asyut_btn">اكتشف أسيوط</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <img src="images/minya/371.jpeg" alt="المنيا">
+                <div class="card-content">
+                  <h3 data-i18n="index_destination_minya">المنيا</h3>
+                  <p data-i18n="index_destination_minya_desc">حكاية العائلة المقدسة في المنيا تأمل في قصص الإيمان المتوارثة بين أجنحة الأديرة والقباب القديمة</p>
+                  <a href="minya.html" class="btn" data-i18n="index_destination_minya_btn">اكتشف المنيا</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <img src="images/beheira/album_E56D18C1_FDB5_3702_41CC_E4593EDE3E86_4.jpg" alt="البحيرة (وادي النطرون)">
+                <div class="card-content">
+                  <h3 data-i18n="index_destination_beheira">البحيرة (وادي النطرون)</h3>
+                  <p data-i18n="index_destination_beheira_desc">وادي النطرون يشتهر بأديرته القبطية التاريخية مثل دير الأنبا بيشوي ودير السريان.</p>
+                  <a href="beheira.html" class="btn" data-i18n="index_destination_beheira_btn">اكتشف البحيرة</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <img src="images/Cairo/كنيسة المعادى.webp" alt="القاهرة">
+                <div class="card-content">
+                  <h3 data-i18n="index_destination_cairo">القاهرة</h3>
+                  <p data-i18n="index_destination_cairo_desc">القاهرة القديمة تضم الكنيسة المعلقة وكنيسة أبو سرجة، حيث يُعتقد أن العائلة المقدسة قد أقامت بها.</p>
+                  <a href="cairo.html" class="btn" data-i18n="index_destination_cairo_btn">اكتشف القاهرة</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <img src="images/sharqia/بلبيس (2).jpg" alt="الشرقية والدلتا">
+                <div class="card-content">
+                  <h3 data-i18n="index_destination_sharqia">الشرقية والدلتا</h3>
+                  <p data-i18n="index_destination_sharqia_desc">تشمل الشرقية منطقة تل بسطة التي كانت أولى محطات العائلة المقدسة في مصر.</p>
+                  <a href="sharqia.html" class="btn" data-i18n="index_destination_sharqia_btn">اكتشف الشرقية</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next destinations-next"></div>
+          <div class="swiper-button-prev destinations-prev"></div>
+          <div class="swiper-pagination destinations-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الأنشطة -->
+    <section class="section activities-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="index_activities_title">الأنشطة والتجارب</h2>
+        <div class="swiper activities-swiper fade-in">
+          <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+              <div class="activity-card">
+                <img src="images/beheira/album_E49A72C3_FD8B_3B06_41BB_9C746068F626_1.png" alt="الحج والزيارات الدينية">
+                <div class="card-content">
+                  <h3 data-i18n="index_activity_pilgrimage">الحج والزيارات الدينية</h3>
+                  <p data-i18n="index_activity_pilgrimage_desc">انطلق في رحلة روحية لزيارة الأديرة والكنائس القديمة على طول المسار.</p>
+                  <a href="religious_visits.html" class="btn" data-i18n="index_activity_pilgrimage_btn">تعرف على المزيد</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="activity-card">
+                <img src="images/coptic-art/Menas.jpg" alt="استكشاف الثقافة القبطية">
+                <div class="card-content">
+                  <h3 data-i18n="index_activity_coptic">استكشاف الثقافة القبطية</h3>
+                  <p data-i18n="index_activity_coptic_desc">تعرف على الفن والعمارة والموسيقى القبطية العريقة.</p>
+                  <a href="coptic_culture.html" class="btn" data-i18n="index_activity_coptic_btn">تعرف على المزيد</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="activity-card">
+                <img src="images/nature/caption.jpg" alt="الطبيعة والمناظر الطبيعية">
+                <div class="card-content">
+                  <h3 data-i18n="index_activity_nature">الطبيعة والمناظر الطبيعية</h3>
+                  <p data-i18n="index_activity_nature_desc">استمتع بجمال الصحراء والواحات والمناظر الطبيعية الخلابة على طول المسار.</p>
+                  <a href="nature.html" class="btn" data-i18n="index_activity_nature_btn">تعرف على المزيد</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="activity-card">
+                <img src="images/local_cuisine/mmw_638773191661813021.jpeg" alt="تذوق المأكولات المحلية">
+                <div class="card-content">
+                  <h3 data-i18n="index_activity_food">تذوق المأكولات المحلية</h3>
+                  <p data-i18n="index_activity_food_desc">جرب الأطباق المصرية الأصيلة والمأكولات الخاصة بالمناطق التي يمر بها المسار.</p>
+                  <a href="local_cuisine.html" class="btn" data-i18n="index_activity_food_btn">تعرف على المزيد</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next activities-next"></div>
+          <div class="swiper-button-prev activities-prev"></div>
+          <div class="swiper-pagination activities-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المعرض -->
+    <section class="section gallery-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="index_gallery_title">معرض الصور</h2>
+        <div class="swiper gallery-swiper fade-in">
+                    <div class="swiper-wrapper">
+             <div class="swiper-slide">
+              <a href="images/beheira/album_E49A72C3_FD8B_3B06_41BB_9C746068F626_0.png" data-fancybox="gallery" data-caption="دير الانبا بيشوي ">
+                <img src="images/beheira/album_E49A72C3_FD8B_3B06_41BB_9C746068F626_0.png" alt="دير الانبا بيشوي ">
+              </a>
+            </div>
+
+               <div class="swiper-slide">
+              <a href="images/coptic-art/41968944684_2a34171858_k.jpg" data-fancybox="gallery" data-caption="أيقونة قبطيَّة  تمثل يسوع مع القديس مينا ">
+                <img src="images/coptic-art/41968944684_2a34171858_k.jpg" alt="أيقونة قبطيَّة  تمثل يسوع مع القديس مينا  ">
+              </a>
+            </div>
+
+               <div class="swiper-slide">
+              <a href="images/heritage/324513859_664739612060017_5351782575844247324_n-1536x1152.jpg" data-fancybox="gallery" data-caption="مغارة السيدة مريم العذراء من جبل الطير ">
+                <img src="images/heritage/324513859_664739612060017_5351782575844247324_n-1536x1152.jpg" alt=" مغارة مريم السيدة العذراء من جبل الطير ">
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="images/asyut/1756640545.png" data-fancybox="gallery" data-caption="المذبح - دير المحرق">
+                <img src="images/asyut/1756640545.png" alt="مذبح دير المحرق">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/Cairo/FILE9793.JPG" data-fancybox="gallery" data-caption="ممر فى مصر القديمة ">
+                <img src="images/Cairo/FILE9793.JPG" alt="ممر فى مصر القديمة ">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/beheira/The Monastery of the Syrians.png" data-fancybox="gallery" data-caption="دير السريان">
+                <img src="images/beheira/The Monastery of the Syrians.png" alt="دير السريان">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/coptic-art/Paintings_in_monastery.jpg" data-fancybox="gallery" data-caption="صورة 5 من المسار">
+                <img src="images/coptic-art/Paintings_in_monastery.jpg" alt="مسار العائلة المقدسة صورة 5">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="images/nature/Nature_hero.jpg" data-fancybox="gallery" data-caption="صورة 6 من المسار">
+                <img src="images/nature/Nature_hero.jpg" alt="مسار العائلة المقدسة صورة 6">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-button-next gallery-next"></div>
+          <div class="swiper-button-prev gallery-prev"></div>
+          <div class="swiper-pagination gallery-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <section id="virtual-tours" class="virtual-tours-section" aria-labelledby="virtual-tours-heading">
+        <div class="container">
+            <h2 id="virtual-tours-heading" data-i18n="index_virtual_tours_title">جولات افتراضية</h2>
+            <p data-i18n="index_virtual_tours_intro">قم بجولة افتراضية في بعض أهم محطات مسار العائلة المقدسة.</p>
+            <div class="virtual-tours-grid">
+                <div class="virtual-tour-item" data-aos="fade-right">
+                    <div class="video-responsive">
+                        <iframe src="https://www.experienceegypt.eg/Virtualtour/delta/ " title="رحلة العائلة المقدسة - تل بسطا" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="tour-details">
+                        <h3 data-i18n="index_virtual_tel_basta_title">تل بسطا (الشرقية)</h3>
+                        <p data-i18n="index_virtual_tel_basta_desc">اكتشف التجربة الافتراضية لموقع تل بسطا، حيث أحدث السيد المسيح معجزة تفجير نبع ماء.</p>
+                        <a href="https://www.experienceegypt.eg/Virtualtour/delta/ " target="_blank" rel="noopener noreferrer" class="button primary small" data-i18n="index_virtual_tel_basta_btn">استكشف المزيد</a>
+                    </div>
+                </div>
+                <div class="virtual-tour-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="video-responsive">
+                        <iframe src="https://www.experienceegypt.eg/Virtualtour/Wadi_El_Natrun/ " title="رحلة العائلة المقدسة - وادى النطرون" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="tour-details">
+                        <h3 data-i18n="index_virtual_wadi_natrun_title">وادي النطرون (البحيرة)</h3>
+                        <p data-i18n="index_virtual_wadi_natrun_desc">استمتع بجولة افتراضية ساحرة في وادي النطرون، مهد الرهبنة القبطية.</p>
+                        <a href="https://www.experienceegypt.eg/Virtualtour/Wadi_El_Natrun/ " target="_blank" rel="noopener noreferrer" class="button primary small" data-i18n="index_virtual_wadi_natrun_btn">استكشف المزيد</a>
+                    </div>
+                </div>
+                <div class="virtual-tour-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="video-responsive">
+                        <iframe src="https://www.experienceegypt.eg/Virtualtour/jabal_attayr/ " title="جبل الطاير" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="tour-details">
+                        <h3 data-i18n="index_virtual_jabal_tayr_title">جبل الطير (المنيا)</h3>
+                        <p data-i18n="index_virtual_jabal_tayr_desc">جولة افتراضية لاستكشاف كنيسة السيدة العذراء بجبل الطير، حيث تركت كف السيد المسيح أثرًا على صخرة.</p>
+                        <a href="https://www.experienceegypt.eg/Virtualtour/jabal_attayr/ " target="_blank" rel="noopener noreferrer" class="button primary small" data-i18n="index_virtual_jabal_tayr_btn">استكشف المزيد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <section class="section cta-section">
+      <div class="container cta-content fade-in">
+        <h2 data-i18n="index_cta_title">هل أنت مستعد لبدء رحلتك الروحية؟</h2>
+        <p data-i18n="index_cta_subtitle">تواصل معنا اليوم لتخطيط زيارتك إلى مسار العائلة المقدسة واكتشاف هذه التجربة الفريدة.</p>
+        <a href="contact_us.html" class="btn" data-i18n="index_cta_btn">اتصل بنا الآن</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>عن المسار</h3>
+          <ul class="footer-links">
+            <li><a href="#">من نحن</a></li>
+            <li><a href="history.html">تاريخ المسار</a></li>
+            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+            <li><a href="contact_us.html">اتصل بنا</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>الوجهات</h3>
+          <ul class="footer-links">
+            <li><a href="sharqia.html">  الشرقية والدلتا</a></li>
+            <li><a href="cairo.html">القاهرة</a></li>
+            <li><a href="beheira.html">وادى النطرون</a></li>
+            <li><a href="asyut.html">المنيا وأسيوط</a></li>
+          </ul>
+        </div>        
+        <div class="footer-column">
+          <h3>تواصل معنا</h3>
+          <p>البريد الإلكتروني: info@holycoptictrail.org</p>
+          <p>الهاتف: +20 123 456 7890</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>عن مسار العائلة المقدسة</h3>
+          <p>مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
