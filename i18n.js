@@ -14,7 +14,6 @@ ar:{
         "lang_korean": "한국어",
         "lang_amharic": "አማርኛ",
         "lang_armenian": "հայ",
-        "lang_swahili": "kiswahili",
 
         "index_title": "مسار العائلة المقدسة – الصفحة الرئيسية",
         "index_nav_home": "الرئيسية",
@@ -97,7 +96,6 @@ ar:{
         "index_about_site_p1": "موقع \"مسار العائلة المقدسة\" هو دليلك الشامل لاستكشاف هذه الرحلة الروحية والتاريخية الفريدة في مصر. نحن نهدف إلى توفير معلومات مفصلة عن جميع المحطات والأماكن المقدسة، لمساعدتك في التخطيط لزيارتك وجعل تجربتك لا تُنسى.",
         "index_about_site_p2": "من خلال موقعنا، يمكنك التعرف على تاريخ المسار، والوجهات المختلفة، والأنشطة المتاحة، بالإضافة إلى معرض صور غني يعرض جمال هذه المواقع الأثرية والدينية. نحن نلتزم بتقديم محتوى دقيق وموثوق لجميع الزوار.",
         "index_footer_about": "عن المسار",
-        "index_footer_about_us": "من نحن",
         "index_footer_history": "تاريخ المسار",
         "index_footer_faq": "الأسئلة الشائعة",
         "index_footer_contact": "اتصل بنا",
@@ -105,12 +103,12 @@ ar:{
         "index_footer_sharqia": "الشرقية والدلتا",
         "index_footer_cairo": "القاهرة",
         "index_footer_beheira": "وادي النطرون",
-        "index_footer_asyut": "المنيا وأسيوط",
+        "index_footer_asyut": "المنيا",
+        "index_footer_asyut":"أسيوط"
         "index_footer_contact_title": "تواصل معنا",
-        "index_footer_email": "البريد الإلكتروني: info@holycoptictrail.org",
-        "index_footer_phone": "الهاتف: +20 123 456 7890",
+        "index_footer_email": "البريد الإلكتروني: omerfares@gmail.com",
+        "index_footer_phone": "الهاتف: +20 106 221 7790",
         "index_footer_desc_title": "عن مسار العائلة المقدسة",
-        "index_footer_desc": "مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.",
         "index_footer_copyright": "© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.",
 
         "plan_trip.title": "مخطّط الرحلة – مسار العائلة المقدسة",
