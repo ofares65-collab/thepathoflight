@@ -2,16 +2,21 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>الشرقية والدلتا - مسار العائلة المقدسة</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مسار العائلة المقدسة - الحج والزيارات الدينية</title>
+  <!-- نفس روابط CSS وJS الموجودة في الصفحة الرئيسية -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/> 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"  />
+  <script src="scripts.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
 </head>
-<body class="sharqia">
+<body class="religious">
   <header class="header">
     <div class="container header-container">
       <a href="index.html" class="logo">
@@ -58,319 +63,179 @@
           <option value="de" data-i18n="lang_german">Deutsch</option>
           <option value="it" data-i18n="lang_italian">Italiano</option>
           <option value="es" data-i18n="lang_spanish">Español</option>
-          <option value="pt" data-i18n="lang_Portuguese">Português</option>
           <option value="pl" data-i18n="lang_polish">Polski</option>
           <option value="ru" data-i18n="lang_russian">Русский</option>
           <option value="zh" data-i18n="lang_chinese">中国人</option>
           <option value="ko" data-i18n="lang_korean">한국어</option>
+          <option value="el" data-i18n="lang_greek">Ελληνικά</option>
           <option value="am" data-i18n="lang_amharic">አማርኛ</option>
           <option value="hy" data-i18n="lang_armenian">հայ</option>
-          <option value="sw" data-i18n="lang_swahili">kiswahili</option>
         </select>
       </div>
     </div>
   </header>
-
-
   <main>
-    <section class="hero-section" style="background-image: url('images/sharqia/سمنود٤.webp');">
+    <!-- قسم البانر -->
+    <section class="hero-section" style="background-image: url('images/coptic-art/Paintings_in_monastery1.jpg');">
       <div class="hero-overlay"></div>
-      <div class="container hero-content fade-in">
-        <h1 data-i18n="sharqia_hero_title">الشرقية والدلتا</h1>
-        <p data-i18n="sharqia_hero_subtitle">تتبع الخطوات الأولى للعائلة المقدسة في الأراضي المصرية عبر محافظات الدلتا.</p>
+      <div class="hero-content">
+        <h1 data-i18n="religious_visits_hero_title">الحج والزيارات الدينية</h1>
+        <p data-i18n="religious_visits_hero_subtitle">رحلة روحية عبر المواقع المقدسة التي زارتها العائلة المقدسة في مصر</p>
       </div>
     </section>
-    <section class="about-destination section-padding bg-light">
-	<div class="container grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
-	<div class="about-text" style="flex: 1 1 45%;">
-	<h2 class="section-title" data-i18n="sharqia_about_title"> الشرقية.. رحلة الإيمان عبر الزمان </h2>
-	<p data-i18n="sharqia_about_p1">"مِصْرُ.. أرضُ الأنبياءِ والبركات"✝ "وَإِذْ أَوَيْنَا إِلَى الْكِنَاوَةِ، فَأَصْبَحَتْ مَبَارَكَةً وَمُعَزَّزَةً"....
- في رحلةٍ زاخرةٍ بالإيمانِ والآيات، حلَّت العائلة المقدسة بترابِ محافظة الشرقية، تاركةً خلفها سطورًا من نورٍ سطَّرتها الأقدار في سجلِّ الزمان. هنا، حيثُ تتناغمُ همساتُ التاريخِ مع أنفاسِ الأرض، نستعيدُ حكايةَ القداسةِ التي حوَّلتْ هذه البقعةَ إلى مَعلَمٍ خالدٍ في مسار العائلة المقدسة...منذُ أن وطئتْ أقدامُ السيد المسيحِ والسيدة العذراءِ والقديس يوسف النجارِ أراضي الشرقية، أصبحتْ محطَّةً تُشرقُ منها أنوارُ التسامحِ والإيمان. ففي كلِّ زاويةٍ مِن زواياها حكايةٌ تُروى، وفي كلِّ ذرةِ ترابٍ فيها بصمةٌ لا تُمحى..</p>
-	</div>
-	<div class="map-content">
-          <h2 data-i18n="sharqia_map_title">اكتشف المسار على الخريطة</h2>
-          <div id="map" class="map-container"></div>
-          <p style="margin-top: 20px; font-size: 0.9em; color: #555;" data-i18n="sharqia_map_subtitle">الخريطة تعرض بعض المواقع الرئيسية على مسار العائلة المقدسة. انقر على العلامات لمعرفة المزيد.</p>
-        </div>
-      </div>
-	</section>
+    <!-- قسم المحتوى الرئيسي -->
     <section class="section">
       <div class="container">
-        <h2 class="section-title fade-in" data-i18n="sharqia_destinations_title">المحطات الرئيسية في الشرقية والدلتا</h2>
-        <div class="swiper destinations-swiper fade-in">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="destination-card fade-in">
-                <img src="images/sharqia/telbasta.jpg" alt="تل بسطة">
-                <div class="card-content">
-                  <h3 data-i18n="sharqia_tell_basta_title">تل بسطة (الشرقية)</h3>
-                  <p data-i18n="sharqia_tell_basta_desc">تعتبر أول نقطة وصلتها العائلة المقدسة في مصر، وشربت من بئرها.</p>
-                  <ul>
-        <li>
-            <button class="toggle-details" data-target="well-of-mary" data-i18n="sharqia_tell_basta_well_btn">بئر مريم <i class="fas fa-chevron-down"></i></button>
-            <div class="details" id="well-of-mary" data-i18n="sharqia_tell_basta_well_txt">
-                تُعد تل بسطا بمدينة الزقازيق من أولى المحطات التي مرّت بها العائلة المقدسة بعد دخولها مصر من الشرق. في هذا الموقع التاريخي، والمعروف قديمًا باسم "بوباستيس"، يُقال إن الطفل يسوع شرب من نبع ماء تفجّر بمعجزة، مما أضفى قدسية خاصة على المكان.
-            </div>
-        </li>
-        <li>
-            <button class="toggle-details" data-target="ancient-site" data-i18n="sharqia_tell_basta_site_btn">منطقة أثرية قديمة <i class="fas fa-chevron-down"></i></button>
-            <div class="details" id="ancient-site" data-i18n="sharqia_tell_basta_site_txt">
-                تل بسطا اليوم موقع أثري يدمج بين أطلال الحضارة المصرية القديمة والذكرى المقدسة لرحلة العائلة.
-            </div>
-        </li>
-    </ul>
-    <div class="share-btn">
-        <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="sharqia_share_facebook">فيسبوك</span></a>
-        <a href="https://twitter.com/" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="sharqia_share_twitter">تويتر</a>
-        <a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="sharqia_share_linkedin">لينكدإن</span></a>
-    </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="destination-card fade-in">
-                <img src="images/sharqia/الحجر-الذي-طبع-عليه-قدم-المسيح.jpg" alt="سخا (كفر الشيخ)">
-                <div class="card-content">
-                  <h3 data-i18n="sharqia_sukha_title">سخا (كفر الشيخ)</h3>
-                  <p data-i18n="sharqia_sukha_desc">موقع مميز حيث تركت قدم السيد المسيح أثرها على صخرة.</p>
-                  <ul>
-        <li>
-            <button class="toggle-details" data-target="Christ-foot" data-i18n="sharqia_sukha_foot_btn">قدم المسيح <i class="fas fa-chevron-down"></i></button>
-            <div class="details" id="Christ-foot" data-i18n="sharqia_sukha_foot_txt">
-                تُعتبر كنيسة قدم المسيح في سخا بمحافظة كفر الشيخ واحدة من أبرز أماكن الزيارة المقدسة لدى الأقباط الأرثوذكس في مصر. يُعتقد أن العائلة المقدسة زارت هذه المنطقة خلال هروبها إلى مصر، وتركت فيها أثر قدم الطفل يسوع على حجر لا يزال محفوظًا داخل الكنيسة حتى اليوم، ويتوافد إليه المؤمنون لطلب البركة.
-            </div>
-        </li>
-        <li>
-            <button class="toggle-details" data-target="Church-of-Virgin-Mary" data-i18n="sharqia_sukha_church_btn">كنيسة العذراء مريم <i class="fas fa-chevron-down"></i></button>
-            <div class="details" id="Church-of-Virgin-Mary">
-               <span data-i18n="sharqia_sukha_church_txt">بنيت كنيسة العذراء مريم في نفس المنطقة التي أقامت فيها العائلة المقدسة وكان بجوار الكنيسة مغطس على النظام الرومانى وانشئ بعد ذلك دير سمى دير المغطس وظل عامرا بالرهبان لنهاية القرن الثاني عشر</span>
-               <span data-i18n="sharqia_sukha_church_txt_2">تم ترميم الكنيسة في القرن الحادي عشر بأمر من الخليفة الفاطمي الحاكم بأمر الله، وفي القرن السادس عشر تهدمت الكنيسة، وظلت متهدمة حتى أمر محمد علي باشا بإعادة بنائها عام 1846 ميلادية مع الحفاظ على الطابع الأثري لها والحفاظ على الأجزاء الأثرية المتبقية منها.</span>
-            </div>
-        </li>
-    </ul>
-    <div class="share-btn">
-        <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="sharqia_share_facebook">فيسبوك</span></a>
-        <a href="https://twitter.com/" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="sharqia_share_twitter">تويتر</span></a>
-        <a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="sharqia_share_linkedin">لينكدإن</span></a>
-    </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="destination-card fade-in">
-                <img src="images/sharqia/ميمر-الأنبا-زخارياس-من-القرن-ال18.jpg" alt="المحمة">
-                <div class="card-content">
-                  <h3 data-i18n="sharqia_mahama_title">المحمة</h3>
-                  <p data-i18n="sharqia_mahama_desc">حيث امتدت قدما المسيح المخلص أرضها الطيبة، وغنت العذراء مريم بهدوء في ظلالها،</p>
-                  <ul>
-        <li>
-            <button class="toggle-details" data-target="Holy-Family-Rest" data-i18n="sharqia_mahama_rest_btn">استراحة العائلة <i class="fas fa-chevron-down"></i></button>
-            <div class="details" id="Holy-Family-Rest" data-i18n="sharqia_mahama_rest_txt">
-                تُعتقد أن العائلة المقدسة استراحة في مكان قريب من نهر النيل بالمحمة، حيث شهدت القرية معجزات عديدة ببركة وجود المسيح الطفل. ويقال إن بعض الأشجار الموجودة هناك كانت قد تصدعت لتوفر ماءً للعائلة المقدسة، أو أن الأرض قد انشقت لتُظهر ينبعًا عذبًا يروي عطشهم، وهي أمور تؤكد قدسية الموقع وتربطه بالزيارة الإلهية.
-            </div>
-        </li>
-        <li>
-            <button class="toggle-details" data-target="8-Baouneh-celebration" data-i18n="sharqia_mahama_8baouneh_btn">احتفال 8 بؤونه <i class="fas fa-chevron-down"></i></button>
-            <div class="details" id="8-Baouneh-celebration" data-i18n="sharqia_mahama_8baouneh_txt">
-               عيد تكريس الكنيسة في المحمة يُحتفل به سنويًا يوم 8 بؤونه (أغسطس) الموافق تقريبًا لـ 17 أغسطس، وهو أحد الأعياد المهمة التي تُحييها الجماعة المسيحية في القرية بفرح وتقديس.
-يتوافد المؤمنون من مختلف المناطق إلى كنيسة العائلة المقدسة بالمحمة، للمشاركة في الصلوات والمواكيش الروحية والاحتفالات الليتورجية التي تمتد ليوم كامل، مُكرّسين هذا اليوم للشكر على نعمة الزيارة المقدسة وبقاء الكنيسة شمعة مضيئة في قلب المحمة منذ قرون.
-            </div>
-        </li>
-    </ul>
-    <div class="share-btn">
-         <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="sharqia_share_facebook">فيسبوك</span></a>
-        <a href="https://twitter.com/" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="sharqia_share_twitter">تويتر</span></a>
-        <a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="sharqia_share_linkedin">لينكدإن</span></a>
-    </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="destination-card fade-in">
-                <img src="images/sharqia/أيقونة-العائلة-المقدسة-ببلبيس.jpg" alt="بلبيس (الشرقية)">
-                <div class="card-content">
-                  <h3 data-i18n="sharqia_belbeis_title">بلبيس (الشرقية)</h3>
-                  <p data-i18n="sharqia_belbeis_desc">منطقة بلبيس لها جذور تاريخية في الكتاب المقدس حيث كانت جزء من أرض جاسان التي نزل بها بنى اسرائيل</p>
-                  <ul>
-        <li>
-            <button class="toggle-details" data-target="Historical-station" data-i18n="sharqia_belbeis_history_btn">محطه تاريخية <i class="fas fa-chevron-down"></i></button>
-            <div class="details" id="Historical-station" data-i18n="sharqia_belbeis_history_txt">
-                يوجد في بلبيس عدة مواقع تُنسب إلى هذه الزيارة المقدسة، منها غار العذراء الذي يُقال إن العائلة المقدسة لجأت إليه، ويوجد داخلها كنيسة السيدة العذراء المعروفة باسم "كنيسة الغار"، كما يُذكر وجود عين ماء عذبة كانت قد نبعت ببركة المسيح الطفل لتُروي عطش العائلة، وتُستخدم مياهها حتى اليوم للعلاج والتبرك.
-            </div>
-        </li>
-        <li>
-            <button class="toggle-details" data-target="ancient-churches" data-i18n="sharqia_belbeis_churches_btn">كنائس قديمة <i class="fas fa-chevron-down"></i></button>
-            <div class="details" id="ancient-churches" data-i18n="sharqia_belbeis_churches_txt">
-تُعد مدينة بلبيس بمحافظة الشرقية من المناطق المسيحية القديمة التي تضم عددًا من الكنائس التاريخية التي يعود بعضها إلى العصور المبكرة للمسيحية في مصر، وتتصل بعض منها برحلة العائلة المقدسة.
-أبرز هذه الكنائس هي كنيسة السيدة العذراء (كنيسة الغار)، والتي يُعتقد أن العائلة المقدسة استقرت فيها فترة من الزمن، ويوجد داخلها غار صغير تواردت الروايات أنه موضع استراحة العذراء مريم والطفل يسوع. تتميز الكنيسة بطرازها البسيط وجوّها الروحي الذي يجذب المؤمنين من مختلف الأنحاء.
-            </div>
-        </li>
-    </ul>
-    <div class="share-btn">
-        <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> <span data-i18n="share_facebook">فيسبوك</span></a>
-        <a href="https://twitter.com/" target="_blank" class="twitter"><i class="fab fa-twitter"></i> <span data-i18n="share_twitter">تويتر</span></a>
-        <a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i> <span data-i18n="share_linkedin">لينكدإن</span></a>
-    </div>
-                </div>
-              </div>
-            </div>
+        <h2 class="section-title" data-i18n="religious_visits_section_title">تجربة الحج والزيارات الدينية</h2>
+        <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;">
+          <div class="about-text" style="flex: 1 1 60%;">
+            <p data-i18n="religious_visits_about_p1">يمثل مسار العائلة المقدسة في مصر رحلة حج فريدة للزوار الذين يسعون لتجربة روحية عميقة.</p>
+            <p data-i18n="religious_visits_about_p2">تشمل هذه التجربة زيارة الكنائس القديمة والأديرة التاريخية التي تعود إلى القرون الأولى للمسيحية، حيث يمكن للزوار المشاركة في القداديس والصلوات الخاصة، والتعرف على التقاليد الدينية العريقة التي حافظت عليها الكنيسة القبطية الأرثوذكسية عبر القرون.</p>
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
+          <div class="about-image" style="flex: 1 1 35%;">
+            <img src="images/heritage/DeirMuharraqChurchHlGeorgeInside.jpg" alt="تجربة الصلاة في المواقع المقدسة" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          </div>
         </div>
-    </section>
-    <section class="section activities-section">
-      <div class="container">
-        <h2 class="section-title fade-in" data-i18n="sharqia_activities_title">الأنشطة والتجارب في الشرقية والدلتا</h2>
-        <div class="swiper activities-swiper fade-in">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="activity-card">
-                <img src="images/sharqia/بلبيس (1).jpg" alt="زيارة المواقع الأثرية والدينية">
-                <div class="card-content">
-                  <h3 data-i18n="sharqia_activity_site_title">زيارة المواقع الأثرية والدينية</h3>
-                  <p data-i18n="sharqia_activity_site_desc">استكشف البئر المقدس وأماكن إقامة العائلة المقدسة الأولى في مصر.</p>
-                  <ul>
-                      <li>
-                          <button class="toggle-details" data-target="activity-site-details" data-i18n="sharqia_activity_site_btn">تفاصيل الزيارة <i class="fas fa-chevron-down"></i></button>
-                          <div class="details" id="activity-site-details" data-i18n="sharqia_activity_site_txt">
-                              استمتع بجولات إرشادية في المواقع التاريخية والدينية، وتعرف على قصص العائلة المقدسة في كل محطة.
-                          </div>
-                      </li>
-                  </ul>
-                </div>
+        <!-- أهم المواقع للزيارة -->
+        <div class="destinations-section">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="religious_visits_destinations_title">أهم المواقع للزيارة الدينية</h3>
+          <div class="destination-card" style="margin-bottom: 2rem;">
+            <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+              <div style="flex: 1 1 300px;">
+                <img src="images/coptic-art/caption.jpg" alt="الكنيسة المعلقة" style="width: 100%; border-radius: 8px;">
               </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="activity-card">
-                <img src="images/sharqia/bf6a1261-0b5d-4e22-984b-9bd525eeb8e8.jpg" alt="التعرف على التراث الفلاحي">
-                <div class="card-content">
-                  <h3 data-i18n="sharqia_activity_heritage_title">التعرف على التراث الفلاحي</h3>
-                  <p data-i18n="sharqia_activity_heritage_desc">استمتع بجمال الحياة الريفية والتعرف على الثقافة الزراعية في الدلتا.</p>
-                  <ul>
-                      <li>
-                          <button class="toggle-details" data-target="activity-heritage-details" data-i18n="sharqia_activity_heritage_btn">تفاصيل التراث <i class="fas fa-chevron-down"></i></button>
-                          <div class="details" id="activity-heritage-details" data-i18n="sharqia_activity_heritage_txt">
-                              شارك في ورش عمل صغيرة لتعلم الحرف اليدوية التقليدية وتجربة الحياة اليومية للفلاحين.
-                          </div>
-                      </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="activity-card">
-                <img src="images/sharqia/722.jpg" alt="جولات في المناطق الخضراء">
-                <div class="card-content">
-                  <h3 data-i18n="sharqia_activity_green_title">جولات في المناطق الخضراء</h3>
-                  <p data-i18n="sharqia_activity_green_desc">استمتع بالمناظر الطبيعية الخضراء لحقول الدلتا والمناطق الريفية.</p>
-                  <ul>
-                      <li>
-                          <button class="toggle-details" data-target="activity-green-details" data-i18n="sharqia_activity_green_btn">تفاصيل الجولات <i class="fas fa-chevron-down"></i></button>
-                          <div class="details" id="activity-green-details" data-i18n="sharqia_activity_green_txt">
-                              استمتع برحلات ركوب الدراجات الهوائية أو المشي في الطبيعة الخلابة على ضفاف النيل.
-                          </div>
-                      </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="activity-card">
-                <img src="images/sharqia/3450716431659998115.jpg" alt="تذوق الأطعمة الفلاحي">
-                <div class="card-content">
-                  <h3 data-i18n="sharqia_activity_food_title">تذوق الأطعمة الفلاحية الأصيلة</h3>
-                  <p data-i18n="sharqia_activity_food_desc">جرب الأطباق الريفية اللذيذة التي تشتهر بها محافظات الدلتا.</p>
-                  <ul>
-                      <li>
-                          <button class="toggle-details" data-target="activity-food-details" data-i18n="sharqia_activity_food_btn">تفاصيل الأطعمة <i class="fas fa-chevron-down"></i></button>
-                          <div class="details" id="activity-food-details" data-i18n="sharqia_activity_food_txt">
-                              استمتع بتذوق المأكولات المحلية الشهية في المطاعم التقليدية أو خلال ضيافة عائلية.
-                          </div>
-                      </li>
-                  </ul>
-                </div>
+              <div style="flex: 2 1 400px;">
+                <h4 data-i18n="religious_visits_hanging_title">الكنيسة المعلقة</h4>
+                <p data-i18n="religious_visits_hanging_desc">تعد الكنيسة المعلقة في القاهرة واحدة من أقدم الكنائس في مصر، حيث يعود تاريخها إلى القرن الثالث الميلادي. تشتهر بهندستها المعمارية الفريدة حيث بنيت فوق بوابة حصن روماني قديم.</p>
+                <p data-i18n="religious_visits_hanging_details">يمكن للزوار المشاركة في القداس الذي يقام يومياً، كما يمكنهم مشاهدة الأيقونات القبطية النادرة والمنحوتات الخشبية التي تعود إلى عصور مختلفة.</p>
+                <a href="cairo.html" class="btn" data-i18n="religious_visits_hanging_btn">اكتشف المزيد عن القاهرة</a>
               </div>
             </div>
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
+          <div class="destination-card" style="margin-bottom: 2rem;">
+            <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+              <div style="flex: 1 1 300px;">
+                <img src="images/heritage/DeirMuharraqChurchHlVirginInside.jpg" alt="دير المحرق" style="width: 100%; border-radius: 8px;">
+              </div>
+              <div style="flex: 2 1 400px;">
+                <h4 data-i18n="religious_visits_muharraq_title">دير السيدة العذراء - المحرق</h4>
+                <p data-i18n="religious_visits_muharraq_desc">يقع دير المحرق في أسيوط وهو من أهم مواقع مسار العائلة المقدسة، حيث يعتقد أن العائلة المقدسة أقامت هنا لأكثر من ستة أشهر. يحتوي الدير على كنيسة أثرية تعود إلى القرن الرابع الميلادي.</p>
+                <p data-i18n="religious_visits_muharraq_details">يعد الدير وجهة للحجاج الذين يأتون للصلاة في الكنيسة القديمة ولمشاهدة الأماكن التي يعتقد أن العائلة المقدسة استخدمتها خلال إقامتها.</p>
+                <a href="asyut.html" class="btn" data-i18n="religious_visits_muharraq_btn">اكتشف المزيد عن أسيوط</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="section gallery-section">
-      <div class="container">
-           <h2 class="section-title fade-in" data-i18n="gallery_title">معرض الصور من الشرقية والدلتا</h2>
-        <div class="swiper gallery-swiper fade-in">  
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <a href="images/sharqia/telbasta.jpg" data-fancybox="gallery" data-caption="بئر تل بسطا">
-                <img src="images/sharqia/telbasta.jpg" alt="بئر تل بسطا ">
-              </a>
+        <!-- جدول مواعيد الصلوات -->
+        <div class="prayer-schedule" style="background-color: var(--background-dark); padding: 2rem; border-radius: 8px; margin-bottom: 3rem;">
+          <h3 style="font-size: 1.5em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;" data-i18n="religious_visits_prayer_schedule_title">مواعيد الصلوات والقداديس</h3>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background-color: var(--primary-color); color: white;">
+                  <th style="padding: 12px; text-align: right;" data-i18n="religious_visits_prayer_schedule_table_header_site">الموقع</th>
+                  <th style="padding: 12px; text-align: right;" data-i18n="religious_visits_prayer_schedule_table_header_morning">القداس الصباحي</th>
+                  <th style="padding: 12px; text-align: right;" data-i18n="religious_visits_prayer_schedule_table_header_evening">القداس المسائي</th>
+                  <th style="padding: 12px; text-align: right;" data-i18n="religious_visits_prayer_schedule_table_header_special">صلوات خاصة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px;" data-i18n="religious_visits_table_hanging_site">الكنيسة المعلقة</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_hanging_morning">6:00 ص - 8:00 ص</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_hanging_evening">5:00 م - 7:00 م</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_hanging_special">صلوات الساعة الثالثة والسادسة والتاسعة</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px;" data-i18n="religious_visits_table_abu_serga_site">كنيسة أبي سرجة</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_abu_serga_morning">6:30 ص - 8:30 ص</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_abu_serga_evening">4:30 م - 6:30 م</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_abu_serga_special">صلوات السواعي يومياً</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 12px;" data-i18n="religious_visits_table_muharraq_site">دير المحرق</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_muharraq_morning">5:00 ص - 7:00 ص</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_muharraq_evening">4:00 م - 6:00 م</td>
+                  <td style="padding: 12px;" data-i18n="religious_visits_prayer_schedule_muharraq_special">قداس الحجاج يوم الخميس</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="text-align: center; margin-top: 1rem; font-size: 0.9em;" data-i18n="religious_visits_prayer_schedule_note">* يرجى التأكد من المواعيد قبل الزيارة حيث قد تتغير في المناسبات الخاصة</p>
+        </div>
+        <!-- نصائح للحجاج -->
+        <div class="tips-section" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="religious_visits_tips_title">نصائح للحجاج والزوار</h3>
+          <div class="grid-row" style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <div class="tip-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-clock" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="religious_visits_tips_time_title">التوقيت المناسب</h4>
+              <p data-i18n="religious_visits_tips_time_desc">يفضل زيارة المواقع الدينية في الصباح الباكر أو أيام الأسبوع لتجنب الازدحام، خاصة في المواسم الدينية.</p>
             </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/أيقونة-العائلة-المقدسة-ببلبيس.jpg" data-fancybox="gallery" data-caption="أيقونة-العائلة-المقدسة-ببلبيس">
-                <img src="images/sharqia/أيقونة-العائلة-المقدسة-ببلبيس.jpg" alt="أيقونة-العائلة-المقدسة-ببلبيس">
-              </a>
+            <div class="tip-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-tshirt" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="religious_visits_tips_clothing_title">الملابس المناسبة</h4>
+              <p data-i18n="religious_visits_tips_clothing_desc">يرجى ارتداء ملابس محتشمة تغطي الكتفين والركبتين عند زيارة الأماكن الدينية احتراماً للتقاليد.</p>
             </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/مسطرد-2.jpg" data-fancybox="gallery" data-caption="كنيسة-مسطرد">
-                <img src="images/sharqia/مسطرد-2.jpg" alt="كنيسة-مسطرد">
-              </a>
+            <div class="tip-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-camera" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="religious_visits_tips_photography_title">التصوير</h4>
+              <p data-i18n="religious_visits_tips_photography_desc">يسمح بالتصوير في معظم الأماكن ولكن يمنع استخدام الفلاش داخل الكنائس القديمة حفاظاً على الألوان.</p>
             </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/كنيسة-السيدة-العذراء-سخا.jpeg" data-fancybox="gallery" data-caption="كنيسة-السيدة-العذراء-سخا">
-                <img src="images/sharqia/كنيسة-السيدة-العذراء-سخا.jpeg" alt="كنيسة-السيدة-العذراء-سخا">
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/ماجور-أثري-من-الجرانيت-عجنت-به-العذراء-مريم.jpg" data-fancybox="gallery" data-caption="ماجور-أثري-من-الجرانيت-عجنت-به-العذراء-مريم">
-                <img src="images/sharqia/ماجور-أثري-من-الجرانيت-عجنت-به-العذراء-مريم.jpg" alt="ماجور-أثري-من-الجرانيت-عجنت-به-العذراء-مريم">
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/كنيسة سمنود.jpg" data-fancybox="gallery" data-caption="كنيسة سمنود">
-                <img src="images/sharqia/كنيسة سمنود.jpg" alt="كنيسة سمنود">
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/من-مقتنيات-الكنيسة-تاج-عمود-من-القرن-السابع.jpg" data-fancybox="gallery" data-caption="من-مقتنيات-الكنيسة-تاج-عمود-من-القرن-السابع">
-                <img src="images/sharqia/من-مقتنيات-الكنيسة-تاج-عمود-من-القرن-السابع.jpg" alt="من-مقتنيات-الكنيسة-تاج-عمود-من-القرن-السابع">
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/كنيسة سمنود 2.png" data-fancybox="gallery" data-caption="كنيسة سمنود">
-                <img src="images/sharqia/كنيسة سمنود 2.png" alt="كنيسة سمنود">
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/صحن-كنيسة-سخا.jpg" data-fancybox="gallery" data-caption="صحن-كنيسة-سخا">
-                <img src="images/sharqia/صحن-كنيسة-سخا.jpg" alt="صحن-كنيسة-سخا">
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="images/sharqia/الحجر-الذي-طبع-عليه-قدم-المسيح.jpg" data-fancybox="gallery" data-caption="تل بسطا">
-                <img src="images/sharqia/الحجر-الذي-طبع-عليه-قدم-المسيح.jpg" alt="تل بسطا">
-              </a>
+            <div class="tip-card" style="flex: 1 1 250px; background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <i class="fas fa-hands-praying" style="color: var(--primary-color); font-size: 1.5em; margin-bottom: 1rem;"></i>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="religious_visits_tips_behavior_title">السلوك</h4>
+              <p data-i18n="religious_visits_tips_behavior_desc">يرجى الحفاظ على الهدوء داخل الكنائس والأديرة، وتجنب الحديث بصوت مرتفع أثناء الصلوات والقداديس.</p>
             </div>
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
+        </div>
+        <!-- معرض الصور -->
+        <div class="gallery-section">
+          <h3 style="font-size: 1.8em; color: var(--primary-color); margin-bottom: 1.5rem; text-align: right;" data-i18n="religious_visits_gallery_title">معرض الصور</h3>
+          <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="images/heritage/Hanging_Church-1.jpeg" data-fancybox="gallery" data-caption="داخل الكنيسة المعلقة">
+                  <img src="images/heritage/Hanging_Church-1.jpeg" alt="داخل الكنيسة المعلقة">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/coptic-art/caption.jpg" data-fancybox="gallery" data-caption="قداس في دير المحرق">
+                  <img src="images/coptic-art/caption.jpg" alt="قداس في دير المحرق">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/cairo/كنيسة ابى سرجة 5.png" data-fancybox="gallery" data-caption="فنون قبطية في كنيسة أبي سرجة">
+                  <img src="images/Cairo/كنيسة ابى سرجة 5.png" alt="فنون قبطية في كنيسة أبي سرجة">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/beheira/album_E49A72C3_FD8B_3B06_41BB_9C746068F626_1.png" data-fancybox="gallery" data-caption="منظر لدير الأنبا بيشوي">
+                  <img src="images/beheira/album_E49A72C3_FD8B_3B06_41BB_9C746068F626_1.png" alt="منظر لدير الأنبا بيشوي">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="images/coptic-art/41968944684_2a34171858_k.jpg" data-fancybox="gallery" data-caption="أيقونة قبطية قديمة">
+                  <img src="images/coptic-art/41968944684_2a34171858_k.jpg" alt="أيقونة قبطية قديمة">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
         </div>
       </div>
     </section>
 <section class="cta-section" style="background:#c0392b; color:#fff; padding:3rem 0; text-align:center;">
     <div class="container">
-      <h2 data-i18n="sharqia_cta_title">هل أنت مستعد لاستكشاف الشرقية والدلتا؟</h2>
-      <p data-i18n="sharqia_cta_subtitle">خطط لرحلتك لاكتشاف هذه المحطات المباركة.</p>
-      <a href="plan_trip.html" class="btn" style="background:#fff; color:#c0392b; padding:.75rem 1.5rem; border-radius:4px; font-weight:600; display:inline-block; margin-top:1rem;" data-i18n="sharqia_cta_btn">خطّط رحلتك</a>
+      <h2 data-i18n="religious_visits_cta_title">هل ترغب في تنظيم رحلة حج إلى مسار العائلة المقدسة؟</h2>
+      <p data-i18n="religious_visits_cta_subtitle">خطط لرحلتك لاكتشاف رحلتك الروحية وتوفير كل ما تحتاجه من معلومات وإرشادات</p>
+      <a href="plan_trip.html" class="btn" style="background:#fff; color:#c0392b; padding:.75rem 1.5rem; border-radius:4px; font-weight:600; display:inline-block; margin-top:1rem;" data-i18n="religious_visits_cta_btn">خطّط رحلتك</a>
     </div>
   </section>
-      </main>
-
+     </main>
+  <!-- نفس الفوتر الموجود في الصفحة الرئيسية -->
 <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -380,15 +245,28 @@
             <li><a href="faq.html" data-i18n="index_footer_faq">الأسئلة الشائعة</a></li>
             <li><a href="contact_us.html" data-i18n="index_footer_contact">اتصل بنا</a></li>
           </ul>
-        </div><div class="footer-column">
+        </div>
+        <div class="footer-column">
           <h3 data-i18n="index_footer_destinations">الوجهات</h3>
           <ul class="footer-links">
            <li><a href="sharqia.html" data-i18n="index_footer_sharqia">  الشرقية والدلتا</a></li>
             <li><a href="cairo.html" data-i18n="index_footer_cairo">القاهرة</a></li>
             <li><a href="beheira.html" data-i18n="index_footer_beheira">وادى النطرون</a></li>
-            <li><a href="asyut.html" data-i18n="index_footer_asyut">المنيا وأسيوط</a></li>
+            <li><a href="minya.html" data-i18n="index_nav_minya">المنيا</a></li>
+            <li><a href="asyut.html" data-i18n="index_nav_asyut">أسيوط</a></li>
           </ul>
-        </div>        
+        </div>   
+        <div class="footer-column">
+          <h3 data-i18n="index_footer_activities">الأنشطة</h3>
+          <ul class="footer-links">
+            <li><a href="religious_visits.html" data-i18n="index_footer_religious_visits">الحج الروحي</a></li>
+            <li><a href="heritage.html" class="dropdown-item" data-i18n="index_footer_heritage">استكشاف التراث</a></li>
+            <li><a href="nature.html" class="dropdown-item" data-i18n="index_footer_nature">الطبيعة والهدوء</a></li>
+            <li><a href="coptic_culture.html" class="dropdown-item" data-i18n="index_footer_coptic_culture">الثقافة والتقاليد</a></li>
+            <li><a href="local_cuisine.html" class="dropdown-item" data-i18n="index_footer_local_cuisine">المأكولات المحلية</a></li>
+          </ul>
+        </li>
+        </div>             
         <div class="footer-column">
           <h3 data-i18n="index_footer_contact_title">تواصل معنا</h3>
           <p data-i18n="index_footer_email">البريد الإلكتروني: omerfares@gmail.com</p>
@@ -400,23 +278,13 @@
             <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
-        <div class="footer-column">
-          <h3 data-i18n="index_footer_desc_title">عن مسار العائلة المقدسة</h3>
-          <p data-i18n="index_footer_desc">مشروع قومي لتطوير مسار رحلة العائلة المقدسة في مصر، يهدف إلى إحياء هذا التراث الديني والتاريخي العظيم وتعزيز السياحة الروحية.</p>
-        </div>
       </div>
       <div class="copyright">
         <p data-i18n="index_footer_copyright">© 2025 مسار العائلة المقدسة. جميع الحقوق محفوظة.</p>
       </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<script src="i18n.js"></script>
-  <script src="scripts.js"></script>
-
+   <script src="i18n.js"></script>
 </body>
 
 </html>
-
