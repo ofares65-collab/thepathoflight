@@ -5,18 +5,33 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ================= 1. القائمة للموبايل =================
-  const mobileToggle = document.getElementById('mobileToggle');
-  const navMenu       = document.getElementById('navMenu');
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      const isExpanded = navMenu.classList.contains('active');
-      navMenu.classList.toggle('active');
-      mobileToggle.setAttribute('aria-expanded', !isExpanded);
-      const icon = mobileToggle.querySelector('i');
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
-    });
-  }
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    if (window.innerWidth <= 992) {
+      e.preventDefault();
+      const parent = toggle.parentElement;
+      const menu = parent.querySelector('.dropdown-menu');
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+      // إغلاق أي قائمة أخرى
+      document.querySelectorAll('.dropdown-menu').forEach(m => {
+        if (m !== menu) m.style.maxHeight = null;
+      });
+      document.querySelectorAll('.dropdown-toggle').forEach(t => {
+        if (t !== toggle) t.setAttribute('aria-expanded', 'false');
+      });
+
+      // تبديل الحالية
+      if (!isOpen) {
+        menu.style.maxHeight = menu.scrollHeight + 'px';
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        menu.style.maxHeight = null;
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+});
 
   // ================= 2. تأثير الظهور عند التمرير =================
   const fadeElements = document.querySelectorAll('.fade-in');
