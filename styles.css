@@ -697,72 +697,36 @@ img {
   .mobile-toggle {
     display: block;
   }
+
+  /* تحسين القوائم المنسدلة في الموبايل */
   .dropdown-menu {
     position: static;
     box-shadow: none;
-    background: transparent;
-    padding: 0;
+    background: var(--background-light);
+    padding-left: 15px;
     max-height: 0;
     overflow: hidden;
     opacity: 1;
     visibility: visible;
     transition: max-height 0.3s ease-out;
   }
+  .dropdown-menu li a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
   .dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
     max-height: 300px;
   }
-  .dropdown-menu li a {
-    padding: 10px 0;
-  }
-  .hero-content h1 {
-    font-size: 2.5em;
-  }
-  .hero-content p {
-    font-size: 1.1em;
-  }
-  .section {
-    padding: 50px 0;
-  }
-  .section-title {
-    font-size: 2em;
-    margin-bottom: 30px;
-  }
-  .destination-card,
-  .activity-card {
-    margin: 0 auto;
-    max-width: 400px;
-  }
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .footer-column {
-    min-width: 100%;
-  }
-  .social-links {
-    justify-content: center;
-  }
-}
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2em;
-  }
-  .hero-content p {
-    font-size: 1em;
-  }
-  .btn {
-    padding: 10px 20px;
-    font-size: 0.9em;
-  }
-  .section-title {
-    font-size: 1.8em;
-  }
-  .cta-content h2 {
-    font-size: 2em;
-  }
-  .cta-content p {
-    font-size: 1em;
-  }
+
+  .hero-content h1 { font-size: 2.5em; }
+  .hero-content p { font-size: 1.1em; }
+  .section { padding: 50px 0; }
+  .section-title { font-size: 2em; margin-bottom: 30px; }
+  .destination-card, .activity-card { margin: 0 auto; max-width: 400px; }
+  .footer-content { flex-direction: column; text-align: center; }
+  .footer-column { min-width: 100%; }
+  .social-links { justify-content: center; }
 }
 /* ============================================
    نهاية الملف
